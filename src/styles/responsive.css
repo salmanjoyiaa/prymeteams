@@ -1,0 +1,303 @@
+/* IMPLEMENTATION DECISION: mobile/tablet extensions beyond handoff desktop */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+#top,
+#human,
+#how,
+#live,
+#anyone,
+#included,
+#pricing,
+#faq,
+#contact {
+  scroll-margin-top: 88px;
+}
+
+.pt-mobile-nav {
+  display: none;
+}
+
+.pt-btn:focus-visible,
+.pt-nav:focus-visible,
+.pt-faq summary:focus-visible,
+.pt-mobile-toggle:focus-visible {
+  outline: none;
+  box-shadow: var(--pt-focus-ring);
+}
+
+@media (max-width: 1024px) {
+  #top h1 {
+    font-size: clamp(48px, 8vw, 80px) !important;
+    letter-spacing: -2px !important;
+  }
+  #human h2,
+  #how h2,
+  #live h2,
+  #anyone h2,
+  #pricing h2,
+  #contact h2 {
+    font-size: clamp(40px, 6vw, 64px) !important;
+    letter-spacing: -1.5px !important;
+  }
+  #included h2,
+  #faq h2 {
+    font-size: clamp(36px, 5.5vw, 56px) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  header nav {
+    gap: 12px !important;
+    padding: 12px 16px !important;
+  }
+
+  header nav > a span span:first-child {
+    font-size: 16px !important;
+  }
+
+  header nav > a span span:last-child {
+    font-size: 8px !important;
+    letter-spacing: 1.6px !important;
+  }
+
+  .pt-desktop-nav,
+  .pt-desktop-cta {
+    display: none !important;
+  }
+
+  .pt-mobile-nav {
+    display: block;
+    position: relative;
+    margin-left: auto;
+  }
+
+  .pt-mobile-toggle {
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 12px;
+    border: 1px solid #2a3248;
+    background: #0f1320;
+    color: #eef1f7;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .pt-mobile-panel {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 10px);
+    width: min(280px, 80vw);
+    background: #0b0e18;
+    border: 1px solid #1e2436;
+    border-radius: 16px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 40;
+    box-shadow: 0 24px 60px -20px #000000aa;
+  }
+
+  .pt-mobile-panel a {
+    color: #c3cada;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 12px 14px;
+    border-radius: 10px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .pt-mobile-panel a:hover {
+    background: #0f1320;
+    color: #fff;
+  }
+
+  .pt-mobile-cta {
+    background: #2ee6a0 !important;
+    color: #07090f !important;
+    font-family: var(--head);
+    font-weight: 800 !important;
+    text-align: center;
+    margin-top: 6px;
+    justify-content: center;
+  }
+
+  /* Section vertical rhythm */
+  #human,
+  #live,
+  #anyone,
+  #included,
+  #contact {
+    padding: 64px 20px !important;
+  }
+
+  #how > div,
+  #pricing > div,
+  #faq > div {
+    padding: 64px 20px !important;
+  }
+
+  section[aria-label="Our commitments"] {
+    padding: 0 20px 64px !important;
+  }
+
+  #top > div[style*="position: relative"] {
+    padding: 56px 20px 48px !important;
+  }
+
+  #top > div:last-child,
+  section > div {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Hero */
+  #top h1 {
+    font-size: clamp(36px, 11vw, 56px) !important;
+    letter-spacing: -1.5px !important;
+  }
+
+  #top .pt-rise.pt-d1 {
+    margin-bottom: 20px !important;
+    font-size: 13px !important;
+  }
+
+  #top .pt-rise.pt-d4 {
+    margin-top: 24px !important;
+    font-size: 16px !important;
+  }
+
+  #top .pt-rise.pt-d4[style*="flex"] {
+    margin-top: 28px !important;
+    gap: 10px !important;
+  }
+
+  #top .pt-rise.pt-d5 {
+    margin-top: 40px !important;
+  }
+
+  #top .pt-float > div[style*="flex-wrap"] {
+    gap: 10px !important;
+  }
+
+  /* Card / grid gaps */
+  #human > div[style*="flex-wrap"],
+  #anyone > div[style*="flex-wrap"],
+  #included > div[style*="flex-wrap"],
+  #pricing > div > div[style*="flex-wrap"],
+  section[aria-label="Our commitments"] > div {
+    gap: 12px !important;
+  }
+
+  #human .pt-reveal[style*="padding: 40px"],
+  #anyone .pt-card,
+  #included .pt-card,
+  #pricing .pt-card {
+    padding: 24px !important;
+  }
+
+  #how .pt-card {
+    padding: 22px !important;
+    gap: 16px !important;
+  }
+
+  #human h2,
+  #how h2,
+  #live h2,
+  #anyone h2 {
+    font-size: clamp(32px, 9vw, 44px) !important;
+    letter-spacing: -1.2px !important;
+  }
+
+  #included h2,
+  #faq h2 {
+    font-size: clamp(30px, 8vw, 40px) !important;
+  }
+
+  section[aria-label="Our commitments"] h3 {
+    font-size: clamp(28px, 8vw, 36px) !important;
+  }
+
+  /* FAQ */
+  #faq .pt-faq {
+    padding: 0 18px !important;
+  }
+
+  #faq .pt-faq summary {
+    font-size: 17px !important;
+    padding: 18px 0 !important;
+    min-height: 44px;
+    gap: 12px !important;
+  }
+
+  /* Contact */
+  #contact .pt-reveal {
+    padding: 40px 20px !important;
+    gap: 24px !important;
+  }
+
+  #contact h2 {
+    font-size: clamp(32px, 9vw, 48px) !important;
+    letter-spacing: -1.5px !important;
+  }
+
+  #contact .pt-btn {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  /* Footer */
+  footer > div:first-child {
+    padding: 40px 20px 32px !important;
+    gap: 28px !important;
+  }
+
+  footer > div:last-child {
+    padding: 0 20px 32px !important;
+  }
+
+  footer a {
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Ticker */
+  section[aria-label="What we cover"] {
+    padding: 18px 0 !important;
+  }
+
+  section[aria-label="What we cover"] .pt-marquee {
+    font-size: 18px !important;
+    gap: 28px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  body {
+    overflow-x: clip;
+  }
+
+  #top h1 {
+    font-size: clamp(32px, 10vw, 42px) !important;
+  }
+
+  header nav {
+    padding: 10px 14px !important;
+  }
+}
