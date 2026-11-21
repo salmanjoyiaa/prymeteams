@@ -40,7 +40,10 @@ const tokens = `
 `;
 const cssBody = styleMatch[1]
   .replace(/pt-if\{display:contents\}/g, "[data-pt-if]{display:contents}")
-  .replace(/pt-if\[hidden\]\{display:none\}/g, "[data-pt-if][hidden]{display:none}");
+  .replace(
+    /pt-if\[hidden\]\{display:none\}/g,
+    "[data-pt-if][hidden],[data-pt-if].pt-if-hide{display:none !important}",
+  );
 fs.writeFileSync(cssOut, tokens + cssBody + "\n");
 
 let body = html
@@ -105,10 +108,34 @@ body = body.replace(
   "<LiveClock />",
 );
 
-// Inject MobileNav after desktop CTA cluster (before </nav>)
+// Tag desktop nav + CTA so mobile CSS can hide them; inject MobileNav
+body = body.replace(
+  /(<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 30px">)(<a href="#how")/,
+  '<div class="pt-desktop-nav" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 30px">$2',
+);
+body = body.replace(
+  /(<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">\s*<a href="#live" class="pt-btn")/,
+  '<div class="pt-desktop-cta" style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px"><a href="#live" class="pt-btn"',
+);
 body = body.replace(
   /(<\/div>\s*)(<\/nav>)/,
   `$1<MobileNav />\n$2`,
+);
+body = body.replace(
+  /href="#top"/,
+  'href="/#top"',
+);
+body = body.replace(
+  /<span style="display: flex; flex-direction: column; gap: 3px">/,
+  '<span class="pt-logo-text" style="display: flex; flex-direction: column; gap: 3px; justify-content: center">',
+);
+body = body.replace(
+  /<span style="font-size: 10px; letter-spacing: 2\.6px; color: #8A93A6; line-height: 1">CUSTOMER SUCCESS EXPERTS<\/span>/,
+  '<span class="pt-logo-tagline" style="font-size: 10px; letter-spacing: 2.6px; color: #8A93A6; line-height: 1">CUSTOMER SUCCESS EXPERTS</span>',
+);
+body = body.replace(
+  /<div style="position: fixed; right: 24px; bottom: 24px/,
+  '<div class="pt-call-fab" style="position: fixed; right: 24px; bottom: 24px',
 );
 
 // Convert HTML attributes to JSX

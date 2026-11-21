@@ -1,7 +1,8 @@
 import {
   DbError,
   EmptyState,
-  PageTitle,
+  PageHeader,
+  SectionHeader,
   btnPrimary,
   cardClass,
   inputClass,
@@ -9,6 +10,7 @@ import {
   tableWrap,
   tdClass,
   thClass,
+  trClass,
 } from "@/components/admin/AdminChrome";
 import { requireAdmin } from "@/lib/auth/require-admin";
 import { createCompany } from "./actions";
@@ -22,12 +24,12 @@ export default async function AdminCompaniesPage() {
 
   return (
     <div>
-      <PageTitle title="Companies" subtitle="Client organizations." />
+      <PageHeader title="Companies" subtitle="Client organizations." />
 
       {error ? <DbError message={`Could not load companies: ${error.message}`} /> : null}
 
       <form action={createCompany} className={`${cardClass()} mb-8 max-w-xl space-y-4`}>
-        <h2 className="text-lg font-semibold text-[#EEF1F7]">Add company</h2>
+        <SectionHeader title="Add company" subtitle="Create a client record" />
         <div>
           <label htmlFor="name" className={labelClass()}>
             Name *
@@ -58,13 +60,16 @@ export default async function AdminCompaniesPage() {
       </form>
 
       {!error && (!companies || companies.length === 0) ? (
-        <EmptyState label="companies" />
+        <EmptyState
+          title="No companies yet"
+          description="Add your first client organization with the form above."
+        />
       ) : null}
 
       {companies && companies.length > 0 ? (
         <div className={tableWrap()}>
           <table className="w-full min-w-[560px] border-collapse">
-            <thead className="bg-[#0B0E18]">
+            <thead>
               <tr>
                 <th className={thClass()}>Name</th>
                 <th className={thClass()}>Website</th>
@@ -74,7 +79,7 @@ export default async function AdminCompaniesPage() {
             </thead>
             <tbody>
               {companies.map((c) => (
-                <tr key={c.id}>
+                <tr key={c.id} className={trClass()}>
                   <td className={tdClass()}>{c.name}</td>
                   <td className={tdClass()}>{c.website ?? "—"}</td>
                   <td className={tdClass()}>{c.industry ?? "—"}</td>

@@ -20,7 +20,8 @@
 
 html{scroll-behavior:smooth}
 [data-pt-if]{display:contents}
-[data-pt-if][hidden]{display:none}
+[data-pt-if][hidden],
+[data-pt-if].pt-if-hide{display:none !important}
 body{margin:0;background:#07090F}
 a{color:#2EE6A0}a:hover{color:#7AF2C4}
 @keyframes ptRise{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:none}}

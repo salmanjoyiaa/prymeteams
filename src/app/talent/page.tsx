@@ -27,25 +27,25 @@ export default async function TalentPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#07090F] px-4 py-10 text-[#EEF1F7] sm:px-8 sm:py-16">
+    <main className="min-h-screen bg-pt-bg px-4 py-8 text-pt-text sm:px-8 sm:py-16">
       <div className="mx-auto max-w-[1240px]">
         <Link
           href="/"
-          className="inline-flex min-h-11 items-center text-sm font-medium text-[#9AA3B5] no-underline hover:text-[#2EE6A0]"
+          className="inline-flex min-h-11 items-center text-sm font-medium text-pt-muted no-underline hover:text-pt-accent"
         >
           ← Home
         </Link>
-        <h1 className="mt-4 font-[family-name:var(--font-archivo)] text-3xl font-black tracking-tight sm:mt-6 sm:text-6xl">
+        <h1 className="mt-4 font-[family-name:var(--font-archivo)] text-[1.75rem] leading-tight font-black tracking-tight sm:mt-6 sm:text-6xl">
           Our experts
         </h1>
-        <p className="mt-4 max-w-2xl text-lg text-[#9AA3B5]">
+        <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-pt-muted sm:mt-4 sm:text-lg">
           Only approved profiles are listed here. Pryme Teams is a managed
           service — not a self-serve freelancer marketplace.
         </p>
         {talent.length === 0 ? (
-          <div className="mt-12 rounded-3xl border border-[#1E2436] bg-[#0F1320] p-10 text-[#9AA3B5]">
+          <div className="mt-8 rounded-2xl border border-pt-border bg-pt-surface p-6 text-pt-muted sm:mt-12 sm:rounded-3xl sm:p-10">
             No public talent profiles yet. Check back soon, or{" "}
-            <Link href="/request" className="text-[#2EE6A0]">
+            <Link href="/request" className="text-pt-accent">
               request a team
             </Link>
             .

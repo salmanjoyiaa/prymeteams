@@ -1,6 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 import { requireAdmin } from "@/lib/auth/require-admin";
 import {
   formDataToObject,
@@ -17,9 +18,11 @@ export async function updateSiteSettings(formData: FormData): Promise<void> {
     buyOutTerms: raw.buyOutTerms,
     discoveryUrl: raw.discoveryUrl,
   });
-  if (!parsed.success) return;
+  if (!parsed.success) {
+    redirect("/admin/settings?error=1");
+  }
 
-  await supabase
+  const { error } = await supabase
     .from("site_settings")
     .update({
       contact_email: parsed.data.contactEmail,
@@ -30,6 +33,11 @@ export async function updateSiteSettings(formData: FormData): Promise<void> {
     })
     .eq("id", 1);
 
+  if (error) {
+    redirect("/admin/settings?error=1");
+  }
+
   revalidatePath("/");
   revalidatePath("/admin/settings");
+  redirect("/admin/settings?saved=1");
 }

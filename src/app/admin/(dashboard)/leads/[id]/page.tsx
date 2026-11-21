@@ -3,8 +3,9 @@ import {
   BackLink,
   DbError,
   Flash,
-  PageTitle,
-  StagePill,
+  PageHeader,
+  SectionHeader,
+  StatusPill,
   btnGhost,
   btnPrimary,
   cardClass,
@@ -58,9 +59,10 @@ export default async function AdminLeadDetailPage({ params, searchParams }: Prop
   return (
     <div>
       <BackLink href="/admin/leads" label="All leads" />
-      <PageTitle
+      <PageHeader
         title={lead?.full_name ?? "Lead"}
         subtitle={lead?.email}
+        actions={lead ? <StatusPill value={lead.stage} /> : null}
       />
 
       {loadError ? <DbError message={loadError.message} /> : null}
@@ -78,47 +80,48 @@ export default async function AdminLeadDetailPage({ params, searchParams }: Prop
       {lead ? (
         <div className="grid gap-6 lg:grid-cols-2">
           <section className={cardClass()}>
-            <h2 className="text-lg font-semibold text-[#EEF1F7]">Summary</h2>
-            <dl className="mt-4 space-y-2 text-sm">
-              <div className="flex justify-between gap-4">
-                <dt className="text-[#9AA3B5]">Stage</dt>
+            <SectionHeader title="Summary" subtitle="Contact and pipeline" />
+            <dl className="space-y-3 text-sm">
+              <div className="flex justify-between gap-4 border-b border-[#1A2030] pb-3">
+                <dt className="text-pt-muted">Stage</dt>
                 <dd>
-                  <StagePill stage={lead.stage} />
+                  <StatusPill value={lead.stage} />
                 </dd>
               </div>
               <div className="flex justify-between gap-4">
-                <dt className="text-[#9AA3B5]">Company</dt>
-                <dd>{lead.company_name ?? "—"}</dd>
+                <dt className="text-pt-muted">Company</dt>
+                <dd className="text-[#C3CADA]">{lead.company_name ?? "—"}</dd>
               </div>
               <div className="flex justify-between gap-4">
-                <dt className="text-[#9AA3B5]">Phone</dt>
-                <dd>{lead.phone ?? "—"}</dd>
+                <dt className="text-pt-muted">Phone</dt>
+                <dd className="text-[#C3CADA]">{lead.phone ?? "—"}</dd>
               </div>
               <div className="flex justify-between gap-4">
-                <dt className="text-[#9AA3B5]">Plan</dt>
-                <dd>{lead.plan_type}</dd>
+                <dt className="text-pt-muted">Plan</dt>
+                <dd className="capitalize text-[#C3CADA]">
+                  {String(lead.plan_type).replace(/_/g, " ")}
+                </dd>
               </div>
               <div className="flex justify-between gap-4">
-                <dt className="text-[#9AA3B5]">Intent</dt>
-                <dd>{lead.intent}</dd>
+                <dt className="text-pt-muted">Intent</dt>
+                <dd className="capitalize text-[#C3CADA]">{lead.intent}</dd>
               </div>
               {lead.company_id ? (
                 <div className="flex justify-between gap-4">
-                  <dt className="text-[#9AA3B5]">Linked company</dt>
+                  <dt className="text-pt-muted">Linked company</dt>
                   <dd>
-                    <Link
-                      href="/admin/companies"
-                      className={linkClass()}
-                    >
+                    <Link href="/admin/companies" className={linkClass()}>
                       View companies
                     </Link>
                   </dd>
                 </div>
               ) : null}
             </dl>
-            <p className="mt-4 text-sm leading-relaxed text-[#C3CADA] whitespace-pre-wrap">
-              {lead.message}
-            </p>
+            {lead.message ? (
+              <p className="mt-5 rounded-xl border border-[#1A2030] bg-pt-bg p-4 text-sm leading-relaxed text-[#C3CADA] whitespace-pre-wrap">
+                {lead.message}
+              </p>
+            ) : null}
 
             <form action={updateStage} className="mt-6 flex flex-wrap items-end gap-3">
               <input type="hidden" name="leadId" value={lead.id} />
@@ -139,7 +142,7 @@ export default async function AdminLeadDetailPage({ params, searchParams }: Prop
                   ))}
                 </select>
               </div>
-              <button type="submit" className={btnPrimary()}>
+              <button type="submit" className={btnGhost()}>
                 Save stage
               </button>
             </form>
@@ -147,7 +150,7 @@ export default async function AdminLeadDetailPage({ params, searchParams }: Prop
             {!lead.company_id ? (
               <form action={convertLead} className="mt-4">
                 <input type="hidden" name="leadId" value={lead.id} />
-                <button type="submit" className={btnGhost()}>
+                <button type="submit" className={btnPrimary()}>
                   Convert to company + contact
                 </button>
               </form>
@@ -156,13 +159,13 @@ export default async function AdminLeadDetailPage({ params, searchParams }: Prop
 
           <div className="space-y-6">
             <section className={cardClass()}>
-              <h2 className="text-lg font-semibold">Notes</h2>
-              <ul className="mt-4 space-y-3">
+              <SectionHeader title="Notes" />
+              <ul className="space-y-3">
                 {notes?.length ? (
                   notes.map((n) => (
                     <li
                       key={n.id}
-                      className="rounded-lg border border-[#1A2030] bg-[#07090F] p-3 text-sm"
+                      className="rounded-xl border border-[#1A2030] bg-pt-bg p-3 text-sm"
                     >
                       <p className="text-[#C3CADA] whitespace-pre-wrap">{n.body}</p>
                       <p className="mt-2 text-xs text-[#6B7289]">
@@ -193,18 +196,24 @@ export default async function AdminLeadDetailPage({ params, searchParams }: Prop
             </section>
 
             <section className={cardClass()}>
-              <h2 className="text-lg font-semibold">Follow-ups</h2>
-              <ul className="mt-4 space-y-3">
+              <SectionHeader title="Follow-ups" />
+              <ul className="space-y-3">
                 {followUps?.length ? (
                   followUps.map((f) => (
                     <li
                       key={f.id}
-                      className="rounded-lg border border-[#1A2030] bg-[#07090F] p-3 text-sm"
+                      className="rounded-xl border border-[#1A2030] bg-pt-bg p-3 text-sm"
                     >
-                      <p className="font-medium text-[#E8C45A]">
-                        Due {new Date(f.due_at).toLocaleString()}
-                        {f.completed ? " (done)" : ""}
-                      </p>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <p className="font-medium text-pt-gold">
+                          Due {new Date(f.due_at).toLocaleString()}
+                        </p>
+                        {f.completed ? (
+                          <StatusPill value="done" />
+                        ) : (
+                          <StatusPill value="pending" />
+                        )}
+                      </div>
                       {f.note ? (
                         <p className="mt-1 text-[#C3CADA]">{f.note}</p>
                       ) : null}

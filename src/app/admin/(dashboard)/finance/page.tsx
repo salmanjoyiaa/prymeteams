@@ -1,13 +1,17 @@
 import {
   DbError,
-  PageTitle,
+  EmptyState,
+  PageHeader,
+  SectionHeader,
+  StatusPill,
+  btnGhost,
   btnPrimary,
   cardClass,
   inputClass,
-  labelClass,
   tableWrap,
   tdClass,
   thClass,
+  trClass,
 } from "@/components/admin/AdminChrome";
 import { requireAdmin } from "@/lib/auth/require-admin";
 import { INVOICE_STATUSES, PAYMENT_STATUSES } from "@/lib/validation/admin";
@@ -47,7 +51,7 @@ export default async function FinancePage() {
 
   return (
     <div>
-      <PageTitle
+      <PageHeader
         title="Finance"
         subtitle="Contracts, invoices, and payment status."
       />
@@ -55,7 +59,7 @@ export default async function FinancePage() {
 
       <div className="mb-8 grid gap-6 lg:grid-cols-3">
         <form action={createContract} className={`${cardClass()} space-y-3`}>
-          <h2 className="font-semibold">New contract</h2>
+          <SectionHeader title="New contract" />
           <select name="companyId" required className={inputClass()} defaultValue="">
             <option value="" disabled>
               Company
@@ -73,7 +77,7 @@ export default async function FinancePage() {
         </form>
 
         <form action={createInvoice} className={`${cardClass()} space-y-3`}>
-          <h2 className="font-semibold">New invoice</h2>
+          <SectionHeader title="New invoice" />
           <select name="companyId" required className={inputClass()} defaultValue="">
             <option value="" disabled>
               Company
@@ -99,7 +103,7 @@ export default async function FinancePage() {
         </form>
 
         <form action={createPayment} className={`${cardClass()} space-y-3`}>
-          <h2 className="font-semibold">Record payment</h2>
+          <SectionHeader title="Record payment" />
           <select name="invoiceId" required className={inputClass()} defaultValue="">
             <option value="" disabled>
               Invoice
@@ -125,117 +129,148 @@ export default async function FinancePage() {
         </form>
       </div>
 
-      <h2 className="mb-3 text-lg font-semibold">Contracts</h2>
-      <div className={`${tableWrap()} mb-8`}>
-        <table className="w-full border-collapse">
-          <thead className="bg-[#0B0E18]">
-            <tr>
-              <th className={thClass()}>Title</th>
-              <th className={thClass()}>Company</th>
-              <th className={thClass()}>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {(contracts ?? []).map((c) => (
-              <tr key={c.id}>
-                <td className={tdClass()}>{c.title}</td>
-                <td className={tdClass()}>
-                  {c.company_id ? companyMap.get(c.company_id) : "—"}
-                </td>
-                <td className={tdClass()}>{c.status}</td>
+      <SectionHeader title="Contracts" />
+      {!contracts?.length ? (
+        <div className="mb-8">
+          <EmptyState
+            title="No contracts yet"
+            description="Create a contract from the form above."
+          />
+        </div>
+      ) : (
+        <div className={`${tableWrap()} mb-8`}>
+          <table className="w-full border-collapse">
+            <thead>
+              <tr>
+                <th className={thClass()}>Title</th>
+                <th className={thClass()}>Company</th>
+                <th className={thClass()}>Status</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody>
+              {contracts.map((c) => (
+                <tr key={c.id} className={trClass()}>
+                  <td className={tdClass()}>{c.title}</td>
+                  <td className={tdClass()}>
+                    {c.company_id ? companyMap.get(c.company_id) : "—"}
+                  </td>
+                  <td className={tdClass()}>
+                    <StatusPill value={c.status} />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
 
-      <h2 className="mb-3 text-lg font-semibold">Invoices</h2>
-      <div className={`${tableWrap()} mb-8`}>
-        <table className="w-full border-collapse">
-          <thead className="bg-[#0B0E18]">
-            <tr>
-              <th className={thClass()}>Amount</th>
-              <th className={thClass()}>Company</th>
-              <th className={thClass()}>Status</th>
-              <th className={thClass()}>Update</th>
-            </tr>
-          </thead>
-          <tbody>
-            {(invoices ?? []).map((inv) => (
-              <tr key={inv.id}>
-                <td className={tdClass()}>
-                  {inv.currency} {(inv.amount_cents / 100).toFixed(2)}
-                </td>
-                <td className={tdClass()}>
-                  {inv.company_id ? companyMap.get(inv.company_id) : "—"}
-                </td>
-                <td className={tdClass()}>{inv.status}</td>
-                <td className={tdClass()}>
-                  <form action={updateInvoiceStatus} className="flex gap-2">
-                    <input type="hidden" name="invoiceId" value={inv.id} />
-                    <select
-                      name="status"
-                      defaultValue={inv.status}
-                      className={inputClass()}
-                    >
-                      {INVOICE_STATUSES.map((s) => (
-                        <option key={s} value={s}>
-                          {s}
-                        </option>
-                      ))}
-                    </select>
-                    <button type="submit" className={btnPrimary()}>
-                      Save
-                    </button>
-                  </form>
-                </td>
+      <SectionHeader title="Invoices" />
+      {!invoices?.length ? (
+        <div className="mb-8">
+          <EmptyState
+            title="No invoices yet"
+            description="Create an invoice from the form above."
+          />
+        </div>
+      ) : (
+        <div className={`${tableWrap()} mb-8`}>
+          <table className="w-full border-collapse">
+            <thead>
+              <tr>
+                <th className={thClass()}>Amount</th>
+                <th className={thClass()}>Company</th>
+                <th className={thClass()}>Status</th>
+                <th className={thClass()}>Update</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody>
+              {invoices.map((inv) => (
+                <tr key={inv.id} className={trClass()}>
+                  <td className={tdClass()}>
+                    {inv.currency} {(inv.amount_cents / 100).toFixed(2)}
+                  </td>
+                  <td className={tdClass()}>
+                    {inv.company_id ? companyMap.get(inv.company_id) : "—"}
+                  </td>
+                  <td className={tdClass()}>
+                    <StatusPill value={inv.status} />
+                  </td>
+                  <td className={tdClass()}>
+                    <form action={updateInvoiceStatus} className="flex flex-wrap gap-2">
+                      <input type="hidden" name="invoiceId" value={inv.id} />
+                      <select
+                        name="status"
+                        defaultValue={inv.status}
+                        className={inputClass()}
+                      >
+                        {INVOICE_STATUSES.map((s) => (
+                          <option key={s} value={s}>
+                            {s}
+                          </option>
+                        ))}
+                      </select>
+                      <button type="submit" className={btnGhost()}>
+                        Save
+                      </button>
+                    </form>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
 
-      <h2 className="mb-3 text-lg font-semibold">Payments</h2>
-      <div className={tableWrap()}>
-        <table className="w-full border-collapse">
-          <thead className="bg-[#0B0E18]">
-            <tr>
-              <th className={thClass()}>Amount</th>
-              <th className={thClass()}>Status</th>
-              <th className={thClass()}>Update</th>
-            </tr>
-          </thead>
-          <tbody>
-            {(payments ?? []).map((p) => (
-              <tr key={p.id}>
-                <td className={tdClass()}>
-                  {(p.amount_cents / 100).toFixed(2)}
-                </td>
-                <td className={tdClass()}>{p.status}</td>
-                <td className={tdClass()}>
-                  <form action={updatePaymentStatus} className="flex gap-2">
-                    <input type="hidden" name="paymentId" value={p.id} />
-                    <select
-                      name="status"
-                      defaultValue={p.status}
-                      className={inputClass()}
-                    >
-                      {PAYMENT_STATUSES.map((s) => (
-                        <option key={s} value={s}>
-                          {s}
-                        </option>
-                      ))}
-                    </select>
-                    <button type="submit" className={btnPrimary()}>
-                      Save
-                    </button>
-                  </form>
-                </td>
+      <SectionHeader title="Payments" />
+      {!payments?.length ? (
+        <EmptyState
+          title="No payments yet"
+          description="Record a payment against an invoice when funds clear."
+        />
+      ) : (
+        <div className={tableWrap()}>
+          <table className="w-full border-collapse">
+            <thead>
+              <tr>
+                <th className={thClass()}>Amount</th>
+                <th className={thClass()}>Status</th>
+                <th className={thClass()}>Update</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody>
+              {payments.map((p) => (
+                <tr key={p.id} className={trClass()}>
+                  <td className={tdClass()}>
+                    {(p.amount_cents / 100).toFixed(2)}
+                  </td>
+                  <td className={tdClass()}>
+                    <StatusPill value={p.status} />
+                  </td>
+                  <td className={tdClass()}>
+                    <form action={updatePaymentStatus} className="flex flex-wrap gap-2">
+                      <input type="hidden" name="paymentId" value={p.id} />
+                      <select
+                        name="status"
+                        defaultValue={p.status}
+                        className={inputClass()}
+                      >
+                        {PAYMENT_STATUSES.map((s) => (
+                          <option key={s} value={s}>
+                            {s}
+                          </option>
+                        ))}
+                      </select>
+                      <button type="submit" className={btnGhost()}>
+                        Save
+                      </button>
+                    </form>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 }

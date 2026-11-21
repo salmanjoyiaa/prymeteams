@@ -1,7 +1,8 @@
 import {
   DbError,
   Flash,
-  PageTitle,
+  PageHeader,
+  SectionHeader,
   btnPrimary,
   cardClass,
   inputClass,
@@ -11,7 +12,10 @@ import { requireAdmin } from "@/lib/auth/require-admin";
 import { DEFAULT_SITE_SETTINGS } from "@/lib/settings";
 import { updateSiteSettings } from "./actions";
 
-export default async function SettingsPage() {
+type Props = { searchParams: Promise<{ saved?: string; error?: string }> };
+
+export default async function SettingsPage({ searchParams }: Props) {
+  const sp = await searchParams;
   const { supabase } = await requireAdmin();
   const { data, error } = await supabase
     .from("site_settings")
@@ -31,14 +35,23 @@ export default async function SettingsPage() {
 
   return (
     <div>
-      <PageTitle
+      <PageHeader
         title="Site settings"
-        subtitle="Public contact details shown on the homepage. Edit anytime."
+        subtitle="Public contact details shown on the homepage."
       />
       {error ? <DbError message={error.message} /> : null}
-      <Flash message="Changes revalidate the public homepage immediately." />
+      {sp.error ? (
+        <DbError message="Could not save settings. Check the fields and try again." />
+      ) : null}
+      <Flash message={sp.saved === "1" ? "Settings saved. Homepage revalidated." : undefined} />
+
+      <p className="mb-6 max-w-xl text-sm text-pt-muted">
+        Saving updates public placeholders immediately. Use relative paths,
+        https://, or mailto: for the discovery CTA URL.
+      </p>
 
       <form action={updateSiteSettings} className={`${cardClass()} max-w-xl space-y-4`}>
+        <SectionHeader title="Public placeholders" />
         <div>
           <label className={labelClass()} htmlFor="contactEmail">
             Contact email

@@ -1,7 +1,10 @@
 import {
   DbError,
   EmptyState,
-  PageTitle,
+  PageHeader,
+  SectionHeader,
+  StatusPill,
+  btnGhost,
   btnPrimary,
   cardClass,
   inputClass,
@@ -9,6 +12,7 @@ import {
   tableWrap,
   tdClass,
   thClass,
+  trClass,
 } from "@/components/admin/AdminChrome";
 import { requireAdmin } from "@/lib/auth/require-admin";
 import { PLACEMENT_STATUSES } from "@/lib/validation/admin";
@@ -38,11 +42,14 @@ export default async function PlacementsPage() {
 
   return (
     <div>
-      <PageTitle title="Placements" subtitle="Active and historical placements." />
+      <PageHeader
+        title="Placements"
+        subtitle="Active and historical placements."
+      />
       {error ? <DbError message={error.message} /> : null}
 
       <form action={createPlacement} className={`${cardClass()} mb-8 max-w-xl space-y-4`}>
-        <h2 className="text-lg font-semibold">Create placement</h2>
+        <SectionHeader title="Add placement" subtitle="Assign talent to a client" />
         <div>
           <label className={labelClass()} htmlFor="companyId">
             Company
@@ -97,12 +104,17 @@ export default async function PlacementsPage() {
         </button>
       </form>
 
-      {!error && !placements?.length ? <EmptyState label="placements" /> : null}
+      {!error && !placements?.length ? (
+        <EmptyState
+          title="No placements yet"
+          description="Create a placement with the form above once a company and talent exist."
+        />
+      ) : null}
 
       {placements?.length ? (
         <div className={tableWrap()}>
           <table className="w-full min-w-[640px] border-collapse">
-            <thead className="bg-[#0B0E18]">
+            <thead>
               <tr>
                 <th className={thClass()}>Company</th>
                 <th className={thClass()}>Talent</th>
@@ -113,17 +125,19 @@ export default async function PlacementsPage() {
             </thead>
             <tbody>
               {placements.map((p) => (
-                <tr key={p.id}>
+                <tr key={p.id} className={trClass()}>
                   <td className={tdClass()}>
                     {p.company_id ? companyMap.get(p.company_id) : "—"}
                   </td>
                   <td className={tdClass()}>
                     {p.talent_id ? talentMap.get(p.talent_id) : "—"}
                   </td>
-                  <td className={tdClass()}>{p.status}</td>
+                  <td className={tdClass()}>
+                    <StatusPill value={p.status} />
+                  </td>
                   <td className={tdClass()}>{p.start_date ?? "—"}</td>
                   <td className={tdClass()}>
-                    <form action={updatePlacementStatus} className="flex gap-2">
+                    <form action={updatePlacementStatus} className="flex flex-wrap gap-2">
                       <input type="hidden" name="placementId" value={p.id} />
                       <select
                         name="status"
@@ -136,7 +150,7 @@ export default async function PlacementsPage() {
                           </option>
                         ))}
                       </select>
-                      <button type="submit" className={btnPrimary()}>
+                      <button type="submit" className={btnGhost()}>
                         Save
                       </button>
                     </form>

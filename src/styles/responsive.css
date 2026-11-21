@@ -57,18 +57,52 @@
 }
 
 @media (max-width: 767px) {
+  /* Single-row sticky header: logo + hamburger only */
+  header {
+    padding: 0 !important;
+  }
+
   header nav {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
     gap: 12px !important;
-    padding: 12px 16px !important;
+    padding: 0 16px !important;
+    height: 56px !important;
+    min-height: 56px !important;
+    max-height: 56px !important;
+    box-sizing: border-box;
   }
 
-  header nav > a span span:first-child {
-    font-size: 16px !important;
+  header nav > a {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    min-width: 0;
+    flex: 1 1 auto;
+    height: 44px;
+    padding: 0 !important;
   }
 
-  header nav > a span span:last-child {
-    font-size: 8px !important;
-    letter-spacing: 1.6px !important;
+  header nav > a > svg {
+    width: 32px !important;
+    height: 32px !important;
+    flex-shrink: 0;
+  }
+
+  .pt-logo-text {
+    gap: 0 !important;
+    justify-content: center !important;
+  }
+
+  .pt-logo-text > span:first-child {
+    font-size: 15px !important;
+    line-height: 1 !important;
+  }
+
+  .pt-logo-tagline {
+    display: none !important;
   }
 
   .pt-desktop-nav,
@@ -77,36 +111,50 @@
   }
 
   .pt-mobile-nav {
-    display: block;
-    position: relative;
-    margin-left: auto;
+    display: flex !important;
+    align-items: center;
+    position: static;
+    margin-left: 0;
+    flex: 0 0 auto;
+    height: 44px;
   }
 
   .pt-mobile-toggle {
-    min-width: 44px;
-    min-height: 44px;
-    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    padding: 0;
+    border-radius: 10px;
     border: 1px solid #2a3248;
     background: #0f1320;
     color: #eef1f7;
-    font-size: 20px;
+    font-size: 17px;
+    line-height: 1;
     cursor: pointer;
   }
 
+  /* Full-bleed panel attached under header */
   .pt-mobile-panel {
-    position: absolute;
+    position: fixed;
+    left: 0;
     right: 0;
-    top: calc(100% + 10px);
-    width: min(280px, 80vw);
+    top: 56px;
+    width: 100%;
+    max-width: none;
     background: #0b0e18;
-    border: 1px solid #1e2436;
-    border-radius: 16px;
-    padding: 12px;
+    border: none;
+    border-bottom: 1px solid #1e2436;
+    border-radius: 0;
+    padding: 8px 12px 14px;
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    z-index: 40;
-    box-shadow: 0 24px 60px -20px #000000aa;
+    gap: 2px;
+    z-index: 50;
+    box-shadow: 0 18px 40px -24px #000000cc;
   }
 
   .pt-mobile-panel a {
@@ -134,6 +182,16 @@
     text-align: center;
     margin-top: 6px;
     justify-content: center;
+  }
+
+  /* Call FAB: keep clear of edges */
+  .pt-call-fab {
+    right: 16px !important;
+    bottom: 16px !important;
+  }
+
+  .pt-call-fab > div[role="dialog"] {
+    width: min(300px, calc(100vw - 32px)) !important;
   }
 
   /* Section vertical rhythm */
@@ -298,6 +356,36 @@
   }
 
   header nav {
-    padding: 10px 14px !important;
+    padding: 0 12px !important;
+    height: 52px !important;
+    min-height: 52px !important;
+    max-height: 52px !important;
+  }
+
+  .pt-mobile-panel {
+    top: 52px;
+  }
+
+  header nav > a > svg {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  #human,
+  #live,
+  #anyone,
+  #included,
+  #contact {
+    padding: 48px 16px !important;
+  }
+
+  #how > div,
+  #pricing > div,
+  #faq > div {
+    padding: 48px 16px !important;
+  }
+
+  #top > div[style*="position: relative"] {
+    padding: 44px 16px 40px !important;
   }
 }

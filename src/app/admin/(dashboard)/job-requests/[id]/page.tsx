@@ -1,7 +1,9 @@
 import {
   BackLink,
   DbError,
-  PageTitle,
+  PageHeader,
+  SectionHeader,
+  StatusPill,
   btnPrimary,
   cardClass,
   inputClass,
@@ -48,23 +50,31 @@ export default async function JobRequestDetailPage({ params }: Props) {
   return (
     <div>
       <BackLink href="/admin/job-requests" label="Job requests" />
-      <PageTitle title={job.title} subtitle={`Status: ${job.status}`} />
-      {job.description ? (
-        <p className="mb-6 max-w-2xl text-sm text-[#9AA3B5]">{job.description}</p>
-      ) : null}
+      <PageHeader
+        title={job.title}
+        subtitle={job.description ?? undefined}
+        actions={<StatusPill value={job.status} />}
+      />
 
       <div className="grid gap-6 lg:grid-cols-2">
         <section className={cardClass()}>
-          <h2 className="text-lg font-semibold">Shortlist</h2>
-          <ul className="mt-4 space-y-2 text-sm text-[#C3CADA]">
+          <SectionHeader title="Shortlist" subtitle="Talent under consideration" />
+          <ul className="space-y-2">
             {(shortlists ?? []).map((s) => (
-              <li key={s.id}>
-                {talentMap.get(s.talent_id) ?? s.talent_id}
-                {s.notes ? ` — ${s.notes}` : ""}
+              <li
+                key={s.id}
+                className="rounded-xl border border-[#1A2030] bg-pt-bg px-3 py-2.5 text-sm text-[#C3CADA]"
+              >
+                <span className="font-medium text-pt-text">
+                  {talentMap.get(s.talent_id) ?? s.talent_id}
+                </span>
+                {s.notes ? (
+                  <span className="mt-0.5 block text-pt-muted">{s.notes}</span>
+                ) : null}
               </li>
             ))}
             {!shortlists?.length ? (
-              <li className="text-[#8A93A6]">No shortlisted talent yet.</li>
+              <li className="text-sm text-[#8A93A6]">No shortlisted talent yet.</li>
             ) : null}
           </ul>
           <form action={addShortlist} className="mt-4 space-y-3">
@@ -88,11 +98,7 @@ export default async function JobRequestDetailPage({ params }: Props) {
                 </option>
               ))}
             </select>
-            <input
-              name="notes"
-              placeholder="Notes"
-              className={inputClass()}
-            />
+            <input name="notes" placeholder="Notes" className={inputClass()} />
             <button type="submit" className={btnPrimary()}>
               Add
             </button>
@@ -100,18 +106,28 @@ export default async function JobRequestDetailPage({ params }: Props) {
         </section>
 
         <section className={cardClass()}>
-          <h2 className="text-lg font-semibold">Interviews</h2>
-          <ul className="mt-4 space-y-2 text-sm text-[#C3CADA]">
+          <SectionHeader title="Interviews" subtitle="Scheduled conversations" />
+          <ul className="space-y-2">
             {(interviews ?? []).map((i) => (
-              <li key={i.id}>
-                {talentMap.get(i.talent_id) ?? i.talent_id}
-                {i.scheduled_at
-                  ? ` · ${new Date(i.scheduled_at).toLocaleString()}`
-                  : ""}
+              <li
+                key={i.id}
+                className="rounded-xl border border-[#1A2030] bg-pt-bg px-3 py-2.5 text-sm text-[#C3CADA]"
+              >
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <span className="font-medium text-pt-text">
+                    {talentMap.get(i.talent_id) ?? i.talent_id}
+                  </span>
+                  {i.outcome ? <StatusPill value={i.outcome} /> : null}
+                </div>
+                {i.scheduled_at ? (
+                  <span className="mt-1 block text-xs text-pt-muted">
+                    {new Date(i.scheduled_at).toLocaleString()}
+                  </span>
+                ) : null}
               </li>
             ))}
             {!interviews?.length ? (
-              <li className="text-[#8A93A6]">No interviews scheduled.</li>
+              <li className="text-sm text-[#8A93A6]">No interviews scheduled.</li>
             ) : null}
           </ul>
           <form action={addInterview} className="mt-4 space-y-3">

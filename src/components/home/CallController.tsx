@@ -29,32 +29,67 @@ function isOpenNow(config: CallSettings) {
   }
 }
 
+function setShown(el: HTMLElement, show: boolean) {
+  // display:contents + hidden is unreliable in some browsers (children still paint).
+  if (show) {
+    el.removeAttribute("hidden");
+    el.style.removeProperty("display");
+    el.classList.remove("pt-if-hide");
+  } else {
+    el.setAttribute("hidden", "");
+    el.style.setProperty("display", "none", "important");
+    el.classList.add("pt-if-hide");
+  }
+}
+
 /**
- * Mirrors handoff PRYME_CALL: toggles pt-if blocks, tel links, and labels.
+ * Mirrors handoff PRYME_CALL: toggles data-pt-if blocks, tel links, and labels.
  * Preview with ?call=open or ?call=after.
  */
 export function CallController({ config }: { config: CallSettings }) {
+  const {
+    phone,
+    afterPhone,
+    hoursLabel,
+    timeZone,
+    openHour,
+    closeHour,
+    openWeekends,
+  } = config;
+
   useEffect(() => {
     let popupOpen = false;
+    const live: CallSettings = {
+      phone,
+      afterPhone,
+      hoursLabel,
+      timeZone,
+      openHour,
+      closeHour,
+      openWeekends,
+    };
 
     const render = () => {
-      const open = isOpenNow(config);
-      document.querySelectorAll("[data-pt-if]").forEach((el) => {
+      const open = isOpenNow(live);
+      document.querySelectorAll<HTMLElement>("[data-pt-if]").forEach((el) => {
         const w = el.getAttribute("data-when");
         let show = true;
         if (w === "open") show = open;
         else if (w === "after") show = !open;
         else if (w === "popup-open") show = popupOpen;
         else if (w === "popup-closed") show = !popupOpen;
-        (el as HTMLElement).hidden = !show;
+        setShown(el, show);
       });
       document.querySelectorAll("[data-tel]").forEach((a) => {
-        a.setAttribute("href", telHref(open ? config.phone : config.afterPhone));
+        a.setAttribute(
+          "href",
+          telHref(open ? live.phone : live.afterPhone),
+        );
       });
       document.querySelectorAll("[data-text]").forEach((el) => {
         const key = el.getAttribute("data-text") as keyof CallSettings | null;
         if (!key) return;
-        const value = config[key];
+        const value = live[key];
         if (typeof value === "string") el.textContent = value;
       });
     };
@@ -63,6 +98,7 @@ export function CallController({ config }: { config: CallSettings }) {
       const t = e.target as Element | null;
       const btn = t?.closest?.('[data-action="toggle-call"]');
       if (btn) {
+        e.preventDefault();
         popupOpen = !popupOpen;
         render();
       }
@@ -75,7 +111,15 @@ export function CallController({ config }: { config: CallSettings }) {
       document.removeEventListener("click", onClick);
       window.clearInterval(timer);
     };
-  }, [config]);
+  }, [
+    phone,
+    afterPhone,
+    hoursLabel,
+    timeZone,
+    openHour,
+    closeHour,
+    openWeekends,
+  ]);
 
   return null;
 }

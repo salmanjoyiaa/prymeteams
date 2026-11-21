@@ -2,12 +2,14 @@ import Link from "next/link";
 import {
   DbError,
   EmptyState,
-  PageTitle,
-  StagePill,
+  PageHeader,
+  StatusPill,
+  filterChipClass,
   linkClass,
   tableWrap,
   tdClass,
   thClass,
+  trClass,
 } from "@/components/admin/AdminChrome";
 import { requireAdmin } from "@/lib/auth/require-admin";
 import { LEAD_STAGES } from "@/lib/validation/admin";
@@ -37,7 +39,7 @@ export default async function AdminLeadsPage({ searchParams }: Props) {
 
   return (
     <div>
-      <PageTitle
+      <PageHeader
         title="Leads"
         subtitle="Website inquiries and pipeline stages."
       />
@@ -47,25 +49,14 @@ export default async function AdminLeadsPage({ searchParams }: Props) {
       ) : null}
 
       <div className="mb-6 flex flex-wrap gap-2">
-        <Link
-          href="/admin/leads"
-          className={`rounded-lg px-3 py-1.5 text-sm no-underline ${
-            !stageFilter
-              ? "bg-[#2EE6A0] text-[#07090F]"
-              : "border border-[#1E2436] text-[#C3CADA]"
-          }`}
-        >
+        <Link href="/admin/leads" className={filterChipClass(!stageFilter)}>
           All
         </Link>
         {LEAD_STAGES.map((s) => (
           <Link
             key={s}
             href={`/admin/leads?stage=${s}`}
-            className={`rounded-lg px-3 py-1.5 text-sm no-underline ${
-              stageFilter === s
-                ? "bg-[#2EE6A0] text-[#07090F]"
-                : "border border-[#1E2436] text-[#C3CADA]"
-            }`}
+            className={filterChipClass(stageFilter === s)}
           >
             {s.replace(/_/g, " ")}
           </Link>
@@ -73,13 +64,16 @@ export default async function AdminLeadsPage({ searchParams }: Props) {
       </div>
 
       {!error && (!leads || leads.length === 0) ? (
-        <EmptyState label="leads" />
+        <EmptyState
+          title={stageFilter ? `No ${stageFilter.replace(/_/g, " ")} leads` : "No leads yet"}
+          description="Inquiries from /request appear here once Supabase is connected and submit_lead is live."
+        />
       ) : null}
 
       {leads && leads.length > 0 ? (
         <div className={tableWrap()}>
           <table className="w-full min-w-[640px] border-collapse">
-            <thead className="bg-[#0B0E18]">
+            <thead>
               <tr>
                 <th className={thClass()}>Name</th>
                 <th className={thClass()}>Email</th>
@@ -90,7 +84,7 @@ export default async function AdminLeadsPage({ searchParams }: Props) {
             </thead>
             <tbody>
               {leads.map((lead) => (
-                <tr key={lead.id}>
+                <tr key={lead.id} className={trClass()}>
                   <td className={tdClass()}>
                     <Link href={`/admin/leads/${lead.id}`} className={linkClass()}>
                       {lead.full_name}
@@ -99,7 +93,7 @@ export default async function AdminLeadsPage({ searchParams }: Props) {
                   <td className={tdClass()}>{lead.email}</td>
                   <td className={tdClass()}>{lead.company_name ?? "—"}</td>
                   <td className={tdClass()}>
-                    <StagePill stage={lead.stage} />
+                    <StatusPill value={lead.stage} />
                   </td>
                   <td className={tdClass()}>
                     {new Date(lead.created_at).toLocaleDateString()}

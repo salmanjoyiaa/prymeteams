@@ -1,7 +1,10 @@
 import {
   DbError,
   EmptyState,
-  PageTitle,
+  PageHeader,
+  SectionHeader,
+  StatusPill,
+  btnGhost,
   btnPrimary,
   cardClass,
   inputClass,
@@ -9,6 +12,7 @@ import {
   tableWrap,
   tdClass,
   thClass,
+  trClass,
 } from "@/components/admin/AdminChrome";
 import { requireAdmin } from "@/lib/auth/require-admin";
 import { TASK_STATUSES } from "@/lib/validation/admin";
@@ -30,13 +34,16 @@ export default async function TasksPage() {
 
   return (
     <div>
-      <PageTitle title="Tasks" subtitle="Ops tasks and activity timeline." />
+      <PageHeader
+        title="Tasks"
+        subtitle="Ops tasks and activity timeline."
+      />
       {error ? <DbError message={error.message} /> : null}
 
       <div className="grid gap-6 lg:grid-cols-2">
         <div>
           <form action={createTask} className={`${cardClass()} mb-6 space-y-4`}>
-            <h2 className="text-lg font-semibold">New task</h2>
+            <SectionHeader title="New task" />
             <input name="title" required placeholder="Title" className={inputClass()} />
             <textarea
               name="description"
@@ -50,11 +57,16 @@ export default async function TasksPage() {
             </button>
           </form>
 
-          {!tasks?.length ? <EmptyState label="tasks" /> : null}
+          {!tasks?.length ? (
+            <EmptyState
+              title="No tasks yet"
+              description="Create a task with the form above to track ops work."
+            />
+          ) : null}
           {tasks?.length ? (
             <div className={tableWrap()}>
               <table className="w-full border-collapse">
-                <thead className="bg-[#0B0E18]">
+                <thead>
                   <tr>
                     <th className={thClass()}>Title</th>
                     <th className={thClass()}>Status</th>
@@ -63,11 +75,13 @@ export default async function TasksPage() {
                 </thead>
                 <tbody>
                   {tasks.map((t) => (
-                    <tr key={t.id}>
+                    <tr key={t.id} className={trClass()}>
                       <td className={tdClass()}>{t.title}</td>
-                      <td className={tdClass()}>{t.status}</td>
                       <td className={tdClass()}>
-                        <form action={updateTaskStatus} className="flex gap-2">
+                        <StatusPill value={t.status} />
+                      </td>
+                      <td className={tdClass()}>
+                        <form action={updateTaskStatus} className="flex flex-wrap gap-2">
                           <input type="hidden" name="taskId" value={t.id} />
                           <select
                             name="status"
@@ -76,11 +90,11 @@ export default async function TasksPage() {
                           >
                             {TASK_STATUSES.map((s) => (
                               <option key={s} value={s}>
-                                {s}
+                                {s.replace(/_/g, " ")}
                               </option>
                             ))}
                           </select>
-                          <button type="submit" className={btnPrimary()}>
+                          <button type="submit" className={btnGhost()}>
                             Save
                           </button>
                         </form>
@@ -95,14 +109,18 @@ export default async function TasksPage() {
 
         <div>
           <section className={cardClass()}>
-            <h2 className="text-lg font-semibold">Activity timeline</h2>
-            <ul className="mt-4 space-y-3">
+            <SectionHeader
+              title="Activity timeline"
+              subtitle="Recent ops notes"
+            />
+            <ul className="relative space-y-0 border-l border-[#1A2030] pl-4">
               {(activities ?? []).map((a) => (
-                <li
-                  key={a.id}
-                  className="rounded-lg border border-[#1A2030] bg-[#07090F] p-3 text-sm"
-                >
-                  <p className="text-[#C3CADA]">{a.summary}</p>
+                <li key={a.id} className="relative pb-4 last:pb-0">
+                  <span
+                    aria-hidden
+                    className="absolute top-1.5 -left-[1.3rem] h-2 w-2 rounded-full bg-pt-accent/70"
+                  />
+                  <p className="text-sm text-[#C3CADA]">{a.summary}</p>
                   <p className="mt-1 text-xs text-[#6B7289]">
                     {a.entity_type} · {new Date(a.created_at).toLocaleString()}
                   </p>
@@ -112,7 +130,7 @@ export default async function TasksPage() {
                 <li className="text-sm text-[#8A93A6]">No activity yet.</li>
               ) : null}
             </ul>
-            <form action={createActivity} className="mt-4 space-y-3">
+            <form action={createActivity} className="mt-5 space-y-3 border-t border-[#1A2030] pt-4">
               <label className={labelClass()} htmlFor="summary">
                 Log activity
               </label>

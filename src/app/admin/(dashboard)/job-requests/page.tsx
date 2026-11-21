@@ -2,7 +2,9 @@ import Link from "next/link";
 import {
   DbError,
   EmptyState,
-  PageTitle,
+  PageHeader,
+  SectionHeader,
+  StatusPill,
   btnPrimary,
   cardClass,
   inputClass,
@@ -11,6 +13,7 @@ import {
   tableWrap,
   tdClass,
   thClass,
+  trClass,
 } from "@/components/admin/AdminChrome";
 import { requireAdmin } from "@/lib/auth/require-admin";
 import { JOB_STATUSES } from "@/lib/validation/admin";
@@ -31,7 +34,7 @@ export default async function AdminJobRequestsPage() {
 
   return (
     <div>
-      <PageTitle
+      <PageHeader
         title="Job requests"
         subtitle="Open roles and matching pipeline."
       />
@@ -44,9 +47,7 @@ export default async function AdminJobRequestsPage() {
         action={createJobRequest}
         className={`${cardClass()} mb-8 max-w-xl space-y-4`}
       >
-        <h2 className="text-lg font-semibold text-[#EEF1F7]">
-          Create job request
-        </h2>
+        <SectionHeader title="Add job request" subtitle="Open a new role" />
         <div>
           <label htmlFor="title" className={labelClass()}>
             Title *
@@ -94,7 +95,7 @@ export default async function AdminJobRequestsPage() {
           >
             {JOB_STATUSES.map((s) => (
               <option key={s} value={s}>
-                {s}
+                {s.replace(/_/g, " ")}
               </option>
             ))}
           </select>
@@ -105,13 +106,16 @@ export default async function AdminJobRequestsPage() {
       </form>
 
       {!error && (!jobs || jobs.length === 0) ? (
-        <EmptyState label="job requests" />
+        <EmptyState
+          title="No job requests yet"
+          description="Create a role with the form above to start shortlisting talent."
+        />
       ) : null}
 
       {jobs && jobs.length > 0 ? (
         <div className={tableWrap()}>
           <table className="w-full min-w-[640px] border-collapse">
-            <thead className="bg-[#0B0E18]">
+            <thead>
               <tr>
                 <th className={thClass()}>Title</th>
                 <th className={thClass()}>Company</th>
@@ -121,7 +125,7 @@ export default async function AdminJobRequestsPage() {
             </thead>
             <tbody>
               {jobs.map((j) => (
-                <tr key={j.id}>
+                <tr key={j.id} className={trClass()}>
                   <td className={tdClass()}>
                     <Link
                       href={`/admin/job-requests/${j.id}`}
@@ -135,7 +139,9 @@ export default async function AdminJobRequestsPage() {
                       ? (companyMap.get(j.company_id) ?? "—")
                       : "—"}
                   </td>
-                  <td className={tdClass()}>{j.status}</td>
+                  <td className={tdClass()}>
+                    <StatusPill value={j.status} />
+                  </td>
                   <td className={tdClass()}>
                     {new Date(j.created_at).toLocaleDateString()}
                   </td>

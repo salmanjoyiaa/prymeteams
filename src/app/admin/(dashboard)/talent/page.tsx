@@ -1,7 +1,9 @@
 import {
   DbError,
   EmptyState,
-  PageTitle,
+  PageHeader,
+  SectionHeader,
+  StatusPill,
   btnGhost,
   btnPrimary,
   cardClass,
@@ -10,6 +12,7 @@ import {
   tableWrap,
   tdClass,
   thClass,
+  trClass,
 } from "@/components/admin/AdminChrome";
 import { requireAdmin } from "@/lib/auth/require-admin";
 import { createTalent, toggleTalentFlag } from "./actions";
@@ -25,12 +28,15 @@ export default async function AdminTalentPage() {
 
   return (
     <div>
-      <PageTitle title="Talent" subtitle="Roster, approval, and public visibility." />
+      <PageHeader
+        title="Talent"
+        subtitle="Roster, approval, and public visibility."
+      />
 
       {error ? <DbError message={`Could not load talent: ${error.message}`} /> : null}
 
       <form action={createTalent} className={`${cardClass()} mb-8 max-w-xl space-y-4`}>
-        <h2 className="text-lg font-semibold text-[#EEF1F7]">Add talent</h2>
+        <SectionHeader title="Add talent" subtitle="Create a profile draft" />
         <div>
           <label htmlFor="displayName" className={labelClass()}>
             Display name *
@@ -72,12 +78,17 @@ export default async function AdminTalentPage() {
         </button>
       </form>
 
-      {!error && (!talent || talent.length === 0) ? <EmptyState label="talent profiles" /> : null}
+      {!error && (!talent || talent.length === 0) ? (
+        <EmptyState
+          title="No talent profiles yet"
+          description="Add a profile with the form above, then approve and publish for /talent."
+        />
+      ) : null}
 
       {talent && talent.length > 0 ? (
         <div className={tableWrap()}>
           <table className="w-full min-w-[720px] border-collapse">
-            <thead className="bg-[#0B0E18]">
+            <thead>
               <tr>
                 <th className={thClass()}>Name</th>
                 <th className={thClass()}>Title</th>
@@ -89,10 +100,12 @@ export default async function AdminTalentPage() {
             </thead>
             <tbody>
               {talent.map((t) => (
-                <tr key={t.id}>
+                <tr key={t.id} className={trClass()}>
                   <td className={tdClass()}>{t.display_name}</td>
                   <td className={tdClass()}>{t.title ?? "—"}</td>
-                  <td className={tdClass()}>{t.status}</td>
+                  <td className={tdClass()}>
+                    <StatusPill value={t.status} />
+                  </td>
                   <td className={tdClass()}>
                     <form action={toggleTalentFlag} className="inline">
                       <input type="hidden" name="talentId" value={t.id} />
