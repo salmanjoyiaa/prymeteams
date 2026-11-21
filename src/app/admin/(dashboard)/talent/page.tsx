@@ -29,6 +29,7 @@ export default async function AdminTalentPage() {
   return (
     <div>
       <PageHeader
+        eyebrow="Delivery"
         title="Talent"
         subtitle="Roster, approval, and public visibility."
       />

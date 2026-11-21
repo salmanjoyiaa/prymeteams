@@ -52,6 +52,7 @@ export default async function FinancePage() {
   return (
     <div>
       <PageHeader
+        eyebrow="Business"
         title="Finance"
         subtitle="Contracts, invoices, and payment status."
       />

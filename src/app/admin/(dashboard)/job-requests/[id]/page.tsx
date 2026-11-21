@@ -51,6 +51,7 @@ export default async function JobRequestDetailPage({ params }: Props) {
     <div>
       <BackLink href="/admin/job-requests" label="Job requests" />
       <PageHeader
+        eyebrow="Delivery · Job"
         title={job.title}
         subtitle={job.description ?? undefined}
         actions={<StatusPill value={job.status} />}

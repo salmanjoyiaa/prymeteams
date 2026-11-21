@@ -4,6 +4,7 @@ import {
   EmptyState,
   PageHeader,
   StatusPill,
+  Toolbar,
   filterChipClass,
   linkClass,
   tableWrap,
@@ -40,6 +41,7 @@ export default async function AdminLeadsPage({ searchParams }: Props) {
   return (
     <div>
       <PageHeader
+        eyebrow="CRM"
         title="Leads"
         subtitle="Website inquiries and pipeline stages."
       />
@@ -48,7 +50,7 @@ export default async function AdminLeadsPage({ searchParams }: Props) {
         <DbError message={`Could not load leads: ${error.message}`} />
       ) : null}
 
-      <div className="mb-6 flex flex-wrap gap-2">
+      <Toolbar>
         <Link href="/admin/leads" className={filterChipClass(!stageFilter)}>
           All
         </Link>
@@ -61,7 +63,7 @@ export default async function AdminLeadsPage({ searchParams }: Props) {
             {s.replace(/_/g, " ")}
           </Link>
         ))}
-      </div>
+      </Toolbar>
 
       {!error && (!leads || leads.length === 0) ? (
         <EmptyState

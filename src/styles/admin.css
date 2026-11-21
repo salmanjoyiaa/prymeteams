@@ -1,0 +1,91 @@
+/* Admin ops console — subtle motion + ambient (Pryme brand) */
+
+.admin-shell {
+  background-color: #07090f;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 0% 0%, rgba(46, 230, 160, 0.06), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(232, 196, 90, 0.04), transparent 45%);
+}
+
+.admin-aside {
+  background: linear-gradient(180deg, #0c101c 0%, #0b0e18 40%, #090c14 100%);
+}
+
+.admin-nav-link {
+  transition:
+    background-color 160ms ease-out,
+    color 160ms ease-out,
+    transform 120ms ease-out;
+}
+
+.admin-nav-link:active {
+  transform: scale(0.98);
+}
+
+.admin-kpi {
+  transition:
+    border-color 180ms ease-out,
+    transform 180ms ease-out,
+    box-shadow 180ms ease-out;
+}
+
+.admin-kpi:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px -28px rgba(46, 230, 160, 0.45);
+}
+
+.admin-kpi:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.admin-btn-primary {
+  transition:
+    filter 160ms ease-out,
+    transform 120ms ease-out;
+}
+
+.admin-btn-primary:hover {
+  filter: brightness(1.08);
+}
+
+.admin-btn-primary:active {
+  transform: scale(0.97);
+}
+
+.admin-btn-ghost {
+  transition:
+    border-color 160ms ease-out,
+    color 160ms ease-out,
+    background-color 160ms ease-out,
+    transform 120ms ease-out;
+}
+
+.admin-btn-ghost:active {
+  transform: scale(0.97);
+}
+
+.admin-table tbody tr {
+  transition: background-color 120ms ease-out;
+}
+
+.admin-input:focus {
+  box-shadow: 0 0 0 3px rgba(46, 230, 160, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .admin-nav-link,
+  .admin-kpi,
+  .admin-btn-primary,
+  .admin-btn-ghost,
+  .admin-table tbody tr {
+    transition: none;
+  }
+
+  .admin-kpi:hover,
+  .admin-kpi:active,
+  .admin-btn-primary:active,
+  .admin-btn-ghost:active,
+  .admin-nav-link:active {
+    transform: none;
+  }
+}

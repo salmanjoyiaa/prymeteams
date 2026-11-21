@@ -43,6 +43,7 @@ export default async function PlacementsPage() {
   return (
     <div>
       <PageHeader
+        eyebrow="Delivery"
         title="Placements"
         subtitle="Active and historical placements."
       />

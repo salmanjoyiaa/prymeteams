@@ -60,6 +60,7 @@ export default async function AdminLeadDetailPage({ params, searchParams }: Prop
     <div>
       <BackLink href="/admin/leads" label="All leads" />
       <PageHeader
+        eyebrow="CRM · Lead"
         title={lead?.full_name ?? "Lead"}
         subtitle={lead?.email}
         actions={lead ? <StatusPill value={lead.stage} /> : null}

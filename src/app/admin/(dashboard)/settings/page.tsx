@@ -36,6 +36,7 @@ export default async function SettingsPage({ searchParams }: Props) {
   return (
     <div>
       <PageHeader
+        eyebrow="Business"
         title="Site settings"
         subtitle="Public contact details shown on the homepage."
       />

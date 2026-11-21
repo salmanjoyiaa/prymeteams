@@ -21,6 +21,7 @@ export default async function AuditPage() {
   return (
     <div>
       <PageHeader
+        eyebrow="Business"
         title="Audit log"
         subtitle="Recent state-changing operations (read-only)."
       />

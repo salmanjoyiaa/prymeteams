@@ -24,7 +24,7 @@ export default async function AdminCompaniesPage() {
 
   return (
     <div>
-      <PageHeader title="Companies" subtitle="Client organizations." />
+      <PageHeader eyebrow="CRM" title="Companies" subtitle="Client organizations." />
 
       {error ? <DbError message={`Could not load companies: ${error.message}`} /> : null}
 
