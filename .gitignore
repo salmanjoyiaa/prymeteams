@@ -15,6 +15,7 @@
 /test-results/
 /playwright-report/
 /blob-report/
+docs/demo/.playwright-video/
 
 # next.js
 /.next/
@@ -33,10 +34,11 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files — keep .env.example tracked
+# env files — never commit secrets or local env
 .env
 .env.*
-!.env.example
+.env.local
+.env*.local
 
 # vercel
 .vercel

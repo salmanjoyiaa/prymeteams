@@ -28,12 +28,70 @@
   display: none;
 }
 
-.pt-btn:focus-visible,
 .pt-nav:focus-visible,
 .pt-faq summary:focus-visible,
 .pt-mobile-toggle:focus-visible {
   outline: none;
   box-shadow: var(--pt-focus-ring);
+}
+
+/* Desktop rhythm: consistent section padding + header breathing room */
+@media (min-width: 1025px) {
+  header nav {
+    padding: 14px 32px !important;
+  }
+
+  #top > div[style*="position: relative"] {
+    padding: 96px 32px 88px !important;
+  }
+
+  #human,
+  #live,
+  #anyone,
+  #included,
+  #contact {
+    padding-top: 112px !important;
+    padding-bottom: 112px !important;
+  }
+
+  #how > div,
+  #pricing > div,
+  #faq > div {
+    padding-top: 112px !important;
+    padding-bottom: 112px !important;
+  }
+
+  section[aria-label="Our commitments"] {
+    padding-bottom: 112px !important;
+  }
+
+  section[aria-label="What we cover"] {
+    padding: 28px 0 !important;
+  }
+
+  #human > div[style*="flex-wrap"],
+  #anyone > div[style*="flex-wrap"],
+  #included > div[style*="flex-wrap"],
+  #pricing > div > div[style*="flex-wrap"],
+  #live > div[style*="flex-wrap"]:last-child,
+  section[aria-label="Our commitments"] > div {
+    gap: 18px !important;
+  }
+
+  #how .pt-card,
+  #included .pt-card {
+    padding: 32px !important;
+  }
+
+  #faq .pt-faq {
+    padding-left: 28px !important;
+    padding-right: 28px !important;
+  }
+
+  footer > div:first-child {
+    padding-top: 64px !important;
+    padding-bottom: 48px !important;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -53,6 +111,37 @@
   #included h2,
   #faq h2 {
     font-size: clamp(36px, 5.5vw, 56px) !important;
+  }
+
+  /* Tablet: tighten section padding without collapsing to phone */
+  #human,
+  #live,
+  #anyone,
+  #included,
+  #contact {
+    padding: 80px 28px !important;
+  }
+
+  #how > div,
+  #pricing > div,
+  #faq > div {
+    padding: 80px 28px !important;
+  }
+
+  section[aria-label="Our commitments"] {
+    padding: 0 28px 80px !important;
+  }
+
+  #top > div[style*="position: relative"] {
+    padding: 72px 28px 64px !important;
+  }
+
+  header nav {
+    padding: 14px 24px !important;
+  }
+
+  #contact .pt-reveal {
+    padding: 56px 36px !important;
   }
 }
 
@@ -169,19 +258,24 @@
     align-items: center;
   }
 
-  .pt-mobile-panel a:hover {
-    background: #0f1320;
-    color: #fff;
-  }
-
   .pt-mobile-cta {
     background: #2ee6a0 !important;
     color: #07090f !important;
     font-family: var(--head);
     font-weight: 800 !important;
     text-align: center;
-    margin-top: 6px;
+    margin-top: 8px;
     justify-content: center;
+    min-height: 48px;
+  }
+
+  .pt-mobile-panel a:active {
+    background: #121826;
+    color: #fff;
+  }
+
+  .pt-mobile-cta:active {
+    filter: brightness(0.95);
   }
 
   /* Call FAB: keep clear of edges */
@@ -232,6 +326,7 @@
   #top .pt-rise.pt-d1 {
     margin-bottom: 20px !important;
     font-size: 13px !important;
+    padding: 7px 14px !important;
   }
 
   #top .pt-rise.pt-d4 {
@@ -244,12 +339,23 @@
     gap: 10px !important;
   }
 
+  #top .pt-rise.pt-d4[style*="flex"] .pt-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 22px !important;
+  }
+
   #top .pt-rise.pt-d5 {
     margin-top: 40px !important;
   }
 
   #top .pt-float > div[style*="flex-wrap"] {
     gap: 10px !important;
+  }
+
+  /* Disable card lift on narrow touch layouts — tap feels cleaner */
+  .pt-card:active {
+    transform: none;
   }
 
   /* Card / grid gaps */
@@ -298,14 +404,19 @@
   #faq .pt-faq summary {
     font-size: 17px !important;
     padding: 18px 0 !important;
-    min-height: 44px;
+    min-height: 48px;
     gap: 12px !important;
+  }
+
+  #faq .pt-faq[open] summary {
+    padding-bottom: 14px !important;
   }
 
   /* Contact */
   #contact .pt-reveal {
     padding: 40px 20px !important;
-    gap: 24px !important;
+    gap: 20px !important;
+    border-radius: 24px !important;
   }
 
   #contact h2 {

@@ -14,16 +14,27 @@
   --pt-red: #ff5a5f;
   --pt-container: 1240px;
   --pt-page-padding: 32px;
+  --pt-section-y: 120px;
   --pt-header-blur: 14px;
-  --pt-focus-ring: 0 0 0 3px #2ee6a0;
+  --pt-focus-ring: 0 0 0 3px color-mix(in srgb, #2ee6a0 55%, transparent);
+  --pt-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --pt-ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --pt-shadow-btn: 0 14px 34px -12px color-mix(in srgb, var(--accent, #2ee6a0) 65%, transparent);
+  --pt-shadow-card: 0 22px 48px -28px #000000aa;
 }
 
 html{scroll-behavior:smooth}
 [data-pt-if]{display:contents}
+/* Hide after-hours + closed-popup trees until CallController decides (prevents dual flash) */
+[data-pt-if][data-when="after"],
+[data-pt-if][data-when="popup-open"]{display:none !important}
 [data-pt-if][hidden],
 [data-pt-if].pt-if-hide{display:none !important}
+[data-pt-if].pt-if-show{display:contents !important}
 body{margin:0;background:#07090F}
-a{color:#2EE6A0}a:hover{color:#7AF2C4}
+a{color:#2EE6A0}
+a:hover{color:#7AF2C4}
+a:not(.pt-btn):not(.pt-nav):not(.pt-mobile-cta){transition:color 160ms var(--pt-ease-out, ease)}
 @keyframes ptRise{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:none}}
 @keyframes ptPulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 60%,transparent)}70%{box-shadow:0 0 0 12px transparent}100%{box-shadow:0 0 0 0 transparent}}
 @keyframes ptMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -63,12 +74,27 @@ a{color:#2EE6A0}a:hover{color:#7AF2C4}
 .pt-walk{animation:ptWalk 16s linear infinite}
 @keyframes ptFlicker{0%,100%{filter:brightness(1)}48%{filter:brightness(1)}50%{filter:brightness(1.08)}52%{filter:brightness(.97)}}
 .pt-flicker{animation:ptFlicker 5s steps(1) infinite}
-.pt-nav{position:relative;transition:color .2s ease}
-.pt-nav::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:2px;border-radius:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+/* Nav */
+.pt-nav{
+  position:relative;
+  transition:color 160ms var(--pt-ease-out);
+}
+.pt-nav::after{
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:4px;
+  height:2px;
+  border-radius:2px;
+  background:var(--accent, var(--pt-accent));
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform 200ms var(--pt-ease-out);
+}
 .pt-nav:hover{color:#FFFFFF!important}
 .pt-nav:hover::after{transform:scaleX(1)}
-@keyframes ptPop{from{opacity:0;transform:translateY(12px) scale(.96)}to{opacity:1;transform:none}}
-.pt-pop{animation:ptPop .25s ease both;transform-origin:bottom right}
+
+@keyframes ptPop{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:none}}
+.pt-pop{animation:ptPop 180ms var(--pt-ease-out) both;transform-origin:bottom right}
 .pt-rise{animation:ptRise .9s cubic-bezier(.2,.7,.2,1) both}
 .pt-d1{animation-delay:.1s}.pt-d2{animation-delay:.25s}.pt-d3{animation-delay:.4s}.pt-d4{animation-delay:.55s}.pt-d5{animation-delay:.75s}
 .pt-pulse{animation:ptPulse 2s infinite}
@@ -84,14 +110,195 @@ a{color:#2EE6A0}a:hover{color:#7AF2C4}
 .pt-typing{animation:ptType .5s ease-in-out infinite}
 .pt-cam{background-image:repeating-linear-gradient(0deg,#ffffff06 0 1px,transparent 1px 3px)}
 .pt-grid{background-image:linear-gradient(#ffffff0a 1px,transparent 1px),linear-gradient(90deg,#ffffff0a 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse at 50% 30%,#000 30%,transparent 75%)}
-.pt-btn{transition:transform .2s ease,box-shadow .2s ease}
-.pt-btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px -10px color-mix(in srgb,var(--accent) 70%,transparent)}
-.pt-card{transition:transform .3s ease,border-color .3s ease}
-.pt-card:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--accent) 55%,#1E2436)}
-.pt-faq summary{list-style:none;cursor:pointer}
+
+/* Buttons — snappy lift + press feedback */
+.pt-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  will-change:transform;
+  transition:
+    transform 160ms var(--pt-ease-out),
+    box-shadow 160ms var(--pt-ease-out),
+    background-color 160ms var(--pt-ease-out),
+    border-color 160ms var(--pt-ease-out),
+    color 160ms var(--pt-ease-out),
+    filter 160ms var(--pt-ease-out);
+}
+.pt-btn:active{
+  transform:scale(0.97);
+  box-shadow:none;
+  transition-duration:100ms;
+}
+.pt-btn:focus-visible{
+  outline:none;
+  box-shadow:var(--pt-focus-ring);
+}
+
+/* Cards */
+.pt-card{
+  will-change:transform;
+  transition:
+    transform 220ms var(--pt-ease-out),
+    border-color 220ms var(--pt-ease-out),
+    box-shadow 220ms var(--pt-ease-out),
+    background-color 220ms var(--pt-ease-out);
+}
+
+/* FAQ */
+.pt-faq{
+  transition:
+    border-color 180ms var(--pt-ease-out),
+    background-color 180ms var(--pt-ease-out),
+    box-shadow 180ms var(--pt-ease-out);
+}
+.pt-faq summary{
+  list-style:none;
+  cursor:pointer;
+  transition:color 160ms var(--pt-ease-out);
+}
 .pt-faq summary::-webkit-details-marker{display:none}
-.pt-plus{transition:transform .25s ease}
+.pt-plus{
+  flex:0 0 auto;
+  transition:transform 200ms var(--pt-ease-out);
+}
+.pt-faq[open]{
+  border-color:color-mix(in srgb, var(--accent, #2ee6a0) 40%, #1E2436) !important;
+  box-shadow:0 12px 32px -24px color-mix(in srgb, var(--accent, #2ee6a0) 50%, transparent);
+}
 .pt-faq[open] .pt-plus{transform:rotate(45deg)}
-@supports (animation-timeline: view()){.pt-reveal{animation:ptRise linear both;animation-timeline:view();animation-range:entry 0% entry 100%}}
-@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+
+/* Logo / footer / misc links */
+header nav > a:first-child{
+  transition:opacity 160ms var(--pt-ease-out);
+}
+header nav > a:first-child:hover{opacity:0.88}
+header nav > a:first-child:active{opacity:0.75}
+
+footer a{
+  transition:color 160ms var(--pt-ease-out), opacity 160ms var(--pt-ease-out);
+}
+footer a:hover{color:#EEF1F7 !important}
+
+#faq a,
+#contact a:not(.pt-btn){
+  transition:color 160ms var(--pt-ease-out), opacity 160ms var(--pt-ease-out);
+}
+#faq a:hover{color:var(--pt-accent-hover)}
+
+.pt-call-fab > button[data-action="toggle-call"],
+.pt-call-fab button[data-action="toggle-call"]{
+  transition:
+    transform 160ms var(--pt-ease-out),
+    box-shadow 160ms var(--pt-ease-out),
+    filter 160ms var(--pt-ease-out);
+}
+.pt-call-fab > button[data-action="toggle-call"]:active,
+.pt-call-fab button[data-action="toggle-call"]:active{
+  transform:scale(0.94);
+}
+
+.pt-mobile-toggle{
+  transition:
+    background-color 160ms var(--pt-ease-out),
+    border-color 160ms var(--pt-ease-out),
+    transform 120ms var(--pt-ease-out);
+}
+.pt-mobile-toggle:active{transform:scale(0.95)}
+.pt-mobile-panel a{
+  transition:
+    background-color 160ms var(--pt-ease-out),
+    color 160ms var(--pt-ease-out);
+}
+
+/* Hover-capable pointers only — avoids sticky tap states on touch */
+@media (hover: hover) and (pointer: fine) {
+  .pt-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:var(--pt-shadow-btn);
+  }
+  .pt-btn:hover:active{
+    transform:scale(0.97) translateY(0);
+    box-shadow:none;
+  }
+  /* Primary green CTAs: brighten instead of only lifting */
+  a.pt-btn[style*="background: #2EE6A0"]:hover,
+  a.pt-btn[style*="background:#2EE6A0"]:hover,
+  button.pt-btn[style*="background: #2EE6A0"]:hover,
+  button.pt-btn[style*="background:#2EE6A0"]:hover,
+  .pt-call-fab > button.pt-btn:hover{
+    filter:brightness(1.06);
+  }
+  /* Ghost / dark CTAs */
+  a.pt-btn[style*="background: #0F1320"]:hover,
+  a.pt-btn[style*="background:#0F1320"]:hover,
+  a.pt-btn[style*="background: #1A2030"]:hover,
+  a.pt-btn[style*="background:#1A2030"]:hover{
+    background-color:#232A3E !important;
+    border-color:#3A4560;
+  }
+  a.pt-btn[style*="background: #07090F"]:hover,
+  a.pt-btn[style*="background:#07090F"]:hover{
+    filter:brightness(1.15);
+  }
+
+  .pt-card:hover{
+    transform:translateY(-3px);
+    border-color:color-mix(in srgb, var(--accent, #2ee6a0) 45%, #1E2436);
+    box-shadow:var(--pt-shadow-card);
+  }
+  /* Accent-filled cards: soft glow, no harsh border swap */
+  .pt-card[style*="background: #2EE6A0"]:hover,
+  .pt-card[style*="background:#2EE6A0"]:hover{
+    border-color:transparent;
+    box-shadow:0 28px 56px -28px color-mix(in srgb, var(--accent, #2ee6a0) 70%, transparent);
+    filter:brightness(1.02);
+  }
+
+  .pt-faq:hover{
+    border-color:color-mix(in srgb, var(--accent, #2ee6a0) 28%, #1E2436) !important;
+    background-color:#121826 !important;
+  }
+  .pt-faq:hover summary{color:#FFFFFF}
+
+  .pt-mobile-toggle:hover{
+    background:#161B2A;
+    border-color:#3A4560;
+  }
+  .pt-mobile-panel a:hover{
+    background:#0F1320;
+    color:#FFFFFF;
+  }
+  .pt-mobile-cta:hover{
+    filter:brightness(1.05);
+  }
+
+  .pt-call-fab > button[data-action="toggle-call"]:hover{
+    transform:translateY(-2px) scale(1.04);
+    box-shadow:0 18px 44px -14px color-mix(in srgb, var(--accent, #2ee6a0) 75%, #000);
+    filter:brightness(1.05);
+  }
+}
+
+@supports (animation-timeline: view()){
+  .pt-reveal{
+    animation:ptRise linear both;
+    animation-timeline:view();
+    animation-range:entry 0% entry 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *,
+  *::before,
+  *::after{
+    animation:none!important;
+    transition:none!important;
+  }
+  .pt-btn:hover,
+  .pt-card:hover,
+  .pt-call-fab > button[data-action="toggle-call"]:hover{
+    transform:none;
+  }
+}
 

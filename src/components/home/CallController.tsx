@@ -31,14 +31,17 @@ function isOpenNow(config: CallSettings) {
 
 function setShown(el: HTMLElement, show: boolean) {
   // display:contents + hidden is unreliable in some browsers (children still paint).
+  // Always set display with !important so it wins over default CSS hide rules.
   if (show) {
     el.removeAttribute("hidden");
-    el.style.removeProperty("display");
     el.classList.remove("pt-if-hide");
+    el.classList.add("pt-if-show");
+    el.style.setProperty("display", "contents", "important");
   } else {
     el.setAttribute("hidden", "");
-    el.style.setProperty("display", "none", "important");
     el.classList.add("pt-if-hide");
+    el.classList.remove("pt-if-show");
+    el.style.setProperty("display", "none", "important");
   }
 }
 
