@@ -13,7 +13,7 @@ const SIZE_CLASS: Record<NonNullable<BrandLogoProps["size"]>, string> = {
   adminCompact: "admin-brand-logo admin-brand-logo--compact",
 };
 
-/** Maison Classic lockup used across marketing + admin. */
+/** Green-on-black lockup used across marketing + admin. */
 export function BrandLogo({
   size = "nav",
   className = "",

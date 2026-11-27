@@ -81,7 +81,7 @@ Design source: [`handoff/`](handoff/) (Handoff v2 — floating call button, busi
 
 | Area | What’s included |
 |---|---|
-| Homepage | Maison Classic branding, branded preload splash, live clock, mobile nav, floating call FAB |
+| Homepage | Green-on-black branding, branded preload splash, live clock, mobile nav, floating call FAB |
 | Lead intake | `/request` with Zod validation, honeypot, rate-limited RPC |
 | Public talent | `/talent` from approved + visible profiles |
 | Admin CRM | Leads, companies, talent, jobs, placements, tasks, finance, audit, settings — full CRUD + demo seed |

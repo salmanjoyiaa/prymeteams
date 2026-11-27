@@ -127,7 +127,7 @@ header nav > a:first-child{
   background:#07090F;
 }
 
-/* Maison Classic brand mark */
+/* Brand lockup (green-on-black) */
 .pt-brand-link{
   line-height:0;
 }
@@ -187,7 +187,7 @@ html.pt-splash-skip .pt-splash{
   display:block;
   height:1px;
   width:0;
-  background:linear-gradient(90deg, transparent, #E8C45A, transparent);
+  background:linear-gradient(90deg, transparent, #2EE6A0, transparent);
   animation:ptSplashLine 700ms var(--pt-ease-out, cubic-bezier(0.23, 1, 0.32, 1)) 280ms forwards;
 }
 @keyframes ptSplashIn{

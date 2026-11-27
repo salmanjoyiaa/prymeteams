@@ -8,12 +8,11 @@ This pack contains the approved homepage design for **Pryme Teams** (dedicated C
 |---|---|
 | `index.html` | **The design, fully working.** One self-contained page (HTML + CSS + a tiny JS clock). Open it in Chrome to see every section, animation and hover state. Use it as the source of truth. |
 | `design-reference-full-page.png` | Full-page screenshot at 1440px wide, for side-by-side comparison. |
-| `assets/pryme-logo-badge.svg` | Main logo: black badge, gold border, gold crowned P (vector). |
-| `assets/pryme-logo-mark-gold.svg` | Crowned P only, gold, no badge (vector). |
-| `assets/pryme-logo-full-on-dark.png` | Full logo (badge + "PRYME TEAMS" + tagline), transparent PNG for dark backgrounds. |
-| `assets/pryme-logo-full-on-light.png` | Same, for light backgrounds. |
+| `assets/pryme-logo-full-on-dark.png` | Full lockup (green PRYME + TEAMS + tagline) on black. |
+| `assets/pryme-logo-header.png` | Compact header/footer lockup. |
+| `assets/pryme-logo-full-on-light.png` | Same lockup (dark-first brand). |
 | `assets/pryme-icon-1024.png`, `-512.png`, `-180.png` | App / social / Apple touch icons. |
-| `assets/pryme-favicon.svg`, `pryme-favicon-32.png` | Browser tab icons (already linked in `index.html`). |
+| `assets/pryme-favicon.svg`, `pryme-favicon-32.png` | Browser tab icons. |
 
 ## Brand
 
@@ -27,15 +26,14 @@ This pack contains the approved homepage design for **Pryme Teams** (dedicated C
 | Card border | `#1E2436` |
 | Text (primary) | `#EEF1F7` |
 | Text (muted) | `#9AA3B5` |
-| **Accent — emerald green** (buttons, highlights) | `#2EE6A0` |
-| **Logo gold** (logo + "PRYME" in the wordmark) | `#E8C45A` |
+| **Accent / logo green** (buttons, PRYME lockup) | `#2EE6A0` |
 | **Red** ("headache", "Except the stress", AI card, LIVE badges) | `#FF5A5F` |
 
 **Fonts** (Google Fonts, free)
 - Headings: **Archivo** — 800 (ExtraBold), main headline 900 (Black)
 - Body: **Inter** — 400 / 500 / 600
 
-**Wordmark:** "PRYME" in gold `#E8C45A` + "TEAMS" in white `#EEF1F7`, Archivo 800.
+**Wordmark:** stacked lockup — green **PRYME**, cream **TEAMS**, muted tagline “CUSTOMER SUCCESS EXPERTS”.
 
 ## Page structure (top to bottom)
 
