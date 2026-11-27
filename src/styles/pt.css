@@ -112,6 +112,10 @@ header nav > a:first-child{
 .pt-d1{animation-delay:.1s}.pt-d2{animation-delay:.25s}.pt-d3{animation-delay:.4s}.pt-d4{animation-delay:.55s}.pt-d5{animation-delay:.75s}
 .pt-pulse{animation:ptPulse 2s infinite}
 .pt-marquee{display:flex;width:max-content;animation:ptMarquee 36s linear infinite}
+.pt-tools-track{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.pt-tools-marquee{display:flex;width:max-content;align-items:center;gap:14px;animation:ptMarquee 42s linear infinite}
+.pt-tools-chip{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;border:1px solid #1E2436;background:#0F1320;color:#C3CADA;font-size:14px;font-weight:600;white-space:nowrap}
+.pt-tools-chip img{width:22px;height:22px;object-fit:contain;border-radius:5px;background:#EEF1F7;flex:0 0 auto}
 .pt-float{animation:ptFloat 6s ease-in-out infinite}
 .pt-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#9AA3B5;animation:ptBlink 1.2s infinite}
 .pt-dot2{animation-delay:.15s}.pt-dot3{animation-delay:.3s}

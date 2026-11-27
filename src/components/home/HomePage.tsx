@@ -8,6 +8,7 @@ import { BrandLogo } from "@/components/brand/BrandLogo";
 import { LiveClock } from "@/components/home/LiveClock";
 import { MobileNav } from "@/components/home/MobileNav";
 import { CallController } from "@/components/home/CallController";
+import { ToolsMarquee } from "@/components/home/ToolsMarquee";
 
 export function HomePage({ settings }: { settings: PublicSiteBundle }) {
   return (
@@ -137,13 +138,11 @@ export function HomePage({ settings }: { settings: PublicSiteBundle }) {
 </section>
 
 <section aria-label="Tools we already know" style={{borderBottom: "1px solid #1A2030", padding: "40px 0"}}>
-<div style={{maxWidth: "1240px", margin: "0 auto", padding: "0 32px"}}>
+<div style={{maxWidth: "1240px", margin: "0 auto", padding: "0 32px 16px"}}>
 <p className="pt-reveal" style={{margin: "0 0 20px", textAlign: "center", fontSize: "14px", fontWeight: "600", color: "#8A93A6", letterSpacing: "1px"}}>TOOLS WE ALREADY KNOW</p>
-<div className="pt-reveal pt-tools" style={{display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "10px"}}>
-{["Guesty","Hostaway","Hospitable","OwnerRez","Jurny","PriceLabs","Wheelhouse","Breezeway","Turno","Airbnb","Vrbo","Booking.com"].map((name) => (
-<span key={name} style={{padding: "10px 16px", borderRadius: "999px", border: "1px solid #1E2436", background: "#0F1320", color: "#C3CADA", fontSize: "14px", fontWeight: "600"}}>{name}</span>
-))}
 </div>
+<div className="pt-reveal">
+<ToolsMarquee />
 </div>
 </section>
 
