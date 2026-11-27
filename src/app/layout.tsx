@@ -24,11 +24,12 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Pryme Teams — Dedicated Customer Success Experts",
+    default:
+      "Pryme Teams — Customer Success for Property Managers",
     template: "%s · Pryme Teams",
   },
   description:
-    "Hire one dedicated Customer Success Expert or a whole team. Same people every shift, on-site in our office, QA-checked, live camera access. Live in 48 hours.",
+    "Dedicated Customer Success Experts for short-term and vacation rental property managers. Guest experience, revenue and owner relations — live in 48 hours, on camera.",
   icons: {
     icon: [
       { url: "/favicon.ico?v=4", sizes: "48x48" },
@@ -47,9 +48,10 @@ export const metadata: Metadata = {
     { media: "(prefers-color-scheme: light)", color: "#07090F" },
   ],
   openGraph: {
-    title: "Pryme Teams — Dedicated Customer Success Experts",
+    title:
+      "Pryme Teams — Customer Success for Property Managers",
     description:
-      "Hire one dedicated Customer Success Expert or a whole team. Live in 48 hours.",
+      "Dedicated experts for STR property managers and growing hosts. Guest experience, revenue and owner relations — live in 48 hours.",
     url: siteUrl,
     siteName: "Pryme Teams",
     images: [
@@ -64,9 +66,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pryme Teams — Dedicated Customer Success Experts",
+    title:
+      "Pryme Teams — Customer Success for Property Managers",
     description:
-      "Hire one dedicated Customer Success Expert or a whole team. Live in 48 hours.",
+      "Dedicated experts for STR property managers and growing hosts. Live in 48 hours, on camera.",
     images: ["/brand/pryme-logo-full-on-dark.png"],
   },
 };

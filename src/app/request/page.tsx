@@ -26,8 +26,8 @@ export default async function RequestPage({
           Get my <span className="text-pt-accent">quote</span>
         </h1>
         <p className="mt-3 text-[15px] leading-relaxed text-pt-muted sm:mt-4 sm:text-lg">
-          Tell us what you need — one expert or a full team — and we&apos;ll
-          come back with a plan and a custom price.
+          Tell us about your portfolio — property management company or growing
+          host — and we&apos;ll come back with a plan and a custom price.
         </p>
         <div className="relative mt-6 rounded-2xl border border-pt-border bg-[#0B0E18] p-4 sm:mt-10 sm:rounded-3xl sm:p-8">
           <RequestForm plan={plan} intent={intent} />

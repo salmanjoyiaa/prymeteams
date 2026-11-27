@@ -24,7 +24,7 @@ export function HomePage({ settings }: { settings: PublicSiteBundle }) {
 <div className="pt-desktop-nav" style={{display: "flex", flexWrap: "wrap", alignItems: "center", gap: "4px 30px"}}><a href="#how" className="pt-nav" style={{color: "#C3CADA", textDecoration: "none", fontSize: "15px", fontWeight: "500", padding: "10px 2px"}}>How it works</a><a href="#live" className="pt-nav" style={{color: "#C3CADA", textDecoration: "none", fontSize: "15px", fontWeight: "500", padding: "10px 2px"}}>Live view</a><a href="#included" className="pt-nav" style={{color: "#C3CADA", textDecoration: "none", fontSize: "15px", fontWeight: "500", padding: "10px 2px"}}>What you get</a><a href="#pricing" className="pt-nav" style={{color: "#C3CADA", textDecoration: "none", fontSize: "15px", fontWeight: "500", padding: "10px 2px"}}>Pricing</a><a href="#faq" className="pt-nav" style={{color: "#C3CADA", textDecoration: "none", fontSize: "15px", fontWeight: "500", padding: "10px 2px"}}>FAQ</a></div>
 <div className="pt-desktop-cta" style={{display: "flex", flexWrap: "wrap", alignItems: "center", gap: "10px"}}>
 <a href="#live" className="pt-btn" style={{display: "flex", alignItems: "center", gap: "8px", color: "#EEF1F7", textDecoration: "none", fontSize: "14px", fontWeight: "600", padding: "11px 16px", border: "1px solid #2A3248", borderRadius: "12px"}}><span className="pt-rec" aria-hidden="true" style={{color: "#FF5A5F", fontSize: "10px"}}>●</span>Watch live</a>
-<a href="/request" className="pt-btn" style={{background: "#2EE6A0", color: "#07090F", textDecoration: "none", fontFamily: "var(--head)", fontSize: "15px", fontWeight: "800", padding: "12px 20px", borderRadius: "12px"}}>Get a team →</a>
+<a href="/request" className="pt-btn" style={{background: "#2EE6A0", color: "#07090F", textDecoration: "none", fontFamily: "var(--head)", fontSize: "15px", fontWeight: "800", padding: "12px 20px", borderRadius: "12px"}}>Get your team →</a>
 </div>
 <MobileNav />
 </nav>
@@ -33,17 +33,17 @@ export function HomePage({ settings }: { settings: PublicSiteBundle }) {
 <section id="top" style={{position: "relative"}}>
 <div aria-hidden="true" className="pt-grid" style={{position: "absolute", inset: "-100px 0 0 0", backgroundImage: "none"}}><svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" style={{width: "100%", height: "100%"}}><line x1="683" y1="174" x2="730" y2="43" stroke="#2A3550" strokeWidth="1"></line><line x1="683" y1="174" x2="760" y2="326" stroke="#2A3550" strokeWidth="1"></line><line x1="683" y1="174" x2="558" y2="308" stroke="#2A3550" strokeWidth="1"></line><line x1="828" y1="686" x2="723" y2="766" stroke="#2A3550" strokeWidth="1"></line><line x1="828" y1="686" x2="895" y2="815" stroke="#2A3550" strokeWidth="1"></line><line className="pt-flow" x1="828" y1="686" x2="820" y2="528" stroke="#2EE6A0" strokeOpacity="0.55" strokeWidth="1.2" style={{animationDuration: "2s"}}></line><line x1="118" y1="94" x2="121" y2="246" stroke="#2A3550" strokeWidth="1"></line><line className="pt-flow" x1="118" y1="94" x2="292" y2="316" stroke="#2EE6A0" strokeOpacity="0.55" strokeWidth="1.2" style={{animationDuration: "1.6s"}}></line><line className="pt-flow" x1="118" y1="94" x2="459" y2="58" stroke="#2EE6A0" strokeOpacity="0.55" strokeWidth="1.2" style={{animationDuration: "2s"}}></line><line x1="1117" y1="116" x2="1267" y2="94" stroke="#2A3550" strokeWidth="1"></line><line x1="1117" y1="116" x2="1196" y2="327" stroke="#2A3550" strokeWidth="1"></line><line x1="1117" y1="116" x2="876" y2="91" stroke="#2A3550" strokeWidth="1"></line><line className="pt-flow" x1="138" y1="539" x2="100" y2="704" stroke="#2EE6A0" strokeOpacity="0.55" strokeWidth="1.2" style={{animationDuration: "2s"}}></line><line x1="138" y1="539" x2="277" y2="727" stroke="#2A3550" strokeWidth="1"></line><line className="pt-flow" x1="138" y1="539" x2="292" y2="316" stroke="#2EE6A0" strokeOpacity="0.55" strokeWidth="1.2" style={{animationDuration: "2.4s"}}></line><line x1="459" y1="58" x2="683" y2="174" stroke="#2A3550" strokeWidth="1"></line><line x1="459" y1="58" x2="558" y2="308" stroke="#2A3550" strokeWidth="1"></line><line x1="459" y1="58" x2="730" y2="43" stroke="#2A3550" strokeWidth="1"></line><line className="pt-flow" x1="876" y1="91" x2="730" y2="43" stroke="#2EE6A0" strokeOpacity="0.55" strokeWidth="1.2" style={{animationDuration: "3s"}}></line><line x1="876" y1="91" x2="683" y2="174" stroke="#2A3550" strokeWidth="1"></line><line x1="876" y1="91" x2="939" y2="314" stroke="#2A3550" strokeWidth="1"></line><line x1="1148" y1="454" x2="1196" y2="327" stroke="#2A3550" strokeWidth="1"></line><line className="pt-flow" x1="1148" y1="454" x2="1162" y2="606" stroke="#2EE6A0" strokeOpacity="0.55" strokeWidth="1.2" style={{animationDuration: "1.6s"}}></line><line x1="1148" y1="454" x2="1304" y2="616" stroke="#2A3550" strokeWidth="1"></line><line x1="141" y1="866" x2="300" y2="858" stroke="#2A3550" strokeWidth="1"></line><line x1="141" y1="866" x2="100" y2="704" stroke="#2A3550" strokeWidth="1"></line><line x1="141" y1="866" x2="277" y2="727" stroke="#2A3550" strokeWidth="1"></line><line x1="477" y1="665" x2="441" y2="528" stroke="#2A3550" strokeWidth="1"></line><line className="pt-flow" x1="477" y1="665" x2="528" y2="833" stroke="#2EE6A0" strokeOpacity="0.55" strokeWidth="1.2" style={{animationDuration: "2.4s"}}></line><line className="pt-flow" x1="477" y1="665" x2="277" y2="727" stroke="#2EE6A0" strokeOpacity="0.55" strokeWidth="1.2" style={{animationDuration: "1.6s"}}></line><line x1="1304" y1="616" x2="1162" y2="606" stroke="#2A3550" strokeWidth="1"></line><line x1="1304" y1="616" x2="1418" y2="409" stroke="#2A3550" strokeWidth="1"></line><line x1="121" y1="246" x2="292" y2="316" stroke="#2A3550" strokeWidth="1"></line><line className="pt-flow" x1="121" y1="246" x2="138" y2="539" stroke="#2EE6A0" strokeOpacity="0.55" strokeWidth="1.2" style={{animationDuration: "2.4s"}}></line><line x1="292" y1="316" x2="404" y2="401" stroke="#2A3550" strokeWidth="1"></line><line x1="292" y1="316" x2="441" y2="528" stroke="#2A3550" strokeWidth="1"></line><line x1="1167" y1="855" x2="1413" y2="837" stroke="#2A3550" strokeWidth="1"></line><line className="pt-flow" x1="1167" y1="855" x2="1162" y2="606" stroke="#2EE6A0" strokeOpacity="0.55" strokeWidth="1.2" style={{animationDuration: "2.4s"}}></line><line x1="1167" y1="855" x2="895" y2="815" stroke="#2A3550" strokeWidth="1"></line><line x1="1416" y1="205" x2="1267" y2="94" stroke="#2A3550" strokeWidth="1"></line><line x1="1416" y1="205" x2="1418" y2="409" stroke="#2A3550" strokeWidth="1"></line><line x1="1416" y1="205" x2="1196" y2="327" stroke="#2A3550" strokeWidth="1"></line><line className="pt-flow" x1="404" y1="401" x2="441" y2="528" stroke="#2EE6A0" strokeOpacity="0.55" strokeWidth="1.2" style={{animationDuration: "2s"}}></line><line x1="404" y1="401" x2="558" y2="308" stroke="#2A3550" strokeWidth="1"></line><line x1="441" y1="528" x2="663" y2="496" stroke="#2A3550" strokeWidth="1"></line><line className="pt-flow" x1="895" y1="815" x2="723" y2="766" stroke="#2EE6A0" strokeOpacity="0.55" strokeWidth="1.2" style={{animationDuration: "3s"}}></line><line x1="663" y1="496" x2="820" y2="528" stroke="#2A3550" strokeWidth="1"></line><line className="pt-flow" x1="663" y1="496" x2="760" y2="326" stroke="#2EE6A0" strokeOpacity="0.55" strokeWidth="1.2" style={{animationDuration: "1.6s"}}></line><line x1="663" y1="496" x2="558" y2="308" stroke="#2A3550" strokeWidth="1"></line><line x1="760" y1="326" x2="939" y2="314" stroke="#2A3550" strokeWidth="1"></line><line className="pt-flow" x1="528" y1="833" x2="723" y2="766" stroke="#2EE6A0" strokeOpacity="0.55" strokeWidth="1.2" style={{animationDuration: "2.4s"}}></line><line x1="528" y1="833" x2="300" y2="858" stroke="#2A3550" strokeWidth="1"></line><line x1="1196" y1="327" x2="1418" y2="409" stroke="#2A3550" strokeWidth="1"></line><line x1="939" y1="314" x2="820" y2="528" stroke="#2A3550" strokeWidth="1"></line><line x1="1267" y1="94" x2="1196" y2="327" stroke="#2A3550" strokeWidth="1"></line><line x1="100" y1="704" x2="277" y2="727" stroke="#2A3550" strokeWidth="1"></line><line className="pt-flow" x1="820" y1="528" x2="760" y2="326" stroke="#2EE6A0" strokeOpacity="0.55" strokeWidth="1.2" style={{animationDuration: "2s"}}></line><line x1="300" y1="858" x2="277" y2="727" stroke="#2A3550" strokeWidth="1"></line><line x1="558" y1="308" x2="760" y2="326" stroke="#2A3550" strokeWidth="1"></line><line x1="1413" y1="837" x2="1304" y2="616" stroke="#2A3550" strokeWidth="1"></line><line x1="1413" y1="837" x2="1162" y2="606" stroke="#2A3550" strokeWidth="1"></line><circle className="pt-node" cx="683" cy="174" r="2.5" fill="#4A5878" style={{animationDelay: "1.96s"}}></circle><circle className="pt-node" cx="828" cy="686" r="2.5" fill="#4A5878" style={{animationDelay: "0.36s"}}></circle><circle className="pt-node" cx="118" cy="94" r="4.5" fill="#4A5878" style={{animationDelay: "2.25s"}}></circle><circle className="pt-node" cx="1117" cy="116" r="4.5" fill="#4A5878" style={{animationDelay: "1.3s"}}></circle><circle className="pt-node" cx="138" cy="539" r="3.5" fill="#2EE6A0" style={{animationDelay: "2.84s"}}></circle><circle className="pt-node" cx="459" cy="58" r="4.5" fill="#4A5878" style={{animationDelay: "2.23s"}}></circle><circle className="pt-node" cx="876" cy="91" r="2.5" fill="#4A5878" style={{animationDelay: "0.51s"}}></circle><circle className="pt-node" cx="1148" cy="454" r="3" fill="#2EE6A0" style={{animationDelay: "1.77s"}}></circle><circle className="pt-node" cx="141" cy="866" r="4.5" fill="#4A5878" style={{animationDelay: "0.44s"}}></circle><circle className="pt-node" cx="477" cy="665" r="4.5" fill="#4A5878" style={{animationDelay: "1.05s"}}></circle><circle className="pt-node" cx="1304" cy="616" r="3" fill="#2EE6A0" style={{animationDelay: "2.4s"}}></circle><circle className="pt-node" cx="121" cy="246" r="2.5" fill="#4A5878" style={{animationDelay: "2.8s"}}></circle><circle className="pt-node" cx="292" cy="316" r="4.5" fill="#4A5878" style={{animationDelay: "0.58s"}}></circle><circle className="pt-node" cx="1167" cy="855" r="3" fill="#2EE6A0" style={{animationDelay: "0.64s"}}></circle><circle className="pt-node" cx="1416" cy="205" r="3" fill="#4A5878" style={{animationDelay: "0.98s"}}></circle><circle className="pt-node" cx="404" cy="401" r="4.5" fill="#4A5878" style={{animationDelay: "0.18s"}}></circle><circle className="pt-node" cx="441" cy="528" r="3.5" fill="#4A5878" style={{animationDelay: "1.99s"}}></circle><circle className="pt-node" cx="895" cy="815" r="4.5" fill="#4A5878" style={{animationDelay: "2.63s"}}></circle><circle className="pt-node" cx="663" cy="496" r="3" fill="#4A5878" style={{animationDelay: "1.57s"}}></circle><circle className="pt-node" cx="760" cy="326" r="2.5" fill="#4A5878" style={{animationDelay: "2.33s"}}></circle><circle className="pt-node" cx="528" cy="833" r="2.5" fill="#4A5878" style={{animationDelay: "0.45s"}}></circle><circle className="pt-node" cx="1196" cy="327" r="3" fill="#4A5878" style={{animationDelay: "2.18s"}}></circle><circle className="pt-node" cx="723" cy="766" r="2.5" fill="#2EE6A0" style={{animationDelay: "1.56s"}}></circle><circle className="pt-node" cx="939" cy="314" r="4.5" fill="#4A5878" style={{animationDelay: "0.32s"}}></circle><circle className="pt-node" cx="1267" cy="94" r="2.5" fill="#2EE6A0" style={{animationDelay: "0.83s"}}></circle><circle className="pt-node" cx="100" cy="704" r="2.5" fill="#4A5878" style={{animationDelay: "1.69s"}}></circle><circle className="pt-node" cx="1162" cy="606" r="2.5" fill="#4A5878" style={{animationDelay: "1.84s"}}></circle><circle className="pt-node" cx="730" cy="43" r="3" fill="#4A5878" style={{animationDelay: "1.36s"}}></circle><circle className="pt-node" cx="820" cy="528" r="4.5" fill="#4A5878" style={{animationDelay: "0.74s"}}></circle><circle className="pt-node" cx="300" cy="858" r="3.5" fill="#4A5878" style={{animationDelay: "2.68s"}}></circle><circle className="pt-node" cx="1418" cy="409" r="3" fill="#4A5878" style={{animationDelay: "0.41s"}}></circle><circle className="pt-node" cx="558" cy="308" r="2.5" fill="#2EE6A0" style={{animationDelay: "0.95s"}}></circle><circle className="pt-node" cx="277" cy="727" r="3" fill="#4A5878" style={{animationDelay: "0.64s"}}></circle><circle className="pt-node" cx="1413" cy="837" r="3.5" fill="#4A5878" style={{animationDelay: "2.69s"}}></circle></svg></div>
 <div style={{position: "relative", maxWidth: "1240px", margin: "0 auto", padding: "100px 32px 80px", textAlign: "center"}}>
-<p className="pt-rise pt-d1" style={{display: "inline-flex", alignItems: "center", gap: "10px", margin: "0 0 30px", padding: "8px 16px", border: "1px solid #1E2436", background: "#0B0E18", borderRadius: "999px", fontSize: "14px", color: "#C3CADA"}}><span className="pt-pulse" aria-hidden="true" style={{width: "8px", height: "8px", borderRadius: "50%", background: "#2EE6A0"}}></span>Dedicated Customer Success Experts <span style={{color: "#4A5470"}}>|</span> <span style={{color: "#EEF1F7", fontWeight: "600"}}>Hire one, or a whole team</span></p>
-<h1 style={{margin: "0 auto", fontFamily: "var(--head)", fontWeight: "900", fontSize: "104px", lineHeight: "0.95", letterSpacing: "-3.5px", maxWidth: "1180px"}}>
-<span className="pt-rise pt-d2" style={{display: "block"}}>Hire one. Hire a team.</span>
-<span className="pt-rise pt-d3" style={{display: "block", color: "#2EE6A0"}}><span className="pt-sweep">Never a <span style={{color: "#FF5A5F"}}>headache.</span></span></span>
+<p className="pt-rise pt-d1" style={{display: "inline-flex", alignItems: "center", gap: "10px", margin: "0 0 30px", padding: "8px 16px", border: "1px solid #1E2436", background: "#0B0E18", borderRadius: "999px", fontSize: "14px", color: "#C3CADA"}}><span className="pt-pulse" aria-hidden="true" style={{width: "8px", height: "8px", borderRadius: "50%", background: "#2EE6A0"}}></span>For short-term &amp; vacation rental property managers <span style={{color: "#4A5470"}}>|</span> <span style={{color: "#EEF1F7", fontWeight: "600"}}>Founded by an ex-Airbnb team member</span></p>
+<h1 style={{margin: "0 auto", fontFamily: "var(--head)", fontWeight: "900", fontSize: "72px", lineHeight: "0.95", letterSpacing: "-2.5px", maxWidth: "1180px"}}>
+<span className="pt-rise pt-d2" style={{display: "block"}}>Your guests never wait.</span>
+<span className="pt-rise pt-d3" style={{display: "block", color: "#2EE6A0"}}><span className="pt-sweep">Your owners never <span style={{color: "#FF5A5F"}}>worry.</span></span></span>
 </h1>
-<p className="pt-rise pt-d4" style={{margin: "34px auto 0", fontSize: "21px", lineHeight: "1.6", color: "#9AA3B5", maxWidth: "720px"}}>Dedicated Customer Success Experts — one person or a full team — working only for you. Calls, chats, emails and back-office, run from our office, checked by our QA team, and open to you on live camera <span style={{color: "#EEF1F7", fontWeight: "600"}}>anytime.</span></p>
+<p className="pt-rise pt-d4" style={{margin: "34px auto 0", fontSize: "21px", lineHeight: "1.6", color: "#9AA3B5", maxWidth: "760px"}}>Dedicated Customer Success Experts for <span style={{color: "#EEF1F7", fontWeight: "600"}}>property managers</span>: trained on your SOPs, live in 48 hours, and on camera whenever you want to check in.</p>
 <div className="pt-rise pt-d4" style={{display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "14px", marginTop: "44px"}}>
-<a href="/request" className="pt-btn" style={{background: "#2EE6A0", color: "#07090F", padding: "20px 34px", textDecoration: "none", fontWeight: "800", fontSize: "17px", borderRadius: "12px", fontFamily: "var(--head)"}}>Build my team →</a>
-<a href="#live" className="pt-btn" style={{background: "#0F1320", border: "1px solid #1E2436", color: "#EEF1F7", padding: "20px 34px", textDecoration: "none", fontWeight: "800", fontSize: "17px", borderRadius: "12px", fontFamily: "var(--head)"}}>See the live view</a>
+<a href="/request" className="pt-btn" style={{background: "#2EE6A0", color: "#07090F", padding: "20px 34px", textDecoration: "none", fontWeight: "800", fontSize: "17px", borderRadius: "12px", fontFamily: "var(--head)"}}>Get your team →</a>
+<a href="#live" className="pt-btn" style={{background: "#0F1320", border: "1px solid #1E2436", color: "#EEF1F7", padding: "20px 34px", textDecoration: "none", fontWeight: "800", fontSize: "17px", borderRadius: "12px", fontFamily: "var(--head)"}}>Watch live</a>
 </div>
-<p className="pt-rise pt-d4" style={{margin: "22px 0 0", fontSize: "14px", color: "#8A93A6"}}>Live in 48 hours. No hiring. No desks. No training from scratch.</p>
+<p className="pt-rise pt-d4" style={{margin: "22px 0 0", fontSize: "14px", color: "#8A93A6", maxWidth: "720px", marginLeft: "auto", marginRight: "auto", lineHeight: "1.55"}}>Your guests and owners get a dedicated team that knows your properties, SOPs and tools — working in our office, watched by our QA team. You can watch them too, live.</p>
 
 <div className="pt-rise pt-d5" style={{marginTop: "72px"}}>
 <div className="pt-float" style={{textAlign: "left", background: "#0B0E18", border: "1px solid #232A3E", borderRadius: "24px", padding: "8px", boxShadow: "0 40px 120px -40px color-mix(in srgb, var(--accent) 35%, transparent)"}}>
@@ -60,8 +60,8 @@ export function HomePage({ settings }: { settings: PublicSiteBundle }) {
 </div>
 <div style={{flex: "1.3 1 320px", background: "#0F1320", borderRadius: "18px", padding: "24px", display: "flex", flexDirection: "column", gap: "12px"}}>
 <p style={{margin: "0 0 4px", fontSize: "13px", color: "#9AA3B5", letterSpacing: "1px"}}>LIVE CONVERSATION</p>
-<p style={{margin: "0", alignSelf: "flex-start", maxWidth: "80%", background: "#1A2030", padding: "12px 16px", borderRadius: "16px 16px 16px 4px", fontSize: "14px", lineHeight: "1.5"}}>Hi! Can I move my booking to next Friday?</p>
-<p style={{margin: "0", alignSelf: "flex-end", maxWidth: "80%", background: "#2EE6A0", color: "#07090F", padding: "12px 16px", borderRadius: "16px 16px 4px 16px", fontSize: "14px", lineHeight: "1.5", fontWeight: "500"}}>Absolutely — pulling it up for you now.</p>
+<p style={{margin: "0", alignSelf: "flex-start", maxWidth: "80%", background: "#1A2030", padding: "12px 16px", borderRadius: "16px 16px 16px 4px", fontSize: "14px", lineHeight: "1.5"}}>Hi — the lockbox code isn’t working for check-in.</p>
+<p style={{margin: "0", alignSelf: "flex-end", maxWidth: "80%", background: "#2EE6A0", color: "#07090F", padding: "12px 16px", borderRadius: "16px 16px 4px 16px", fontSize: "14px", lineHeight: "1.5", fontWeight: "500"}}>Sorry about that — sending a backup code and looping in ops now.</p>
 <span aria-label="Customer is typing" role="img" style={{alignSelf: "flex-start", display: "flex", gap: "5px", background: "#1A2030", padding: "14px 16px", borderRadius: "16px 16px 16px 4px"}}><span className="pt-dot"></span><span className="pt-dot pt-dot2"></span><span className="pt-dot pt-dot3"></span></span>
 </div>
 <div style={{flex: "1 1 300px", background: "#0F1320", borderRadius: "18px", padding: "24px", display: "flex", flexDirection: "column", gap: "14px"}}>
@@ -79,8 +79,8 @@ export function HomePage({ settings }: { settings: PublicSiteBundle }) {
 
 <section aria-label="What we cover" style={{borderTop: "1px solid #1A2030", borderBottom: "1px solid #1A2030", background: "rgba(11,14,24,0.72)", overflow: "hidden", padding: "26px 0"}}>
 <div className="pt-marquee" style={{gap: "48px", fontFamily: "var(--head)", fontSize: "26px", fontWeight: "800", whiteSpace: "nowrap", color: "#C3CADA"}}>
-<span>Inbound calls</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span>Live chat & email</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span>Lead follow-up</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span>Back-office</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span>SOPs written for you</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span>Training materials</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span>QA department</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span>Live camera access</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span>Trained backups</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span>Anything you need</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span>
-<span aria-hidden="true">Inbound calls</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span aria-hidden="true">Live chat & email</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span aria-hidden="true">Lead follow-up</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span aria-hidden="true">Back-office</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span aria-hidden="true">SOPs written for you</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span aria-hidden="true">Training materials</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span aria-hidden="true">QA department</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span aria-hidden="true">Live camera access</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span aria-hidden="true">Trained backups</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span aria-hidden="true">Anything you need</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span>
+<span>Guest messaging</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span>Check-ins</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span>Reservations</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span>Pricing</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span>Turnovers</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span>Work orders</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span>Reviews</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span>Owner reports</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span>Damage claims</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span>24/7 coverage</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span>
+<span aria-hidden="true">Guest messaging</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span aria-hidden="true">Check-ins</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span aria-hidden="true">Reservations</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span aria-hidden="true">Pricing</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span aria-hidden="true">Turnovers</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span aria-hidden="true">Work orders</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span aria-hidden="true">Reviews</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span aria-hidden="true">Owner reports</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span aria-hidden="true">Damage claims</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span><span aria-hidden="true">24/7 coverage</span><span aria-hidden="true" style={{color: "#2EE6A0"}}>/</span>
 </div>
 </section>
 
@@ -107,22 +107,52 @@ export function HomePage({ settings }: { settings: PublicSiteBundle }) {
 <svg role="img" aria-label="A heartbeat line" viewBox="0 0 600 120" style={{width: "100%", height: "110px"}}><path d="M0 70 H70 L82 70 L92 22 L104 108 L116 48 L126 70 H270 L282 70 L292 22 L304 108 L316 48 L326 70 H470 L482 70 L492 22 L504 108 L516 48 L526 70 H600" stroke="#2EE6A0" strokeOpacity="0.2" strokeWidth="3" fill="none" strokeLinejoin="round"></path><path className="pt-ecg" d="M0 70 H70 L82 70 L92 22 L104 108 L116 48 L126 70 H270 L282 70 L292 22 L304 108 L316 48 L326 70 H470 L482 70 L492 22 L504 108 L516 48 L526 70 H600" stroke="#2EE6A0" strokeWidth="3.5" fill="none" strokeLinejoin="round" strokeLinecap="round"></path></svg>
 <ul style={{margin: "0", padding: "0", listStyle: "none", display: "flex", flexDirection: "column", gap: "14px", fontSize: "17px"}}>
 <li style={{display: "flex", gap: "12px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Listens, understands and adapts</li>
-<li style={{display: "flex", gap: "12px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Calms an upset customer down</li>
+<li style={{display: "flex", gap: "12px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Calms an upset guest down</li>
 <li style={{display: "flex", gap: "12px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Thinks on their feet</li>
-<li style={{display: "flex", gap: "12px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Genuinely wants your customers happy</li>
+<li style={{display: "flex", gap: "12px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Genuinely wants your guests and owners happy</li>
 </ul>
 </div>
 </div>
 <p className="pt-reveal" style={{margin: "36px 0 0", textAlign: "center", color: "#8A93A6", fontSize: "16px"}}>We love AI as a tool. We'd never use it to replace a person who cares.</p>
 </section>
 
+<section id="founder" style={{background: "rgba(11,14,24,0.72)", borderTop: "1px solid #1A2030", borderBottom: "1px solid #1A2030"}}>
+<div className="pt-reveal" style={{maxWidth: "1240px", margin: "0 auto", padding: "100px 32px", display: "flex", flexWrap: "wrap", gap: "40px", alignItems: "center"}}>
+<div style={{flex: "1 1 520px", minWidth: "0"}}>
+<p style={{margin: "0 0 16px", fontSize: "14px", fontWeight: "600", color: "#2EE6A0", letterSpacing: "1px"}}>BUILT BY A PROPERTY MANAGER</p>
+<h2 style={{margin: "0", fontFamily: "var(--head)", fontWeight: "800", fontSize: "52px", lineHeight: "1.02", letterSpacing: "-2px"}}>An Airbnb insider who ran STR ops on the ground.</h2>
+<p style={{margin: "22px 0 0", color: "#9AA3B5", fontSize: "18px", lineHeight: "1.65"}}>Pryme Teams was started by a founder who worked within Airbnb itself for over two years, then ran STR operations and pricing as a senior property manager. He knows how the platform works from the inside and how property managers work on the ground.</p>
+<p style={{margin: "18px 0 0", color: "#9AA3B5", fontSize: "18px", lineHeight: "1.65"}}>We&apos;ve run the 2 a.m. lockout calls, the same-day turnovers and the owner who wants a report by Monday. Your team is trained by people who&apos;ve done the job.</p>
+</div>
+<div className="pt-card" style={{flex: "0 1 360px", background: "#0F1320", border: "1px solid #1E2436", borderRadius: "24px", padding: "32px", display: "flex", flexDirection: "column", gap: "16px"}}>
+<p style={{margin: "0", fontSize: "13px", fontWeight: "700", letterSpacing: "1.5px", color: "#2EE6A0"}}>WHAT THAT MEANS FOR YOU</p>
+<ul style={{margin: "0", padding: "0", listStyle: "none", display: "flex", flexDirection: "column", gap: "14px", fontSize: "16px", color: "#C3CADA", lineHeight: "1.5"}}>
+<li style={{display: "flex", gap: "12px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Channel-native guest experience</li>
+<li style={{display: "flex", gap: "12px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Pricing &amp; ops fluency from day one</li>
+<li style={{display: "flex", gap: "12px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Owner communication without overstepping</li>
+<li style={{display: "flex", gap: "12px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Less training time on your stack</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section aria-label="Tools we already know" style={{borderBottom: "1px solid #1A2030", padding: "40px 0"}}>
+<div style={{maxWidth: "1240px", margin: "0 auto", padding: "0 32px"}}>
+<p className="pt-reveal" style={{margin: "0 0 20px", textAlign: "center", fontSize: "14px", fontWeight: "600", color: "#8A93A6", letterSpacing: "1px"}}>TOOLS WE ALREADY KNOW</p>
+<div className="pt-reveal pt-tools" style={{display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "10px"}}>
+{["Guesty","Hostaway","Hospitable","OwnerRez","Jurny","PriceLabs","Wheelhouse","Breezeway","Turno","Airbnb","Vrbo","Booking.com"].map((name) => (
+<span key={name} style={{padding: "10px 16px", borderRadius: "999px", border: "1px solid #1E2436", background: "#0F1320", color: "#C3CADA", fontSize: "14px", fontWeight: "600"}}>{name}</span>
+))}
+</div>
+</div>
+</section>
 
 <section id="how" style={{background: "rgba(11,14,24,0.72)", borderTop: "1px solid #1A2030", borderBottom: "1px solid #1A2030"}}>
 <div style={{maxWidth: "1240px", margin: "0 auto", padding: "120px 32px", display: "flex", flexWrap: "wrap", gap: "64px"}}>
 <div className="pt-reveal" style={{flex: "1 1 360px", minWidth: "0", display: "flex", flexDirection: "column", gap: "24px"}}>
 <p style={{margin: "0", fontSize: "14px", fontWeight: "600", color: "#2EE6A0", letterSpacing: "1px"}}>HOW IT WORKS</p>
 <h2 style={{margin: "0", fontFamily: "var(--head)", fontWeight: "800", fontSize: "72px", lineHeight: "0.95", letterSpacing: "-3px"}}>Fully live in <span style={{color: "#2EE6A0"}}>48 hours.</span></h2>
-<p style={{margin: "0", color: "#9AA3B5", fontSize: "18px", lineHeight: "1.6"}}>Three simple moves and your expert or team is on the floor, working for you.</p>
+<p style={{margin: "0", color: "#9AA3B5", fontSize: "18px", lineHeight: "1.6"}}>Three simple moves and your dedicated experts are handling guests — trained on your portfolio, tools and SOPs.</p>
 <div style={{display: "flex", gap: "16px", alignItems: "flex-start", border: "1px dashed color-mix(in srgb, var(--accent) 60%, #1E2436)", borderRadius: "18px", padding: "22px"}}>
 <svg className="pt-beat" aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="#2EE6A0" style={{flex: "0 0 auto"}}><path d="M13 2L4 14h7l-1 8 9-12h-7z"></path></svg>
 <p style={{margin: "0", fontSize: "16px", lineHeight: "1.55"}}><span style={{fontWeight: "700"}}>Need it even sooner?</span> <span style={{color: "#9AA3B5"}}>Tell us. We'll still make it possible.</span></p>
@@ -131,15 +161,15 @@ export function HomePage({ settings }: { settings: PublicSiteBundle }) {
 <div style={{flex: "2 1 560px", minWidth: "0", display: "flex", flexDirection: "column", gap: "14px"}}>
 <div className="pt-card pt-reveal" style={{display: "flex", gap: "24px", alignItems: "flex-start", background: "#0F1320", border: "1px solid #1E2436", borderRadius: "20px", padding: "30px"}}>
 <span style={{flex: "0 0 auto", width: "54px", height: "54px", borderRadius: "14px", background: "#2EE6A0", color: "#07090F", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--head)", fontWeight: "800", fontSize: "22px"}}>1</span>
-<div><p style={{margin: "0 0 6px", fontSize: "13px", fontWeight: "700", letterSpacing: "1px", color: "#2EE6A0"}}>HOUR 0</p><h3 style={{margin: "0 0 8px", fontFamily: "var(--head)", fontSize: "25px", fontWeight: "800"}}>Tell us the job</h3><p style={{margin: "0", color: "#9AA3B5", lineHeight: "1.6", fontSize: "16px"}}>One expert or a full team? Calls, chats, hours, tools. One call and we map the right setup — and a price that fits.</p></div>
+<div><p style={{margin: "0 0 6px", fontSize: "13px", fontWeight: "700", letterSpacing: "1px", color: "#2EE6A0"}}>HOUR 0</p><h3 style={{margin: "0 0 8px", fontFamily: "var(--head)", fontSize: "25px", fontWeight: "800"}}>Discovery call</h3><p style={{margin: "0", color: "#9AA3B5", lineHeight: "1.6", fontSize: "16px"}}>We learn your portfolio, tools and SOPs.</p></div>
 </div>
 <div className="pt-card pt-reveal" style={{display: "flex", gap: "24px", alignItems: "flex-start", background: "#0F1320", border: "1px solid #1E2436", borderRadius: "20px", padding: "30px"}}>
 <span style={{flex: "0 0 auto", width: "54px", height: "54px", borderRadius: "14px", background: "#1E2436", color: "#2EE6A0", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--head)", fontWeight: "800", fontSize: "22px"}}>2</span>
-<div><p style={{margin: "0 0 6px", fontSize: "13px", fontWeight: "700", letterSpacing: "1px", color: "#2EE6A0"}}>WITHIN 24 HOURS</p><h3 style={{margin: "0 0 8px", fontFamily: "var(--head)", fontSize: "25px", fontWeight: "800"}}>We build your playbook & your squad</h3><p style={{margin: "0", color: "#9AA3B5", lineHeight: "1.6", fontSize: "16px"}}>We write your SOPs and training materials, then train your Customer Success Experts — plus backups — on your business.</p></div>
+<div><p style={{margin: "0 0 6px", fontSize: "13px", fontWeight: "700", letterSpacing: "1px", color: "#2EE6A0"}}>WITHIN 24 HOURS</p><h3 style={{margin: "0 0 8px", fontFamily: "var(--head)", fontSize: "25px", fontWeight: "800"}}>Team trained</h3><p style={{margin: "0", color: "#9AA3B5", lineHeight: "1.6", fontSize: "16px"}}>Your dedicated experts learn your properties, house rules and tone of voice — plus backups ready for peak season.</p></div>
 </div>
 <div className="pt-card pt-reveal" style={{display: "flex", gap: "24px", alignItems: "flex-start", background: "#0F1320", border: "1px solid #1E2436", borderRadius: "20px", padding: "30px"}}>
 <span style={{flex: "0 0 auto", width: "54px", height: "54px", borderRadius: "14px", background: "#1E2436", color: "#2EE6A0", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--head)", fontWeight: "800", fontSize: "22px"}}>3</span>
-<div><p style={{margin: "0 0 6px", fontSize: "13px", fontWeight: "700", letterSpacing: "1px", color: "#2EE6A0"}}>BY HOUR 48</p><h3 style={{margin: "0 0 8px", fontFamily: "var(--head)", fontSize: "25px", fontWeight: "800"}}>You're live</h3><p style={{margin: "0", color: "#9AA3B5", lineHeight: "1.6", fontSize: "16px"}}>Your experts clock in at our office on your schedule, with QA on every shift and live camera access whenever you want.</p></div>
+<div><p style={{margin: "0 0 6px", fontSize: "13px", fontWeight: "700", letterSpacing: "1px", color: "#2EE6A0"}}>BY HOUR 48</p><h3 style={{margin: "0 0 8px", fontFamily: "var(--head)", fontSize: "25px", fontWeight: "800"}}>You&apos;re live</h3><p style={{margin: "0", color: "#9AA3B5", lineHeight: "1.6", fontSize: "16px"}}>Your team starts handling guests, with QA reviewing conversations from day one and live camera access whenever you want.</p></div>
 </div>
 </div>
 </div>
@@ -175,7 +205,7 @@ export function HomePage({ settings }: { settings: PublicSiteBundle }) {
 <span style={{position: "absolute", left: "12px", top: "10px", fontSize: "12px", letterSpacing: "1px", color: "#C3CADA"}}>CAM 01 · DESK 01</span>
 <span style={{position: "absolute", right: "12px", top: "10px", fontSize: "12px", color: "#FF6B6B"}}><span className="pt-rec">●</span> LIVE</span>
 </div>
-<p style={{margin: "12px 6px 4px", fontSize: "15px", display: "flex", justifyContent: "space-between"}}><span>Client calls</span><span style={{color: "#2EE6A0"}}>On a call</span></p>
+<p style={{margin: "12px 6px 4px", fontSize: "15px", display: "flex", justifyContent: "space-between"}}><span>Guest check-in</span><span style={{color: "#2EE6A0"}}>On a call</span></p>
 </div>
 <div className="pt-card pt-reveal" style={{flex: "1 1 280px", background: "#0F1320", border: "1px solid #1E2436", borderRadius: "20px", padding: "12px"}}>
 <div className="pt-cam" style={{position: "relative", overflow: "hidden", aspectRatio: "16 / 10", borderRadius: "12px", backgroundColor: "#0A0D14"}}>
@@ -184,7 +214,7 @@ export function HomePage({ settings }: { settings: PublicSiteBundle }) {
 <span style={{position: "absolute", left: "12px", top: "10px", fontSize: "12px", letterSpacing: "1px", color: "#C3CADA"}}>CAM 01 · DESK 02</span>
 <span style={{position: "absolute", right: "12px", top: "10px", fontSize: "12px", color: "#FF6B6B"}}><span className="pt-rec">●</span> LIVE</span>
 </div>
-<p style={{margin: "12px 6px 4px", fontSize: "15px", display: "flex", justifyContent: "space-between"}}><span>Chat & email</span><span style={{color: "#2EE6A0"}}>Replying</span></p>
+<p style={{margin: "12px 6px 4px", fontSize: "15px", display: "flex", justifyContent: "space-between"}}><span>Guest messaging</span><span style={{color: "#2EE6A0"}}>Replying</span></p>
 </div>
 <div className="pt-card pt-reveal" style={{flex: "1 1 280px", background: "#0F1320", border: "1px solid #1E2436", borderRadius: "20px", padding: "12px"}}>
 <div className="pt-cam" style={{position: "relative", overflow: "hidden", aspectRatio: "16 / 10", borderRadius: "12px", backgroundColor: "#0A0D14"}}>
@@ -193,90 +223,83 @@ export function HomePage({ settings }: { settings: PublicSiteBundle }) {
 <span style={{position: "absolute", left: "12px", top: "10px", fontSize: "12px", letterSpacing: "1px", color: "#C3CADA"}}>CAM 02 · DESK 03</span>
 <span style={{position: "absolute", right: "12px", top: "10px", fontSize: "12px", color: "#FF6B6B"}}><span className="pt-rec">●</span> LIVE</span>
 </div>
-<p style={{margin: "12px 6px 4px", fontSize: "15px", display: "flex", justifyContent: "space-between"}}><span>Lead follow-up</span><span style={{color: "#2EE6A0"}}>Booking a call</span></p>
+<p style={{margin: "12px 6px 4px", fontSize: "15px", display: "flex", justifyContent: "space-between"}}><span>Reservations</span><span style={{color: "#2EE6A0"}}>Confirming stay</span></p>
 </div>
 </div>
 </section>
 
 <section id="anyone" style={{maxWidth: "1240px", margin: "0 auto", padding: "120px 32px"}}>
 <div className="pt-reveal" style={{display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "end", gap: "24px", marginBottom: "56px"}}>
-<h2 style={{margin: "0", flex: "1 1 620px", fontFamily: "var(--head)", fontWeight: "800", fontSize: "72px", lineHeight: "0.95", letterSpacing: "-3px"}}>Anyone can hire. For anything. <span style={{color: "#2EE6A0"}}>Literally.</span></h2>
-<p style={{margin: "0", flex: "0 1 400px", color: "#9AA3B5", fontSize: "18px", lineHeight: "1.6"}}>Businesses, founders, busy professionals, individuals. If a reliable person can do it from a desk, a Pryme expert can do it for you.</p>
+<h2 style={{margin: "0", flex: "1 1 620px", fontFamily: "var(--head)", fontWeight: "800", fontSize: "64px", lineHeight: "0.95", letterSpacing: "-2.5px"}}>Built for property <span style={{color: "#2EE6A0"}}>managers.</span></h2>
+<p style={{margin: "0", flex: "0 1 400px", color: "#9AA3B5", fontSize: "18px", lineHeight: "1.6"}}>Short-term and vacation rental teams — from growing hosts to companies running 10 to 500+ units.</p>
 </div>
 <div style={{display: "flex", flexWrap: "wrap", gap: "14px"}}>
 <div className="pt-card pt-reveal" style={{flex: "1.4 1 460px", background: "#2EE6A0", color: "#07090F", borderRadius: "24px", padding: "40px", display: "flex", flexDirection: "column", gap: "24px"}}>
-<p style={{margin: "0", fontSize: "13px", fontWeight: "700", letterSpacing: "1.5px"}}>YOUR EXPERT CAN HANDLE</p>
+<p style={{margin: "0", fontSize: "13px", fontWeight: "700", letterSpacing: "1.5px"}}>YOUR TEAM CAN HANDLE</p>
 <div style={{height: "196px", overflow: "hidden", WebkitMaskImage: "linear-gradient(transparent, #000 22%, #000 78%, transparent)", maskImage: "linear-gradient(transparent, #000 22%, #000 78%, transparent)"}}>
 <div className="pt-up" style={{display: "flex", flexDirection: "column", gap: "8px", fontFamily: "var(--head)", fontSize: "36px", fontWeight: "800", letterSpacing: "-1px", lineHeight: "1.15"}}>
-<span>Customer success</span><span>Sales calls</span><span>Bookings & reservations</span><span>Order tracking</span><span>Appointment setting</span><span>Reminders</span><span>Wake-up calls</span><span>Research</span><span>Data entry</span><span>Inbox management</span><span>Follow-ups</span><span>Literally anything</span>
-<span aria-hidden="true">Customer success</span><span aria-hidden="true">Sales calls</span><span aria-hidden="true">Bookings & reservations</span><span aria-hidden="true">Order tracking</span><span aria-hidden="true">Appointment setting</span><span aria-hidden="true">Reminders</span><span aria-hidden="true">Wake-up calls</span><span aria-hidden="true">Research</span><span aria-hidden="true">Data entry</span><span aria-hidden="true">Inbox management</span><span aria-hidden="true">Follow-ups</span><span aria-hidden="true">Literally anything</span>
+<span>Guest experience</span><span>Revenue &amp; pricing</span><span>Reservations</span><span>Listing management</span><span>Turnovers</span><span>Work orders</span><span>Reviews</span><span>Owner reports</span><span>Damage claims</span><span>24/7 coverage</span><span>Owner acquisition</span><span>Back office</span>
+<span aria-hidden="true">Guest experience</span><span aria-hidden="true">Revenue &amp; pricing</span><span aria-hidden="true">Reservations</span><span aria-hidden="true">Listing management</span><span aria-hidden="true">Turnovers</span><span aria-hidden="true">Work orders</span><span aria-hidden="true">Reviews</span><span aria-hidden="true">Owner reports</span><span aria-hidden="true">Damage claims</span><span aria-hidden="true">24/7 coverage</span><span aria-hidden="true">Owner acquisition</span><span aria-hidden="true">Back office</span>
 </div>
 </div>
-<p style={{margin: "0", fontSize: "17px", lineHeight: "1.55", color: "#12241C"}}>If you can describe it, we can staff it — big business need or small personal task.</p>
+<p style={{margin: "0", fontSize: "17px", lineHeight: "1.55", color: "#12241C"}}>From 2 a.m. lockouts to Monday owner reports — staffed by people who have done the job.</p>
 </div>
 <div style={{flex: "1 1 400px", display: "flex", flexDirection: "column", gap: "14px"}}>
 <div className="pt-card pt-reveal" style={{background: "#0F1320", border: "1px solid #1E2436", borderRadius: "24px", padding: "30px", display: "flex", gap: "20px", alignItems: "flex-start"}}>
 <svg aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#2EE6A0" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{flex: "0 0 auto"}}><path d="M3 21h18"></path><path d="M5 21V7l7-4 7 4v14"></path><path d="M9 9h1M14 9h1M9 13h1M14 13h1M9 17h1M14 17h1"></path></svg>
-<div><h3 style={{margin: "0 0 6px", fontFamily: "var(--head)", fontSize: "23px", fontWeight: "800"}}>For businesses</h3><p style={{margin: "0", fontSize: "16px", lineHeight: "1.55", color: "#9AA3B5"}}>Client care, sales, bookings and back-office — one expert or a full team.</p></div>
+<div><h3 style={{margin: "0 0 6px", fontFamily: "var(--head)", fontSize: "23px", fontWeight: "800"}}>For property management companies</h3><p style={{margin: "0", fontSize: "16px", lineHeight: "1.55", color: "#9AA3B5"}}>Mainly teams running 10 to 500+ units — guest experience, revenue, ops and owner relations at scale.</p></div>
 </div>
 <div className="pt-card pt-reveal" style={{background: "#0F1320", border: "1px solid #1E2436", borderRadius: "24px", padding: "30px", display: "flex", gap: "20px", alignItems: "flex-start"}}>
 <svg aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#2EE6A0" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{flex: "0 0 auto"}}><circle cx="12" cy="7" r="4"></circle><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"></path></svg>
-<div><h3 style={{margin: "0 0 6px", fontFamily: "var(--head)", fontSize: "23px", fontWeight: "800"}}>For individuals</h3><p style={{margin: "0", fontSize: "16px", lineHeight: "1.55", color: "#9AA3B5"}}>A personal expert for your calls, calendar, errands and everyday admin.</p></div>
+<div><h3 style={{margin: "0 0 6px", fontFamily: "var(--head)", fontSize: "23px", fontWeight: "800"}}>For growing hosts</h3><p style={{margin: "0", fontSize: "16px", lineHeight: "1.55", color: "#9AA3B5"}}>When the inbox outgrows you — dedicated experts who learn your listings, house rules and tone of voice.</p></div>
 </div>
 <div className="pt-card pt-reveal" style={{background: "#0F1320", border: "1px solid #1E2436", borderRadius: "24px", padding: "30px", display: "flex", gap: "20px", alignItems: "flex-start"}}>
 <svg aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#2EE6A0" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{flex: "0 0 auto"}}><circle cx="12" cy="12" r="9"></circle><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg>
-<div><h3 style={{margin: "0 0 6px", fontFamily: "var(--head)", fontSize: "23px", fontWeight: "800"}}>Something unusual?</h3><p style={{margin: "0", fontSize: "16px", lineHeight: "1.55", color: "#9AA3B5"}}>Ask us. We'll build the role around exactly what you need.</p></div>
+<div><h3 style={{margin: "0 0 6px", fontFamily: "var(--head)", fontSize: "23px", fontWeight: "800"}}>Complex portfolio?</h3><p style={{margin: "0", fontSize: "16px", lineHeight: "1.55", color: "#9AA3B5"}}>Multi-channel listings, peak-season coverage, revenue rules — we build the role around your properties.</p></div>
 </div>
 </div>
 </div>
 </section>
 
 <section id="included" style={{maxWidth: "1240px", margin: "0 auto", padding: "120px 32px"}}>
-<div className="pt-reveal" style={{display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "end", gap: "24px", marginBottom: "56px"}}>
-<h2 style={{margin: "0", fontFamily: "var(--head)", fontWeight: "800", fontSize: "64px", lineHeight: "0.98", letterSpacing: "-2.5px", maxWidth: "720px"}}>Everything's included. <span style={{color: "#FF5A5F"}}>Except the stress.</span></h2>
-<p style={{margin: "0", color: "#9AA3B5", fontSize: "18px", maxWidth: "360px", lineHeight: "1.6"}}>You get a full operation built around your business, not bodies in seats.</p>
+<div className="pt-reveal" style={{display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "end", gap: "24px", marginBottom: "40px"}}>
+<h2 style={{margin: "0", fontFamily: "var(--head)", fontWeight: "800", fontSize: "64px", lineHeight: "0.98", letterSpacing: "-2.5px", maxWidth: "720px"}}>Property ops covered. <span style={{color: "#FF5A5F"}}>Stress not included.</span></h2>
+<p style={{margin: "0", color: "#9AA3B5", fontSize: "18px", maxWidth: "400px", lineHeight: "1.6"}}>Customer Success for any channel — plus property management built around guest experience and revenue.</p>
 </div>
+<p className="pt-reveal" style={{margin: "0 0 20px", fontSize: "14px", fontWeight: "600", color: "#2EE6A0", letterSpacing: "1px"}}>CORE CUSTOMER SUCCESS</p>
+<div style={{display: "flex", flexWrap: "wrap", gap: "16px", marginBottom: "48px"}}>
+{[
+  { title: "Customer Success", body: "Answering guest and customer questions, resolving issues and following up across every channel — using your SOPs." },
+  { title: "Call Handling", body: "Inbound and outbound calls answered in your business name, call logging and escalation to your team." },
+  { title: "Email Management", body: "Shared inbox handling, ticket replies, follow-ups and agreed response-time targets." },
+  { title: "Live Chat", body: "Website and app chat with instant replies, lead capture and handoff to your team when needed." },
+].map((item) => (
+<div key={item.title} className="pt-card pt-reveal" style={{flex: "1 1 220px", background: "#0F1320", border: "1px solid #1E2436", borderRadius: "20px", padding: "28px"}}>
+<span aria-hidden="true" style={{display: "inline-block", width: "10px", height: "10px", borderRadius: "50%", background: "#2EE6A0"}} />
+<h3 style={{margin: "16px 0 8px", fontFamily: "var(--head)", fontSize: "20px", fontWeight: "800"}}>{item.title}</h3>
+<p style={{margin: "0", color: "#9AA3B5", fontSize: "15px", lineHeight: "1.55"}}>{item.body}</p>
+</div>
+))}
+</div>
+<p className="pt-reveal" style={{margin: "0 0 20px", fontSize: "14px", fontWeight: "600", color: "#2EE6A0", letterSpacing: "1px"}}>PROPERTY MANAGEMENT</p>
 <div style={{display: "flex", flexWrap: "wrap", gap: "16px"}}>
-<div className="pt-card pt-reveal" style={{flex: "1 1 260px", background: "#0F1320", border: "1px solid #1E2436", borderRadius: "20px", padding: "30px"}}>
-<svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2EE6A0" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="8" r="3.5"></circle><circle cx="17" cy="9" r="2.5"></circle><path d="M2 20v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1"></path><path d="M16 14h1.5a4.5 4.5 0 0 1 4.5 4.5V20"></path></svg>
-<h3 style={{margin: "18px 0 8px", fontFamily: "var(--head)", fontSize: "21px", fontWeight: "800"}}>The same people, always</h3>
-<p style={{margin: "0", color: "#9AA3B5", fontSize: "15px", lineHeight: "1.55"}}>Your team stays your team. They learn your business deeper every week.</p>
+{[
+  { title: "Revenue & Pricing Management", body: "Dynamic pricing with PriceLabs, Wheelhouse or Beyond, minimum-stay rules, gap nights and weekly performance reports. Built to improve pricing discipline from day one.", featured: true },
+  { title: "Guest Experience (24/7)", body: "Pre-arrival, check-ins, mid-stay issues, check-out and guest messages on Airbnb, Vrbo, Booking.com and direct channels." },
+  { title: "Reservations & Booking Management", body: "Inquiries, booking requests, modifications, cancellations and upsells (early check-in, late checkout, extra nights)." },
+  { title: "Listing Management", body: "Listing creation and optimisation, calendar sync, availability and restrictions across channels." },
+  { title: "Operations Coordination", body: "Cleaning and turnover scheduling, maintenance work orders, vendor follow-up and inspection tracking." },
+  { title: "Reviews & Reputation", body: "Review responses, follow-up on low scores and guest-feedback loops into SOPs." },
+  { title: "Owner Relations", body: "Owner updates, monthly owner reports, owner questions and new-owner onboarding." },
+  { title: "Back Office", body: "Data entry, damage claims and resolution-centre cases, deposit tracking and portfolio admin — plus live camera access and dedicated QA." },
+  { title: "Owner Acquisition", body: "Optional add-on: lead follow-up and booking discovery calls for property managers who want to grow their portfolio." },
+].map((item) => (
+<div key={item.title} className="pt-card pt-reveal" style={{flex: item.featured ? "1 1 100%" : "1 1 260px", background: item.featured ? "#0F1320" : "#0F1320", border: item.featured ? "2px solid #2EE6A0" : "1px solid #1E2436", borderRadius: "20px", padding: "30px", boxShadow: item.featured ? "0 30px 80px -40px color-mix(in srgb, var(--accent) 50%, transparent)" : undefined}}>
+{item.featured ? <span style={{display: "inline-block", marginBottom: "10px", fontSize: "12px", fontWeight: "700", letterSpacing: "1px", color: "#07090F", background: "#2EE6A0", padding: "5px 10px", borderRadius: "999px"}}>STRONGEST FIT</span> : <span aria-hidden="true" style={{display: "inline-block", width: "10px", height: "10px", borderRadius: "50%", background: "#2EE6A0"}} />}
+<h3 style={{margin: item.featured ? "0 0 8px" : "18px 0 8px", fontFamily: "var(--head)", fontSize: "21px", fontWeight: "800"}}>{item.title}</h3>
+<p style={{margin: "0", color: "#9AA3B5", fontSize: "15px", lineHeight: "1.55", maxWidth: item.featured ? "820px" : undefined}}>{item.body}</p>
 </div>
-<div className="pt-card pt-reveal" style={{flex: "1 1 260px", background: "#0F1320", border: "1px solid #1E2436", borderRadius: "20px", padding: "30px"}}>
-<svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2EE6A0" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><path d="M14 3v6h6"></path><path d="M8 13h8M8 17h5"></path></svg>
-<h3 style={{margin: "18px 0 8px", fontFamily: "var(--head)", fontSize: "21px", fontWeight: "800"}}>SOPs written for you</h3>
-<p style={{margin: "0", color: "#9AA3B5", fontSize: "15px", lineHeight: "1.55"}}>We document how your business runs, step by step.</p>
-</div>
-<div className="pt-card pt-reveal" style={{flex: "1 1 260px", background: "#0F1320", border: "1px solid #1E2436", borderRadius: "20px", padding: "30px"}}>
-<svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2EE6A0" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M2 7l10-4 10 4-10 4z"></path><path d="M6 9v5c0 1.7 2.7 3 6 3s6-1.3 6-3V9"></path></svg>
-<h3 style={{margin: "18px 0 8px", fontFamily: "var(--head)", fontSize: "21px", fontWeight: "800"}}>Training materials built in</h3>
-<p style={{margin: "0", color: "#9AA3B5", fontSize: "15px", lineHeight: "1.55"}}>Guides and training created for your brand — yours to keep.</p>
-</div>
-<div className="pt-card pt-reveal" style={{flex: "1 1 260px", background: "#0F1320", border: "1px solid #1E2436", borderRadius: "20px", padding: "30px"}}>
-<svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2EE6A0" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"></path><path d="M21 3v5h-5"></path></svg>
-<h3 style={{margin: "18px 0 8px", fontFamily: "var(--head)", fontSize: "21px", fontWeight: "800"}}>Trained backup members</h3>
-<p style={{margin: "0", color: "#9AA3B5", fontSize: "15px", lineHeight: "1.55"}}>Backups already trained on your business. Sick days never mean starting over.</p>
-</div>
-<div className="pt-card pt-reveal" style={{flex: "1 1 260px", background: "#0F1320", border: "1px solid #1E2436", borderRadius: "20px", padding: "30px"}}>
-<svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2EE6A0" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M9 12l2 2 4-4"></path><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path></svg>
-<h3 style={{margin: "18px 0 8px", fontFamily: "var(--head)", fontSize: "21px", fontWeight: "800"}}>A dedicated QA department</h3>
-<p style={{margin: "0", color: "#9AA3B5", fontSize: "15px", lineHeight: "1.55"}}>Every call, chat and email reviewed so everything runs perfectly.</p>
-</div>
-<div className="pt-card pt-reveal" style={{flex: "1 1 260px", background: "#0F1320", border: "1px solid #1E2436", borderRadius: "20px", padding: "30px"}}>
-<svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2EE6A0" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M23 7l-7 5 7 5z"></path><rect x="1" y="5" width="15" height="14" rx="2"></rect></svg>
-<h3 style={{margin: "18px 0 8px", fontFamily: "var(--head)", fontSize: "21px", fontWeight: "800"}}>Live camera access</h3>
-<p style={{margin: "0", color: "#9AA3B5", fontSize: "15px", lineHeight: "1.55"}}>Ask anytime and watch your team at work.</p>
-</div>
-<div className="pt-card pt-reveal" style={{flex: "1 1 260px", background: "#0F1320", border: "1px solid #1E2436", borderRadius: "20px", padding: "30px"}}>
-<svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2EE6A0" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="7" r="4"></circle><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"></path></svg>
-<h3 style={{margin: "18px 0 8px", fontFamily: "var(--head)", fontSize: "21px", fontWeight: "800"}}>A dedicated team lead</h3>
-<p style={{margin: "0", color: "#9AA3B5", fontSize: "15px", lineHeight: "1.55"}}>One point of contact who knows your account inside out.</p>
-</div>
-<div className="pt-card pt-reveal" style={{flex: "1 1 260px", background: "#0F1320", border: "1px solid #1E2436", borderRadius: "20px", padding: "30px"}}>
-<svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2EE6A0" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"></path><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"></path></svg>
-<h3 style={{margin: "18px 0 8px", fontFamily: "var(--head)", fontSize: "21px", fontWeight: "800"}}>Your tools, our people</h3>
-<p style={{margin: "0", color: "#9AA3B5", fontSize: "15px", lineHeight: "1.55"}}>We work inside your CRM, inbox and phone system.</p>
-</div>
+))}
 </div>
 </section>
 <section aria-label="Our commitments" style={{maxWidth: "1240px", margin: "0 auto", padding: "0 32px 120px"}}>
@@ -300,39 +323,39 @@ export function HomePage({ settings }: { settings: PublicSiteBundle }) {
 <div className="pt-reveal" style={{textAlign: "center", marginBottom: "56px"}}>
 <p style={{margin: "0 0 16px", fontSize: "14px", fontWeight: "600", color: "#2EE6A0", letterSpacing: "1px"}}>PRICING</p>
 <h2 style={{margin: "0 auto", fontFamily: "var(--head)", fontWeight: "800", fontSize: "72px", lineHeight: "0.95", letterSpacing: "-3px", maxWidth: "900px"}}>No packages. <span style={{color: "#2EE6A0"}}>Just your price.</span></h2>
-<p style={{margin: "24px auto 0", color: "#9AA3B5", fontSize: "18px", lineHeight: "1.6", maxWidth: "620px"}}>Every setup is different, so every price is too. You pay for exactly what you need — the number of experts, the hours and the shifts.</p>
+<p style={{margin: "24px auto 0", color: "#9AA3B5", fontSize: "18px", lineHeight: "1.6", maxWidth: "640px"}}>Plans framed for property managers. You pay for exactly what you need — and every plan includes a team buy-out option.</p>
 </div>
 <div style={{display: "flex", flexWrap: "wrap", gap: "16px", alignItems: "stretch"}}>
 <div className="pt-card pt-reveal" style={{flex: "1 1 340px", background: "#0F1320", border: "1px solid #1E2436", borderRadius: "24px", padding: "40px", display: "flex", flexDirection: "column", gap: "22px"}}>
-<div><h3 style={{margin: "0", fontFamily: "var(--head)", fontSize: "28px", fontWeight: "800"}}>Solo Expert</h3><p style={{margin: "8px 0 0", color: "#9AA3B5", fontSize: "16px"}}>One dedicated Customer Success Expert.</p></div>
-<div><p style={{margin: "0", fontFamily: "var(--head)", fontSize: "44px", fontWeight: "800", letterSpacing: "-1.5px"}}>Custom</p><p style={{margin: "4px 0 0", color: "#8A93A6", fontSize: "14px"}}>Based on your hours & tasks</p></div>
+<div><h3 style={{margin: "0", fontFamily: "var(--head)", fontSize: "28px", fontWeight: "800"}}>Single Expert</h3><p style={{margin: "8px 0 0", color: "#9AA3B5", fontSize: "16px"}}>One dedicated person on your shift.</p></div>
+<div><p style={{margin: "0", fontFamily: "var(--head)", fontSize: "44px", fontWeight: "800", letterSpacing: "-1.5px"}}>Custom</p><p style={{margin: "4px 0 0", color: "#8A93A6", fontSize: "14px"}}>Based on hours & channels</p></div>
 <ul style={{margin: "0", padding: "0", listStyle: "none", display: "flex", flexDirection: "column", gap: "12px", fontSize: "16px", flex: "1 1 auto"}}>
-<li style={{display: "flex", gap: "10px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Your hours, your tools</li>
-<li style={{display: "flex", gap: "10px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>SOPs & training included</li>
+<li style={{display: "flex", gap: "10px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Your PMS, your SOPs</li>
+<li style={{display: "flex", gap: "10px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Guest messaging & follow-ups</li>
 <li style={{display: "flex", gap: "10px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Live camera access</li>
-<li style={{display: "flex", gap: "10px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>QA-reviewed work</li>
+<li style={{display: "flex", gap: "10px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Team buy-out option</li>
 </ul>
 <a href="/request?plan=solo" className="pt-btn" style={{textAlign: "center", background: "#1A2030", color: "#EEF1F7", padding: "18px 24px", textDecoration: "none", fontWeight: "800", fontSize: "16px", borderRadius: "12px", fontFamily: "var(--head)"}}>Get my quote</a>
 </div>
 <div className="pt-card pt-reveal" style={{flex: "1 1 340px", background: "#0F1320", border: "2px solid #2EE6A0", borderRadius: "24px", padding: "40px", display: "flex", flexDirection: "column", gap: "22px", boxShadow: "0 30px 80px -40px color-mix(in srgb, var(--accent) 60%, transparent)"}}>
-<div><div style={{display: "flex", justifyContent: "space-between", alignItems: "center", gap: "12px"}}><h3 style={{margin: "0", fontFamily: "var(--head)", fontSize: "28px", fontWeight: "800"}}>Dedicated Team</h3><span style={{fontSize: "12px", fontWeight: "700", letterSpacing: "1px", background: "#2EE6A0", color: "#07090F", padding: "6px 10px", borderRadius: "999px"}}>FOR GROWING BUSINESSES</span></div><p style={{margin: "8px 0 0", color: "#9AA3B5", fontSize: "16px"}}>A full crew, built around your operation.</p></div>
-<div><p style={{margin: "0", fontFamily: "var(--head)", fontSize: "44px", fontWeight: "800", letterSpacing: "-1.5px", color: "#2EE6A0"}}>Custom</p><p style={{margin: "4px 0 0", color: "#8A93A6", fontSize: "14px"}}>Based on team size & shifts</p></div>
+<div><div style={{display: "flex", justifyContent: "space-between", alignItems: "center", gap: "12px"}}><h3 style={{margin: "0", fontFamily: "var(--head)", fontSize: "28px", fontWeight: "800"}}>Core Team</h3><span style={{fontSize: "12px", fontWeight: "700", letterSpacing: "1px", background: "#2EE6A0", color: "#07090F", padding: "6px 10px", borderRadius: "999px"}}>FOR PROPERTY MANAGERS</span></div><p style={{margin: "8px 0 0", color: "#9AA3B5", fontSize: "16px"}}>24/7 guest coverage plus operations.</p></div>
+<div><p style={{margin: "0", fontFamily: "var(--head)", fontSize: "44px", fontWeight: "800", letterSpacing: "-1.5px", color: "#2EE6A0"}}>Custom</p><p style={{margin: "4px 0 0", color: "#8A93A6", fontSize: "14px"}}>Based on portfolio size & shifts</p></div>
 <ul style={{margin: "0", padding: "0", listStyle: "none", display: "flex", flexDirection: "column", gap: "12px", fontSize: "16px", flex: "1 1 auto"}}>
-<li style={{display: "flex", gap: "10px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Multiple experts across shifts</li>
-<li style={{display: "flex", gap: "10px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Dedicated team lead</li>
+<li style={{display: "flex", gap: "10px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Around-the-clock guest experience</li>
+<li style={{display: "flex", gap: "10px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Turnovers & work-order coordination</li>
 <li style={{display: "flex", gap: "10px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Trained backup members</li>
 <li style={{display: "flex", gap: "10px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Team buy-out option</li>
 </ul>
 <a href="/request?plan=team" className="pt-btn" style={{textAlign: "center", background: "#2EE6A0", color: "#07090F", padding: "18px 24px", textDecoration: "none", fontWeight: "800", fontSize: "16px", borderRadius: "12px", fontFamily: "var(--head)"}}>Get my quote →</a>
 </div>
 <div className="pt-card pt-reveal" style={{flex: "1 1 340px", background: "#0F1320", border: "1px solid #1E2436", borderRadius: "24px", padding: "40px", display: "flex", flexDirection: "column", gap: "22px"}}>
-<div><h3 style={{margin: "0", fontFamily: "var(--head)", fontSize: "28px", fontWeight: "800"}}>Round-the-Clock</h3><p style={{margin: "8px 0 0", color: "#9AA3B5", fontSize: "16px"}}>24/7 coverage. Customers never wait.</p></div>
-<div><p style={{margin: "0", fontFamily: "var(--head)", fontSize: "44px", fontWeight: "800", letterSpacing: "-1.5px"}}>Custom</p><p style={{margin: "4px 0 0", color: "#8A93A6", fontSize: "14px"}}>Based on coverage & channels</p></div>
+<div><h3 style={{margin: "0", fontFamily: "var(--head)", fontSize: "28px", fontWeight: "800"}}>Full Back Office</h3><p style={{margin: "8px 0 0", color: "#9AA3B5", fontSize: "16px"}}>Guest experience, revenue and owner relations.</p></div>
+<div><p style={{margin: "0", fontFamily: "var(--head)", fontSize: "44px", fontWeight: "800", letterSpacing: "-1.5px"}}>Custom</p><p style={{margin: "4px 0 0", color: "#8A93A6", fontSize: "14px"}}>Based on coverage & scope</p></div>
 <ul style={{margin: "0", padding: "0", listStyle: "none", display: "flex", flexDirection: "column", gap: "12px", fontSize: "16px", flex: "1 1 auto"}}>
-<li style={{display: "flex", gap: "10px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Day, night & weekend shifts</li>
-<li style={{display: "flex", gap: "10px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Backup bench always ready</li>
+<li style={{display: "flex", gap: "10px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Pricing & listing management</li>
+<li style={{display: "flex", gap: "10px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Owner reports & updates</li>
 <li style={{display: "flex", gap: "10px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Full QA department</li>
-<li style={{display: "flex", gap: "10px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Regular reporting</li>
+<li style={{display: "flex", gap: "10px"}}><span aria-hidden="true" style={{color: "#2EE6A0", fontWeight: "700"}}>✓</span>Team buy-out option</li>
 </ul>
 <a href="/request?plan=round-the-clock" className="pt-btn" style={{textAlign: "center", background: "#1A2030", color: "#EEF1F7", padding: "18px 24px", textDecoration: "none", fontWeight: "800", fontSize: "16px", borderRadius: "12px", fontFamily: "var(--head)"}}>Get my quote</a>
 </div>
@@ -348,54 +371,23 @@ export function HomePage({ settings }: { settings: PublicSiteBundle }) {
 <p style={{margin: "22px 0 0", color: "#9AA3B5", fontSize: "18px", lineHeight: "1.6"}}>Can't find yours? <a href="/request?intent=question" style={{color: "#2EE6A0"}}>Ask us directly.</a></p>
 </div>
 <div style={{flex: "2 1 560px", minWidth: "0", display: "flex", flexDirection: "column", gap: "12px"}}>
-<details className="pt-faq pt-reveal" open style={{background: "#0F1320", border: "1px solid #1E2436", borderRadius: "18px", padding: "0 28px"}}>
-<summary style={{display: "flex", justifyContent: "space-between", alignItems: "center", gap: "16px", padding: "24px 0", fontFamily: "var(--head)", fontSize: "21px", fontWeight: "800"}}>What's the difference between customer support and customer success?<span className="pt-plus" aria-hidden="true" style={{color: "#2EE6A0", fontSize: "28px", lineHeight: "1"}}>+</span></summary>
-<div style={{margin: "0 0 24px", display: "flex", flexDirection: "column", gap: "14px", color: "#9AA3B5", fontSize: "16px", lineHeight: "1.65"}}>
-<p style={{margin: "0"}}><span style={{color: "#FF5A5F", fontWeight: "700"}}>Customer support</span> is reactive. It waits for a problem, fixes it, and closes the ticket.</p>
-<p style={{margin: "0"}}><span style={{color: "#2EE6A0", fontWeight: "700"}}>Customer success</span> is proactive. It understands your customers, anticipates what they need, builds real relationships and makes sure they get value from you — so they stay longer, buy again and recommend you.</p>
-<p style={{margin: "0", color: "#EEF1F7"}}>Our experts don't just answer questions. They make your customers successful.</p>
-</div>
+{[
+  { q: "Do your experts know my PMS / channel manager?", a: "Yes. We already work in tools like Guesty, Hostaway, Hospitable, OwnerRez, Jurny and the major OTAs — so your team spends less time learning software and more time protecting guest and owner experience." },
+  { q: "Can you work in my inbox, or do you need new tools?", a: "We work inside your inbox, PMS and phone system. No forced tool migration — your guests and owners keep the same channels." },
+  { q: "What happens at 2 a.m. when a guest is locked out?", a: "Your coverage plan includes after-hours guest experience. Dedicated experts follow your house rules and escalation paths so lockouts and mid-stay issues get handled — not left until morning." },
+  { q: "How do you handle owner communication without overstepping?", a: "Owner relations follows your SOPs and approval rules. Updates, reports and questions stay within what you authorize — so owners stay informed without your brand getting diluted." },
+  { q: "Can I start with one expert and scale up in peak season?", a: "Absolutely. Start with a Single Expert and expand to a Core Team or Full Back Office when occupancy spikes. Backups are trained on your properties before you need them." },
+  { q: "How is my guest and owner data kept secure?", a: "Experts work from our office on dedicated systems with QA oversight. Access follows your tools’ permissions; we don’t ask you to dump sensitive data into unmanaged personal accounts." },
+  { q: "Will I get the same people every day?", a: "Yes. You get dedicated Customer Success Experts who work only for your portfolio — not a rotating call-center bench." },
+  { q: "Can I see my team working?", a: "Anytime. Request live office camera access and watch the people handling your guests, in real time." },
+  { q: "Can I hire my team permanently?", a: `Yes. Every plan includes a buy-out option so you can bring trained experts in-house. ${settings.buyOutTerms}` },
+  { q: "How fast can we go live?", a: "Fully live within 48 hours after discovery. Need it sooner? Tell us and we’ll make it possible." },
+].map((item, i) => (
+<details key={item.q} className="pt-faq pt-reveal" {...(i === 0 ? { open: true } : {})} style={{background: "#0F1320", border: "1px solid #1E2436", borderRadius: "18px", padding: "0 28px"}}>
+<summary style={{display: "flex", justifyContent: "space-between", alignItems: "center", gap: "16px", padding: "24px 0", fontFamily: "var(--head)", fontSize: "21px", fontWeight: "800"}}>{item.q}<span className="pt-plus" aria-hidden="true" style={{color: "#2EE6A0", fontSize: "28px", lineHeight: "1"}}>+</span></summary>
+<p style={{margin: "0 0 24px", color: "#9AA3B5", fontSize: "16px", lineHeight: "1.65"}}>{item.a}</p>
 </details>
-<details className="pt-faq pt-reveal" style={{background: "#0F1320", border: "1px solid #1E2436", borderRadius: "18px", padding: "0 28px"}}>
-<summary style={{display: "flex", justifyContent: "space-between", alignItems: "center", gap: "16px", padding: "24px 0", fontFamily: "var(--head)", fontSize: "21px", fontWeight: "800"}}>Will I get the same people every day?<span className="pt-plus" aria-hidden="true" style={{color: "#2EE6A0", fontSize: "28px", lineHeight: "1"}}>+</span></summary>
-<p style={{margin: "0 0 24px", color: "#9AA3B5", fontSize: "16px", lineHeight: "1.65"}}>Yes. Whether you hire one Customer Success Expert or a full team, you get the same dedicated people, working only for your business. They never take work for anyone else.</p>
-</details>
-<details className="pt-faq pt-reveal" style={{background: "#0F1320", border: "1px solid #1E2436", borderRadius: "18px", padding: "0 28px"}}>
-<summary style={{display: "flex", justifyContent: "space-between", alignItems: "center", gap: "16px", padding: "24px 0", fontFamily: "var(--head)", fontSize: "21px", fontWeight: "800"}}>Can I hire just one person?<span className="pt-plus" aria-hidden="true" style={{color: "#2EE6A0", fontSize: "28px", lineHeight: "1"}}>+</span></summary>
-<p style={{margin: "0 0 24px", color: "#9AA3B5", fontSize: "16px", lineHeight: "1.65"}}>Absolutely. Hire a single dedicated Customer Success Expert, or a full team. Start with one and grow whenever you're ready.</p>
-</details>
-<details className="pt-faq pt-reveal" style={{background: "#0F1320", border: "1px solid #1E2436", borderRadius: "18px", padding: "0 28px"}}>
-<summary style={{display: "flex", justifyContent: "space-between", alignItems: "center", gap: "16px", padding: "24px 0", fontFamily: "var(--head)", fontSize: "21px", fontWeight: "800"}}>How much does it cost?<span className="pt-plus" aria-hidden="true" style={{color: "#2EE6A0", fontSize: "28px", lineHeight: "1"}}>+</span></summary>
-<p style={{margin: "0 0 24px", color: "#9AA3B5", fontSize: "16px", lineHeight: "1.65"}}>It depends on what you need — how many experts, which hours and shifts, and which channels. Tell us your requirements and we'll send a custom quote.</p>
-</details>
-<details className="pt-faq pt-reveal" style={{background: "#0F1320", border: "1px solid #1E2436", borderRadius: "18px", padding: "0 28px"}}>
-<summary style={{display: "flex", justifyContent: "space-between", alignItems: "center", gap: "16px", padding: "24px 0", fontFamily: "var(--head)", fontSize: "21px", fontWeight: "800"}}>Can I see my team working?<span className="pt-plus" aria-hidden="true" style={{color: "#2EE6A0", fontSize: "28px", lineHeight: "1"}}>+</span></summary>
-<p style={{margin: "0 0 24px", color: "#9AA3B5", fontSize: "16px", lineHeight: "1.65"}}>Anytime. Request access to our live office cameras and watch the people working for you, in real time.</p>
-</details>
-<details className="pt-faq pt-reveal" style={{background: "#0F1320", border: "1px solid #1E2436", borderRadius: "18px", padding: "0 28px"}}>
-<summary style={{display: "flex", justifyContent: "space-between", alignItems: "center", gap: "16px", padding: "24px 0", fontFamily: "var(--head)", fontSize: "21px", fontWeight: "800"}}>What happens when someone is sick or on leave?<span className="pt-plus" aria-hidden="true" style={{color: "#2EE6A0", fontSize: "28px", lineHeight: "1"}}>+</span></summary>
-<p style={{margin: "0 0 24px", color: "#9AA3B5", fontSize: "16px", lineHeight: "1.65"}}>A backup team member who's already trained on your business steps in. No gaps, no starting from zero.</p>
-</details>
-<details className="pt-faq pt-reveal" style={{background: "#0F1320", border: "1px solid #1E2436", borderRadius: "18px", padding: "0 28px"}}>
-<summary style={{display: "flex", justifyContent: "space-between", alignItems: "center", gap: "16px", padding: "24px 0", fontFamily: "var(--head)", fontSize: "21px", fontWeight: "800"}}>Do I need to write the SOPs and training?<span className="pt-plus" aria-hidden="true" style={{color: "#2EE6A0", fontSize: "28px", lineHeight: "1"}}>+</span></summary>
-<p style={{margin: "0 0 24px", color: "#9AA3B5", fontSize: "16px", lineHeight: "1.65"}}>No. We create your SOPs and training materials with you, so your processes are documented properly from day one.</p>
-</details>
-<details className="pt-faq pt-reveal" style={{background: "#0F1320", border: "1px solid #1E2436", borderRadius: "18px", padding: "0 28px"}}>
-<summary style={{display: "flex", justifyContent: "space-between", alignItems: "center", gap: "16px", padding: "24px 0", fontFamily: "var(--head)", fontSize: "21px", fontWeight: "800"}}>Can I hire my team permanently?<span className="pt-plus" aria-hidden="true" style={{color: "#2EE6A0", fontSize: "28px", lineHeight: "1"}}>+</span></summary>
-<p style={{margin: "0 0 24px", color: "#9AA3B5", fontSize: "16px", lineHeight: "1.65"}}>Yes. You have the option to buy out your team and bring them in-house, so you never have to hire and train again. {settings.buyOutTerms}</p>
-</details>
-<details className="pt-faq pt-reveal" style={{background: "#0F1320", border: "1px solid #1E2436", borderRadius: "18px", padding: "0 28px"}}>
-<summary style={{display: "flex", justifyContent: "space-between", alignItems: "center", gap: "16px", padding: "24px 0", fontFamily: "var(--head)", fontSize: "21px", fontWeight: "800"}}>Why is there a waitlist sometimes?<span className="pt-plus" aria-hidden="true" style={{color: "#2EE6A0", fontSize: "28px", lineHeight: "1"}}>+</span></summary>
-<p style={{margin: "0 0 24px", color: "#9AA3B5", fontSize: "16px", lineHeight: "1.65"}}>Because we only take on new clients once our current ones are running at their best. Quality first, growth second.</p>
-</details>
-<details className="pt-faq pt-reveal" style={{background: "#0F1320", border: "1px solid #1E2436", borderRadius: "18px", padding: "0 28px"}}>
-<summary style={{display: "flex", justifyContent: "space-between", alignItems: "center", gap: "16px", padding: "24px 0", fontFamily: "var(--head)", fontSize: "21px", fontWeight: "800"}}>Can I call you after hours?<span className="pt-plus" aria-hidden="true" style={{color: "#2EE6A0", fontSize: "28px", lineHeight: "1"}}>+</span></summary>
-<p style={{margin: "0 0 24px", color: "#9AA3B5", fontSize: "16px", lineHeight: "1.65"}}>Yes. Our main line is open <span data-text="hoursLabel">Mon–Fri · 9am–6pm ET</span>. Outside those hours, if you'd still like to talk, call <span data-text="afterPhone">[AFTER-HOURS NUMBER]</span> — a real person will pick up. Bonus points if you open with “I think Ross and Rachel were on a break.”</p>
-</details>
-<details className="pt-faq pt-reveal" style={{background: "#0F1320", border: "1px solid #1E2436", borderRadius: "18px", padding: "0 28px"}}>
-<summary style={{display: "flex", justifyContent: "space-between", alignItems: "center", gap: "16px", padding: "24px 0", fontFamily: "var(--head)", fontSize: "21px", fontWeight: "800"}}>How fast can we go live?<span className="pt-plus" aria-hidden="true" style={{color: "#2EE6A0", fontSize: "28px", lineHeight: "1"}}>+</span></summary>
-<p style={{margin: "0 0 24px", color: "#9AA3B5", fontSize: "16px", lineHeight: "1.65"}}>Fully live within 48 hours. Need it even sooner? Tell us and we'll make it possible.</p>
-</details>
+))}
 </div>
 </div>
 </section>
@@ -404,8 +396,8 @@ export function HomePage({ settings }: { settings: PublicSiteBundle }) {
 <div className="pt-reveal" style={{position: "relative", overflow: "hidden", background: "#2EE6A0", color: "#07090F", borderRadius: "32px", padding: "88px 56px", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "40px"}}>
 <svg className="pt-spin" aria-hidden="true" width="420" height="420" viewBox="0 0 420 420" fill="none" stroke="#07090F" strokeOpacity="0.12" strokeWidth="2" style={{position: "absolute", right: "-120px", top: "-120px"}}><circle cx="210" cy="210" r="200" strokeDasharray="10 14"></circle><circle cx="210" cy="210" r="140" strokeDasharray="4 10"></circle></svg>
 <div style={{position: "relative", flex: "1 1 560px"}}>
-<h2 style={{margin: "0", fontFamily: "var(--head)", fontWeight: "800", fontSize: "76px", lineHeight: "0.95", letterSpacing: "-3px"}}>Your customers are calling.<br />Who's picking up?</h2>
-<p style={{margin: "22px 0 0", fontSize: "19px", color: "#12241C", maxWidth: "540px", lineHeight: "1.55"}}>Spots are limited. Tell us what you need — one expert or a full team — and we'll come back with a plan and a custom quote.</p>
+<h2 style={{margin: "0", fontFamily: "var(--head)", fontWeight: "800", fontSize: "64px", lineHeight: "0.95", letterSpacing: "-2.5px"}}>Your guests are messaging.<br />Who&apos;s picking up?</h2>
+<p style={{margin: "22px 0 0", fontSize: "19px", color: "#12241C", maxWidth: "540px", lineHeight: "1.55"}}>Spots are limited. Tell us about your portfolio — PMC or growing host — and we&apos;ll come back with a plan and a custom quote.</p>
 </div>
 <div style={{position: "relative", display: "flex", flexDirection: "column", gap: "14px", alignItems: "flex-start"}}>
 <a href="/request?intent=discovery" className="pt-btn" style={{background: "#07090F", color: "#EEF1F7", padding: "22px 36px", textDecoration: "none", fontWeight: "800", fontSize: "18px", borderRadius: "14px", fontFamily: "var(--head)"}}>Book a discovery call →</a>
@@ -441,7 +433,7 @@ export function HomePage({ settings }: { settings: PublicSiteBundle }) {
 <a href="/#top" className="pt-brand-link" style={{display: "inline-flex", textDecoration: "none"}}>
 <BrandLogo size="footer" />
 </a>
-<p style={{margin: "10px 0 0", color: "#9AA3B5", fontSize: "15px", lineHeight: "1.6"}}>Customer Success Experts. Solo or team. Watch them live.</p>
+<p style={{margin: "10px 0 0", color: "#9AA3B5", fontSize: "15px", lineHeight: "1.6"}}>Customer Success for short-term and vacation rental property managers. Watch them live.</p>
 </div>
 <div style={{display: "flex", flexWrap: "wrap", gap: "64px", fontSize: "15px"}}>
 <div style={{display: "flex", flexDirection: "column", gap: "10px"}}><span style={{color: "#8A93A6", fontSize: "13px", letterSpacing: "1px"}}>COMPANY</span><a href="#how" style={{color: "#C3CADA", textDecoration: "none"}}>How it works</a><a href="#live" style={{color: "#C3CADA", textDecoration: "none"}}>Live view</a><a href="#included" style={{color: "#C3CADA", textDecoration: "none"}}>What you get</a><a href="#pricing" style={{color: "#C3CADA", textDecoration: "none"}}>Pricing</a><a href="#faq" style={{color: "#C3CADA", textDecoration: "none"}}>FAQ</a><a href="/talent" style={{color: "#C3CADA", textDecoration: "none"}}>Talent</a><a href="/privacy" style={{color: "#C3CADA", textDecoration: "none"}}>Privacy</a><a href="/terms" style={{color: "#C3CADA", textDecoration: "none"}}>Terms</a><a href="/admin/login" style={{color: "#C3CADA", textDecoration: "none"}}>Admin</a></div>
