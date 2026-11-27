@@ -61,6 +61,8 @@ export const metadata: Metadata = {
   },
 };
 
+const splashBootScript = `(function(){try{if(sessionStorage.getItem('pt-splash-seen')==='1')document.documentElement.classList.add('pt-splash-skip')}catch(e){}})();`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -68,6 +70,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${archivo.variable} ${inter.variable}`}>
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/brand/pryme-logo-full-on-dark.png"
+        />
+        <script dangerouslySetInnerHTML={{ __html: splashBootScript }} />
+      </head>
       <body
         style={
           {

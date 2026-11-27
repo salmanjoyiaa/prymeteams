@@ -2,41 +2,48 @@
 
 import { useEffect, useState } from "react";
 
-const STORAGE_KEY = "pt-splash-seen";
-const MIN_MS = 1500;
-const EXIT_MS = 420;
+export const SPLASH_STORAGE_KEY = "pt-splash-seen";
+export const SPLASH_SKIP_CLASS = "pt-splash-skip";
 
+const MIN_MS = 1600;
+const EXIT_MS = 480;
+
+/**
+ * Server-renders the splash immediately so the homepage never flashes first.
+ * A blocking inline script in root layout adds `pt-splash-skip` before paint
+ * when the session has already seen the splash.
+ */
 export function BrandSplash() {
-  const [phase, setPhase] = useState<"boot" | "show" | "exit" | "gone">(
-    "boot",
-  );
+  const [phase, setPhase] = useState<"show" | "exit" | "gone">("show");
 
   useEffect(() => {
-    try {
-      if (sessionStorage.getItem(STORAGE_KEY) === "1") {
-        setPhase("gone");
-        return;
-      }
-    } catch {
-      /* private mode */
+    const skip =
+      document.documentElement.classList.contains(SPLASH_SKIP_CLASS) ||
+      (() => {
+        try {
+          return sessionStorage.getItem(SPLASH_STORAGE_KEY) === "1";
+        } catch {
+          return false;
+        }
+      })();
+
+    if (skip) {
+      document.documentElement.classList.add(SPLASH_SKIP_CLASS);
+      setPhase("gone");
+      return;
     }
 
-    setPhase("show");
-    const reduced =
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const hold = reduced ? 400 : MIN_MS;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const hold = reduced ? 350 : MIN_MS;
 
-    const exitTimer = window.setTimeout(() => {
-      setPhase("exit");
-    }, hold);
-
+    const exitTimer = window.setTimeout(() => setPhase("exit"), hold);
     const doneTimer = window.setTimeout(() => {
       try {
-        sessionStorage.setItem(STORAGE_KEY, "1");
+        sessionStorage.setItem(SPLASH_STORAGE_KEY, "1");
       } catch {
-        /* ignore */
+        /* private mode */
       }
+      document.documentElement.classList.add(SPLASH_SKIP_CLASS);
       setPhase("gone");
     }, hold + (reduced ? 0 : EXIT_MS));
 
@@ -46,7 +53,7 @@ export function BrandSplash() {
     };
   }, []);
 
-  if (phase === "boot" || phase === "gone") return null;
+  if (phase === "gone") return null;
 
   return (
     <div
@@ -61,6 +68,8 @@ export function BrandSplash() {
           className="pt-splash-logo"
           width={1600}
           height={794}
+          decoding="async"
+          fetchPriority="high"
         />
         <span className="pt-splash-line" />
       </div>

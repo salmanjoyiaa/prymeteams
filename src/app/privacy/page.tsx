@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandLogo } from "@/components/brand/BrandLogo";
 
 export const metadata = { title: "Privacy" };
 
@@ -6,11 +7,8 @@ export default function PrivacyPage() {
   return (
     <main className="min-h-screen bg-[#07090F] px-4 py-10 text-[#EEF1F7] sm:px-8 sm:py-16">
       <div className="mx-auto max-w-2xl">
-        <Link
-          href="/"
-          className="inline-flex min-h-11 items-center text-sm text-[#9AA3B5] no-underline"
-        >
-          ← Home
+        <Link href="/" className="pt-brand-link inline-flex no-underline">
+          <BrandLogo size="page" />
         </Link>
         <h1 className="mt-4 font-[family-name:var(--font-archivo)] text-3xl font-black sm:mt-6 sm:text-4xl">
           Privacy Policy

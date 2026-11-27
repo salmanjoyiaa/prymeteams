@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
+import { BrandLogo } from "@/components/brand/BrandLogo";
 
 type NavItem = { href: string; label: string };
 
@@ -47,12 +48,9 @@ function navActive(pathname: string, href: string) {
 function BrandMark({ compact }: { compact?: boolean }) {
   return (
     <div className={compact ? "" : "mb-7"}>
-      <img
-        src="/brand/pryme-logo-header.png"
+      <BrandLogo
+        size={compact ? "adminCompact" : "admin"}
         alt="Pryme Teams Admin"
-        className={`admin-brand-logo ${compact ? "admin-brand-logo--compact" : ""}`}
-        width={193}
-        height={96}
       />
       {!compact ? (
         <p className="mt-2 text-[10px] tracking-[0.16em] text-[#6B7289] uppercase">

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandLogo } from "@/components/brand/BrandLogo";
 import { createClient } from "@/lib/supabase/server";
 
 export const metadata = {
@@ -29,11 +30,8 @@ export default async function TalentPage() {
   return (
     <main className="min-h-screen bg-pt-bg px-4 py-8 text-pt-text sm:px-8 sm:py-16">
       <div className="mx-auto max-w-[1240px]">
-        <Link
-          href="/"
-          className="inline-flex min-h-11 items-center text-sm font-medium text-pt-muted no-underline hover:text-pt-accent"
-        >
-          ← Home
+        <Link href="/" className="pt-brand-link inline-flex no-underline">
+          <BrandLogo size="page" />
         </Link>
         <h1 className="mt-4 font-[family-name:var(--font-archivo)] text-[1.75rem] leading-tight font-black tracking-tight sm:mt-6 sm:text-6xl">
           Our experts

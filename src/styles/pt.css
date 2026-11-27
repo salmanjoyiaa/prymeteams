@@ -139,8 +139,19 @@ header nav > a:first-child{
   object-fit:contain;
   object-position:left center;
 }
+.pt-brand-logo--footer{
+  height:64px;
+  max-width:min(220px, 70vw);
+}
+.pt-brand-logo--page{
+  height:52px;
+  max-width:min(200px, 60vw);
+}
 
-/* Session preload splash */
+/* Session preload splash — server-rendered so homepage never flashes first */
+html.pt-splash-skip .pt-splash{
+  display:none!important;
+}
 .pt-splash{
   position:fixed;
   inset:0;
@@ -148,12 +159,13 @@ header nav > a:first-child{
   display:grid;
   place-items:center;
   background:#000;
-  pointer-events:none;
+  pointer-events:auto;
   opacity:1;
-  transition:opacity 420ms var(--pt-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+  transition:opacity 480ms var(--pt-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
 }
 .pt-splash--exit{
   opacity:0;
+  pointer-events:none;
 }
 .pt-splash-inner{
   display:flex;
@@ -167,18 +179,19 @@ header nav > a:first-child{
   display:block;
   width:100%;
   height:auto;
-  opacity:0;
-  transform:scale(0.92) translateY(10px);
-  animation:ptSplashIn 900ms var(--pt-ease-out, cubic-bezier(0.23, 1, 0.32, 1)) 80ms forwards;
+  opacity:1;
+  transform:scale(0.94);
+  animation:ptSplashIn 780ms var(--pt-ease-out, cubic-bezier(0.23, 1, 0.32, 1)) both;
 }
 .pt-splash-line{
   display:block;
   height:1px;
   width:0;
   background:linear-gradient(90deg, transparent, #E8C45A, transparent);
-  animation:ptSplashLine 700ms var(--pt-ease-out, cubic-bezier(0.23, 1, 0.32, 1)) 420ms forwards;
+  animation:ptSplashLine 700ms var(--pt-ease-out, cubic-bezier(0.23, 1, 0.32, 1)) 280ms forwards;
 }
 @keyframes ptSplashIn{
+  from{opacity:0.35;transform:scale(0.94) translateY(8px)}
   to{opacity:1;transform:none}
 }
 @keyframes ptSplashLine{

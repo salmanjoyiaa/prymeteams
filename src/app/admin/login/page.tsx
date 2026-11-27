@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Suspense, useState, useTransition } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { BrandLogo } from "@/components/brand/BrandLogo";
 import { createClient } from "@/lib/supabase/client";
 import { hasSupabaseEnv } from "@/lib/supabase/env";
 
@@ -48,13 +49,7 @@ function LoginForm() {
       className="w-full max-w-md space-y-5 rounded-2xl border border-[#1E2436] bg-[#0F1320]/95 p-5 shadow-[0_24px_80px_-40px_rgba(46,230,160,0.35)] backdrop-blur-sm sm:p-8"
     >
       <div>
-        <img
-          src="/brand/pryme-logo-header.png"
-          alt="Pryme Teams"
-          className="admin-brand-logo mb-4"
-          width={193}
-          height={96}
-        />
+        <BrandLogo size="admin" className="mb-4" />
         <h1 className="mt-2 font-[family-name:var(--font-archivo)] text-2xl font-extrabold text-[#EEF1F7]">
           Admin sign in
         </h1>

@@ -4,6 +4,7 @@
  */
 import type { CSSProperties } from "react";
 import type { PublicSiteBundle } from "@/lib/settings";
+import { BrandLogo } from "@/components/brand/BrandLogo";
 import { LiveClock } from "@/components/home/LiveClock";
 import { MobileNav } from "@/components/home/MobileNav";
 import { CallController } from "@/components/home/CallController";
@@ -18,7 +19,7 @@ export function HomePage({ settings }: { settings: PublicSiteBundle }) {
 <header style={{position: "sticky", top: "0", zIndex: "20", background: "rgba(7,9,15,0.78)", WebkitBackdropFilter: "blur(14px)", backdropFilter: "blur(14px)", borderBottom: "1px solid #1A2030"}}>
 <nav aria-label="Main" style={{maxWidth: "1240px", margin: "0 auto", padding: "16px 32px", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "16px 32px"}}>
 <a href="/#top" className="pt-brand-link" style={{display: "flex", alignItems: "center", textDecoration: "none", color: "#EEF1F7"}}>
-<img src="/brand/pryme-logo-header.png" alt="Pryme Teams" className="pt-brand-logo" width={193} height={96} />
+<BrandLogo size="nav" />
 </a>
 <div className="pt-desktop-nav" style={{display: "flex", flexWrap: "wrap", alignItems: "center", gap: "4px 30px"}}><a href="#how" className="pt-nav" style={{color: "#C3CADA", textDecoration: "none", fontSize: "15px", fontWeight: "500", padding: "10px 2px"}}>How it works</a><a href="#live" className="pt-nav" style={{color: "#C3CADA", textDecoration: "none", fontSize: "15px", fontWeight: "500", padding: "10px 2px"}}>Live view</a><a href="#included" className="pt-nav" style={{color: "#C3CADA", textDecoration: "none", fontSize: "15px", fontWeight: "500", padding: "10px 2px"}}>What you get</a><a href="#pricing" className="pt-nav" style={{color: "#C3CADA", textDecoration: "none", fontSize: "15px", fontWeight: "500", padding: "10px 2px"}}>Pricing</a><a href="#faq" className="pt-nav" style={{color: "#C3CADA", textDecoration: "none", fontSize: "15px", fontWeight: "500", padding: "10px 2px"}}>FAQ</a></div>
 <div className="pt-desktop-cta" style={{display: "flex", flexWrap: "wrap", alignItems: "center", gap: "10px"}}>
@@ -437,7 +438,9 @@ export function HomePage({ settings }: { settings: PublicSiteBundle }) {
 <footer style={{borderTop: "1px solid #1A2030"}}>
 <div style={{maxWidth: "1240px", margin: "0 auto", padding: "56px 32px 40px", display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: "40px"}}>
 <div style={{flex: "1 1 320px"}}>
-<p style={{margin: "0", display: "flex", alignItems: "center", gap: "12px", fontFamily: "var(--head)", fontWeight: "800", fontSize: "22px", color: "#E8C45A"}}><svg aria-hidden="true" width="40" height="40" viewBox="0 0 120 120"><rect x="1.5" y="1.5" width="117" height="117" rx="27" fill="#07090F" stroke="#E8C45A" strokeWidth="3"></rect><g transform="translate(9 9) scale(0.85)"><path d="M28 30 H66 A24 24 0 0 1 66 78 H48 V100 H28 Z M48 46 H64 A8 8 0 0 1 64 62 H48 Z" fill="#E8C45A" fillRule="evenodd"></path><path d="M30 26 L34 10 L46 20 L56 5 L66 20 L78 10 L82 26 Z" fill="#E8C45A"></path><circle cx="34" cy="9" r="3.2" fill="#E8C45A"></circle><circle cx="56" cy="4" r="3.2" fill="#E8C45A"></circle><circle cx="78" cy="9" r="3.2" fill="#E8C45A"></circle></g></svg>PRYME <span style={{color: "#EEF1F7"}}>TEAMS</span></p>
+<a href="/#top" className="pt-brand-link" style={{display: "inline-flex", textDecoration: "none"}}>
+<BrandLogo size="footer" />
+</a>
 <p style={{margin: "10px 0 0", color: "#9AA3B5", fontSize: "15px", lineHeight: "1.6"}}>Customer Success Experts. Solo or team. Watch them live.</p>
 </div>
 <div style={{display: "flex", flexWrap: "wrap", gap: "64px", fontSize: "15px"}}>
