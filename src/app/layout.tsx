@@ -31,16 +31,16 @@ export const metadata: Metadata = {
     "Hire one dedicated Customer Success Expert or a whole team. Same people every shift, on-site in our office, QA-checked, live camera access. Live in 48 hours.",
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "48x48" },
-      { url: "/brand/pryme-favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico?v=4", sizes: "48x48" },
+      { url: "/brand/pryme-favicon.svg?v=4", type: "image/svg+xml" },
       {
-        url: "/brand/pryme-favicon-32.png",
+        url: "/brand/pryme-favicon-32.png?v=4",
         sizes: "32x32",
         type: "image/png",
       },
     ],
-    shortcut: "/favicon.ico",
-    apple: [{ url: "/brand/pryme-icon-180.png", sizes: "180x180" }],
+    shortcut: "/favicon.ico?v=4",
+    apple: [{ url: "/brand/pryme-icon-180.png?v=4", sizes: "180x180" }],
   },
   themeColor: [
     { media: "(prefers-color-scheme: dark)", color: "#07090F" },
