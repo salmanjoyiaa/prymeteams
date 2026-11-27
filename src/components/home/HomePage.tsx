@@ -36,7 +36,7 @@ export function HomePage({ settings }: { settings: PublicSiteBundle }) {
 <div style={{position: "relative", maxWidth: "1240px", margin: "0 auto", padding: "100px 32px 80px", textAlign: "center"}}>
 <p className="pt-rise pt-d1" style={{display: "inline-flex", alignItems: "center", gap: "10px", margin: "0 0 30px", padding: "8px 16px", border: "1px solid #1E2436", background: "#0B0E18", borderRadius: "999px", fontSize: "14px", color: "#C3CADA"}}><span className="pt-pulse" aria-hidden="true" style={{width: "8px", height: "8px", borderRadius: "50%", background: "#2EE6A0"}}></span>For Short-Term &amp; Vacation Rental Property Managers <span style={{color: "#4A5470"}}>|</span> <span style={{color: "#EEF1F7", fontWeight: "600"}}>Founded by an ex-Airbnb Team Member</span></p>
 <h1 style={{margin: "0 auto", fontFamily: "var(--head)", fontWeight: "900", fontSize: "72px", lineHeight: "0.95", letterSpacing: "-2.5px", maxWidth: "1180px"}}>
-<span className="pt-rise pt-d2" style={{display: "block"}}>Every Guest, Every Message,</span>
+<span className="pt-rise pt-d2" style={{display: "block"}}>Every <span style={{color: "#2EE6A0"}}>Guest</span>, Every <span style={{color: "#FF5A5F"}}>Message</span>,</span>
 <span className="pt-rise pt-d3" style={{display: "block", color: "#2EE6A0"}}><span className="pt-sweep">Every <span style={{color: "#FF5A5F"}}>Time!</span></span></span>
 </h1>
 <p className="pt-rise pt-d4" style={{margin: "34px auto 0", fontSize: "21px", lineHeight: "1.6", color: "#9AA3B5", maxWidth: "760px"}}>Dedicated Customer Success Experts for <span style={{color: "#EEF1F7", fontWeight: "600"}}>Property Managers</span>: trained on your SOPs, live in 48 Hours, and on Camera whenever you want to check in.</p>

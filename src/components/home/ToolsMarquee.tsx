@@ -30,12 +30,12 @@ function ToolChip({
       <img
         src={`https://logo.clearbit.com/${domain}`}
         alt=""
-        width={22}
-        height={22}
+        width={40}
+        height={40}
         loading="lazy"
         decoding="async"
         onError={(e) => {
-          e.currentTarget.src = `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
+          e.currentTarget.src = `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
         }}
       />
       {name}
