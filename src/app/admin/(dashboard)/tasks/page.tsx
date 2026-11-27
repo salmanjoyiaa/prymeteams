@@ -14,9 +14,15 @@ import {
   thClass,
   trClass,
 } from "@/components/admin/AdminChrome";
+import { ConfirmDelete } from "@/components/admin/ConfirmDelete";
 import { requireAdmin } from "@/lib/auth/require-admin";
 import { TASK_STATUSES } from "@/lib/validation/admin";
-import { createActivity, createTask, updateTaskStatus } from "./actions";
+import {
+  createActivity,
+  createTask,
+  deleteTask,
+  updateTaskStatus,
+} from "./actions";
 
 export default async function TasksPage() {
   const { supabase } = await requireAdmin();
@@ -72,6 +78,7 @@ export default async function TasksPage() {
                     <th className={thClass()}>Title</th>
                     <th className={thClass()}>Status</th>
                     <th className={thClass()}>Update</th>
+                    <th className={thClass()}>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -99,6 +106,14 @@ export default async function TasksPage() {
                             Save
                           </button>
                         </form>
+                      </td>
+                      <td className={tdClass()}>
+                        <ConfirmDelete
+                          action={deleteTask}
+                          idName="id"
+                          idValue={t.id}
+                          confirmMessage={`Delete task ${t.title}?`}
+                        />
                       </td>
                     </tr>
                   ))}

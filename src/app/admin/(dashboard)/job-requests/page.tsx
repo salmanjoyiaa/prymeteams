@@ -15,9 +15,11 @@ import {
   thClass,
   trClass,
 } from "@/components/admin/AdminChrome";
+import { AiAssistPanel } from "@/components/admin/AiAssistPanel";
+import { ConfirmDelete } from "@/components/admin/ConfirmDelete";
 import { requireAdmin } from "@/lib/auth/require-admin";
 import { JOB_STATUSES } from "@/lib/validation/admin";
-import { createJobRequest } from "./actions";
+import { createJobRequest, deleteJobRequest } from "./actions";
 
 export default async function AdminJobRequestsPage() {
   const { supabase } = await requireAdmin();
@@ -65,6 +67,14 @@ export default async function AdminJobRequestsPage() {
             rows={3}
             className={inputClass()}
           />
+          <div className="mt-2">
+            <AiAssistPanel
+              kind="job_description"
+              label="Expand with AI"
+              applyToId="description"
+              sourceIds={{ title: "title", description: "description" }}
+            />
+          </div>
         </div>
         <div>
           <label htmlFor="companyId" className={labelClass()}>
@@ -122,6 +132,7 @@ export default async function AdminJobRequestsPage() {
                 <th className={thClass()}>Company</th>
                 <th className={thClass()}>Status</th>
                 <th className={thClass()}>Created</th>
+                <th className={thClass()}>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -145,6 +156,14 @@ export default async function AdminJobRequestsPage() {
                   </td>
                   <td className={tdClass()}>
                     {new Date(j.created_at).toLocaleDateString()}
+                  </td>
+                  <td className={tdClass()}>
+                    <ConfirmDelete
+                      action={deleteJobRequest}
+                      idName="id"
+                      idValue={j.id}
+                      confirmMessage={`Delete job ${j.title}?`}
+                    />
                   </td>
                 </tr>
               ))}

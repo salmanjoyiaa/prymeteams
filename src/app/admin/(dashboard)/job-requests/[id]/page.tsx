@@ -4,13 +4,15 @@ import {
   PageHeader,
   SectionHeader,
   StatusPill,
+  btnGhost,
   btnPrimary,
   cardClass,
   inputClass,
   labelClass,
 } from "@/components/admin/AdminChrome";
 import { requireAdmin } from "@/lib/auth/require-admin";
-import { addInterview, addShortlist } from "../actions";
+import { JOB_STATUSES } from "@/lib/validation/admin";
+import { addInterview, addShortlist, updateJobRequest } from "../actions";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -56,6 +58,35 @@ export default async function JobRequestDetailPage({ params }: Props) {
         subtitle={job.description ?? undefined}
         actions={<StatusPill value={job.status} />}
       />
+
+      <form
+        action={updateJobRequest}
+        className={`${cardClass()} mb-6 flex flex-wrap items-end gap-3`}
+      >
+        <input type="hidden" name="jobRequestId" value={job.id} />
+        <input type="hidden" name="title" value={job.title} />
+        <input type="hidden" name="description" value={job.description ?? ""} />
+        <div className="min-w-[200px]">
+          <label htmlFor="job-status" className={labelClass()}>
+            Pipeline status
+          </label>
+          <select
+            id="job-status"
+            name="status"
+            defaultValue={job.status}
+            className={inputClass()}
+          >
+            {JOB_STATUSES.map((s) => (
+              <option key={s} value={s}>
+                {s.replace(/_/g, " ")}
+              </option>
+            ))}
+          </select>
+        </div>
+        <button type="submit" className={btnGhost()}>
+          Update status
+        </button>
+      </form>
 
       <div className="grid gap-6 lg:grid-cols-2">
         <section className={cardClass()}>

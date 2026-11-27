@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { requireAdmin } from "@/lib/auth/require-admin";
 import {
   createPlacementSchema,
+  deleteByIdSchema,
   formDataToObject,
   updatePlacementStatusSchema,
 } from "@/lib/validation/admin";
@@ -48,5 +49,14 @@ export async function updatePlacementStatus(
     .update({ status: parsed.data.status })
     .eq("id", parsed.data.placementId);
 
+  revalidatePath("/admin/placements");
+}
+
+export async function deletePlacement(formData: FormData): Promise<void> {
+  const { supabase } = await requireAdmin();
+  const parsed = deleteByIdSchema.safeParse({ id: formData.get("id") });
+  if (!parsed.success) return;
+
+  await supabase.from("placements").delete().eq("id", parsed.data.id);
   revalidatePath("/admin/placements");
 }

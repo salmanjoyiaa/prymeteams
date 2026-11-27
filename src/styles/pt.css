@@ -74,6 +74,19 @@ a:not(.pt-btn):not(.pt-nav):not(.pt-mobile-cta){transition:color 160ms var(--pt-
 .pt-walk{animation:ptWalk 16s linear infinite}
 @keyframes ptFlicker{0%,100%{filter:brightness(1)}48%{filter:brightness(1)}50%{filter:brightness(1.08)}52%{filter:brightness(.97)}}
 .pt-flicker{animation:ptFlicker 5s steps(1) infinite}
+/* Interactive affordance */
+.pt-btn,
+.pt-nav,
+.pt-faq summary,
+.pt-mobile-toggle,
+.pt-mobile-panel a,
+.pt-call-fab button,
+.pt-call-fab a,
+footer a,
+header nav > a:first-child{
+  cursor:pointer;
+}
+
 /* Nav */
 .pt-nav{
   position:relative;
@@ -109,6 +122,68 @@ a:not(.pt-btn):not(.pt-nav):not(.pt-mobile-cta){transition:color 160ms var(--pt-
 .pt-scan{animation:ptScan 5s linear infinite}
 .pt-typing{animation:ptType .5s ease-in-out infinite}
 .pt-cam{background-image:repeating-linear-gradient(0deg,#ffffff06 0 1px,transparent 1px 3px)}
+.pt-cam-photo{
+  display:block;
+  background:#07090F;
+}
+
+/* Maison Classic brand mark */
+.pt-brand-link{
+  line-height:0;
+}
+.pt-brand-logo{
+  display:block;
+  height:48px;
+  width:auto;
+  max-width:min(193px, 42vw);
+  object-fit:contain;
+  object-position:left center;
+}
+
+/* Session preload splash */
+.pt-splash{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:grid;
+  place-items:center;
+  background:#000;
+  pointer-events:none;
+  opacity:1;
+  transition:opacity 420ms var(--pt-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+}
+.pt-splash--exit{
+  opacity:0;
+}
+.pt-splash-inner{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:28px;
+  padding:24px;
+  width:min(420px, 78vw);
+}
+.pt-splash-logo{
+  display:block;
+  width:100%;
+  height:auto;
+  opacity:0;
+  transform:scale(0.92) translateY(10px);
+  animation:ptSplashIn 900ms var(--pt-ease-out, cubic-bezier(0.23, 1, 0.32, 1)) 80ms forwards;
+}
+.pt-splash-line{
+  display:block;
+  height:1px;
+  width:0;
+  background:linear-gradient(90deg, transparent, #E8C45A, transparent);
+  animation:ptSplashLine 700ms var(--pt-ease-out, cubic-bezier(0.23, 1, 0.32, 1)) 420ms forwards;
+}
+@keyframes ptSplashIn{
+  to{opacity:1;transform:none}
+}
+@keyframes ptSplashLine{
+  to{width:72%}
+}
 .pt-grid{background-image:linear-gradient(#ffffff0a 1px,transparent 1px),linear-gradient(90deg,#ffffff0a 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse at 50% 30%,#000 30%,transparent 75%)}
 
 /* Buttons — snappy lift + press feedback */

@@ -14,8 +14,10 @@ import {
   thClass,
   trClass,
 } from "@/components/admin/AdminChrome";
+import { ConfirmDelete } from "@/components/admin/ConfirmDelete";
+import { AiAssistPanel } from "@/components/admin/AiAssistPanel";
 import { requireAdmin } from "@/lib/auth/require-admin";
-import { createTalent, toggleTalentFlag } from "./actions";
+import { createTalent, deleteTalent, toggleTalentFlag } from "./actions";
 
 export default async function AdminTalentPage() {
   const { supabase } = await requireAdmin();
@@ -55,6 +57,19 @@ export default async function AdminTalentPage() {
             Bio
           </label>
           <textarea id="bio" name="bio" rows={2} className={inputClass()} />
+          <div className="mt-2">
+            <AiAssistPanel
+              kind="talent_bio"
+              label="Polish bio with AI"
+              applyToId="bio"
+              sourceIds={{
+                displayName: "displayName",
+                title: "title",
+                bio: "bio",
+                skills: "skills",
+              }}
+            />
+          </div>
         </div>
         <div>
           <label htmlFor="skills" className={labelClass()}>
@@ -97,6 +112,7 @@ export default async function AdminTalentPage() {
                 <th className={thClass()}>Approved</th>
                 <th className={thClass()}>Public</th>
                 <th className={thClass()}>Skills</th>
+                <th className={thClass()}>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -137,6 +153,14 @@ export default async function AdminTalentPage() {
                   </td>
                   <td className={tdClass()}>
                     {t.skills?.length ? t.skills.join(", ") : "—"}
+                  </td>
+                  <td className={tdClass()}>
+                    <ConfirmDelete
+                      action={deleteTalent}
+                      idName="id"
+                      idValue={t.id}
+                      confirmMessage={`Delete ${t.display_name}?`}
+                    />
                   </td>
                 </tr>
               ))}

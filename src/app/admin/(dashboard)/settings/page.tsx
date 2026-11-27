@@ -3,6 +3,7 @@ import {
   Flash,
   PageHeader,
   SectionHeader,
+  btnGhost,
   btnPrimary,
   cardClass,
   inputClass,
@@ -11,6 +12,7 @@ import {
 import { requireAdmin } from "@/lib/auth/require-admin";
 import { DEFAULT_SITE_SETTINGS } from "@/lib/settings";
 import { updateSiteSettings } from "./actions";
+import { seedDemoData } from "./seed-actions";
 
 type Props = { searchParams: Promise<{ saved?: string; error?: string }> };
 
@@ -118,6 +120,25 @@ export default async function SettingsPage({ searchParams }: Props) {
           Save settings
         </button>
       </form>
+
+      <section className={`${cardClass()} mt-8 max-w-xl space-y-3`}>
+        <SectionHeader
+          title="Demo data"
+          subtitle="Load a realistic CRM/ops showcase dataset (safe to re-run)"
+        />
+        <p className="text-sm text-pt-muted">
+          Seeds companies, leads, talent, jobs, placements, tasks, and finance
+          sample rows tagged DEMO_SEED. Requires an admin session.
+        </p>
+        <form action={seedDemoData}>
+          <button type="submit" className={btnGhost()}>
+            Seed demo dashboard
+          </button>
+        </form>
+        {sp.saved === "seed" ? (
+          <Flash message="Demo data loaded. Open Leads, Talent, Jobs, and Finance." />
+        ) : null}
+      </section>
     </div>
   );
 }

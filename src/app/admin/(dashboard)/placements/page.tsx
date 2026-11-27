@@ -14,9 +14,14 @@ import {
   thClass,
   trClass,
 } from "@/components/admin/AdminChrome";
+import { ConfirmDelete } from "@/components/admin/ConfirmDelete";
 import { requireAdmin } from "@/lib/auth/require-admin";
 import { PLACEMENT_STATUSES } from "@/lib/validation/admin";
-import { createPlacement, updatePlacementStatus } from "./actions";
+import {
+  createPlacement,
+  deletePlacement,
+  updatePlacementStatus,
+} from "./actions";
 
 export default async function PlacementsPage() {
   const { supabase } = await requireAdmin();
@@ -122,6 +127,7 @@ export default async function PlacementsPage() {
                 <th className={thClass()}>Status</th>
                 <th className={thClass()}>Start</th>
                 <th className={thClass()}>Update</th>
+                <th className={thClass()}>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -155,6 +161,13 @@ export default async function PlacementsPage() {
                         Save
                       </button>
                     </form>
+                  </td>
+                  <td className={tdClass()}>
+                    <ConfirmDelete
+                      action={deletePlacement}
+                      idName="id"
+                      idValue={p.id}
+                    />
                   </td>
                 </tr>
               ))}

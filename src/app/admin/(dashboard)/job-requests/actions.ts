@@ -6,7 +6,9 @@ import {
   addInterviewSchema,
   addShortlistSchema,
   createJobRequestSchema,
+  deleteByIdSchema,
   formDataToObject,
+  updateJobRequestSchema,
 } from "@/lib/validation/admin";
 
 export async function createJobRequest(formData: FormData): Promise<void> {
@@ -73,4 +75,37 @@ export async function addInterview(formData: FormData): Promise<void> {
   });
 
   revalidatePath(`/admin/job-requests/${parsed.data.jobRequestId}`);
+}
+
+export async function updateJobRequest(formData: FormData): Promise<void> {
+  const { supabase } = await requireAdmin();
+  const raw = formDataToObject(formData);
+  const parsed = updateJobRequestSchema.safeParse({
+    jobRequestId: raw.jobRequestId,
+    title: raw.title || undefined,
+    description: raw.description,
+    status: raw.status,
+  });
+  if (!parsed.success) return;
+
+  await supabase
+    .from("job_requests")
+    .update({
+      ...(parsed.data.title ? { title: parsed.data.title } : {}),
+      description: parsed.data.description || null,
+      status: parsed.data.status,
+    })
+    .eq("id", parsed.data.jobRequestId);
+
+  revalidatePath("/admin/job-requests");
+  revalidatePath(`/admin/job-requests/${parsed.data.jobRequestId}`);
+}
+
+export async function deleteJobRequest(formData: FormData): Promise<void> {
+  const { supabase } = await requireAdmin();
+  const parsed = deleteByIdSchema.safeParse({ id: formData.get("id") });
+  if (!parsed.success) return;
+
+  await supabase.from("job_requests").delete().eq("id", parsed.data.id);
+  revalidatePath("/admin/job-requests");
 }

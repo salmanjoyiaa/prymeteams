@@ -6,6 +6,7 @@ import {
   createContractSchema,
   createInvoiceSchema,
   createPaymentSchema,
+  deleteByIdSchema,
   formDataToObject,
   updateInvoiceStatusSchema,
   updatePaymentStatusSchema,
@@ -112,5 +113,21 @@ export async function updatePaymentStatus(formData: FormData): Promise<void> {
     })
     .eq("id", parsed.data.paymentId);
 
+  revalidatePath("/admin/finance");
+}
+
+export async function deleteContract(formData: FormData): Promise<void> {
+  const { supabase } = await requireAdmin();
+  const parsed = deleteByIdSchema.safeParse({ id: formData.get("id") });
+  if (!parsed.success) return;
+  await supabase.from("contracts").delete().eq("id", parsed.data.id);
+  revalidatePath("/admin/finance");
+}
+
+export async function deleteInvoice(formData: FormData): Promise<void> {
+  const { supabase } = await requireAdmin();
+  const parsed = deleteByIdSchema.safeParse({ id: formData.get("id") });
+  if (!parsed.success) return;
+  await supabase.from("invoices").delete().eq("id", parsed.data.id);
   revalidatePath("/admin/finance");
 }

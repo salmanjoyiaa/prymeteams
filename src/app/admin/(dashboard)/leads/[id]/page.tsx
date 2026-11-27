@@ -13,9 +13,19 @@ import {
   labelClass,
   linkClass,
 } from "@/components/admin/AdminChrome";
+import { AiAssistPanel } from "@/components/admin/AiAssistPanel";
+import { ConfirmDelete } from "@/components/admin/ConfirmDelete";
 import { requireAdmin } from "@/lib/auth/require-admin";
 import { LEAD_STAGES } from "@/lib/validation/admin";
-import { addFollowUp, addNote, convertLead, updateStage } from "../actions";
+import {
+  addFollowUp,
+  addNote,
+  completeFollowUp,
+  convertLead,
+  deleteNote,
+  updateLead,
+  updateStage,
+} from "../actions";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -124,6 +134,65 @@ export default async function AdminLeadDetailPage({ params, searchParams }: Prop
               </p>
             ) : null}
 
+            <div className="mt-5">
+              <AiAssistPanel
+                kind="lead_insight"
+                label="AI lead insight"
+                staticPayload={{
+                  fullName: lead.full_name,
+                  email: lead.email,
+                  companyName: lead.company_name ?? "",
+                  phone: lead.phone ?? "",
+                  planType: String(lead.plan_type),
+                  intent: String(lead.intent),
+                  stage: String(lead.stage),
+                  message: lead.message ?? "",
+                }}
+              />
+            </div>
+
+            <form action={updateLead} className="mt-6 space-y-3 border-t border-[#1A2030] pt-5">
+              <SectionHeader title="Edit lead" subtitle="Update contact details" />
+              <input type="hidden" name="leadId" value={lead.id} />
+              <input
+                name="fullName"
+                defaultValue={lead.full_name}
+                required
+                className={inputClass()}
+                aria-label="Full name"
+              />
+              <input
+                name="email"
+                type="email"
+                defaultValue={lead.email}
+                required
+                className={inputClass()}
+                aria-label="Email"
+              />
+              <input
+                name="companyName"
+                defaultValue={lead.company_name ?? ""}
+                className={inputClass()}
+                placeholder="Company"
+              />
+              <input
+                name="phone"
+                defaultValue={lead.phone ?? ""}
+                className={inputClass()}
+                placeholder="Phone"
+              />
+              <textarea
+                name="message"
+                rows={3}
+                defaultValue={lead.message}
+                required
+                className={inputClass()}
+              />
+              <button type="submit" className={btnGhost()}>
+                Save lead
+              </button>
+            </form>
+
             <form action={updateStage} className="mt-6 flex flex-wrap items-end gap-3">
               <input type="hidden" name="leadId" value={lead.id} />
               <div className="min-w-[200px] flex-1">
@@ -169,9 +238,19 @@ export default async function AdminLeadDetailPage({ params, searchParams }: Prop
                       className="rounded-xl border border-[#1A2030] bg-pt-bg p-3 text-sm"
                     >
                       <p className="text-[#C3CADA] whitespace-pre-wrap">{n.body}</p>
-                      <p className="mt-2 text-xs text-[#6B7289]">
-                        {new Date(n.created_at).toLocaleString()}
-                      </p>
+                      <div className="mt-2 flex items-center justify-between gap-2">
+                        <p className="text-xs text-[#6B7289]">
+                          {new Date(n.created_at).toLocaleString()}
+                        </p>
+                        <ConfirmDelete
+                          action={deleteNote}
+                          idName="noteId"
+                          idValue={n.id}
+                          label="Remove"
+                          confirmMessage="Delete this note?"
+                          extraFields={{ leadId: lead.id }}
+                        />
+                      </div>
                     </li>
                   ))
                 ) : (
@@ -214,6 +293,18 @@ export default async function AdminLeadDetailPage({ params, searchParams }: Prop
                         ) : (
                           <StatusPill value="pending" />
                         )}
+                        <form action={completeFollowUp} className="ml-auto">
+                          <input type="hidden" name="followUpId" value={f.id} />
+                          <input type="hidden" name="leadId" value={lead.id} />
+                          <input
+                            type="hidden"
+                            name="completed"
+                            value={f.completed ? "false" : "true"}
+                          />
+                          <button type="submit" className={btnGhost()}>
+                            {f.completed ? "Reopen" : "Complete"}
+                          </button>
+                        </form>
                       </div>
                       {f.note ? (
                         <p className="mt-1 text-[#C3CADA]">{f.note}</p>

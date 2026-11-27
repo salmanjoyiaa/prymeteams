@@ -12,8 +12,9 @@ import {
   thClass,
   trClass,
 } from "@/components/admin/AdminChrome";
+import { ConfirmDelete } from "@/components/admin/ConfirmDelete";
 import { requireAdmin } from "@/lib/auth/require-admin";
-import { createCompany } from "./actions";
+import { createCompany, deleteCompany } from "./actions";
 
 export default async function AdminCompaniesPage() {
   const { supabase } = await requireAdmin();
@@ -75,6 +76,7 @@ export default async function AdminCompaniesPage() {
                 <th className={thClass()}>Website</th>
                 <th className={thClass()}>Industry</th>
                 <th className={thClass()}>Created</th>
+                <th className={thClass()}>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -85,6 +87,14 @@ export default async function AdminCompaniesPage() {
                   <td className={tdClass()}>{c.industry ?? "—"}</td>
                   <td className={tdClass()}>
                     {new Date(c.created_at).toLocaleDateString()}
+                  </td>
+                  <td className={tdClass()}>
+                    <ConfirmDelete
+                      action={deleteCompany}
+                      idName="id"
+                      idValue={c.id}
+                      confirmMessage={`Delete company ${c.name}?`}
+                    />
                   </td>
                 </tr>
               ))}

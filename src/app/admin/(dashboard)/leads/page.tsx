@@ -12,9 +12,11 @@ import {
   thClass,
   trClass,
 } from "@/components/admin/AdminChrome";
+import { ConfirmDelete } from "@/components/admin/ConfirmDelete";
 import { requireAdmin } from "@/lib/auth/require-admin";
 import { LEAD_STAGES } from "@/lib/validation/admin";
 import type { LeadStage } from "@/lib/supabase/database.types";
+import { deleteLead } from "./actions";
 
 type Props = { searchParams: Promise<{ stage?: string }> };
 
@@ -82,6 +84,7 @@ export default async function AdminLeadsPage({ searchParams }: Props) {
                 <th className={thClass()}>Company</th>
                 <th className={thClass()}>Stage</th>
                 <th className={thClass()}>Created</th>
+                <th className={thClass()}>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -99,6 +102,14 @@ export default async function AdminLeadsPage({ searchParams }: Props) {
                   </td>
                   <td className={tdClass()}>
                     {new Date(lead.created_at).toLocaleDateString()}
+                  </td>
+                  <td className={tdClass()}>
+                    <ConfirmDelete
+                      action={deleteLead}
+                      idName="id"
+                      idValue={lead.id}
+                      confirmMessage={`Delete lead ${lead.full_name}?`}
+                    />
                   </td>
                 </tr>
               ))}

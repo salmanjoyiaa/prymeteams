@@ -5,6 +5,7 @@ import { requireAdmin } from "@/lib/auth/require-admin";
 import {
   createActivitySchema,
   createTaskSchema,
+  deleteByIdSchema,
   formDataToObject,
   updateTaskStatusSchema,
 } from "@/lib/validation/admin";
@@ -84,5 +85,14 @@ export async function createActivity(formData: FormData): Promise<void> {
     created_by: userId,
   });
 
+  revalidatePath("/admin/tasks");
+}
+
+export async function deleteTask(formData: FormData): Promise<void> {
+  const { supabase } = await requireAdmin();
+  const parsed = deleteByIdSchema.safeParse({ id: formData.get("id") });
+  if (!parsed.success) return;
+
+  await supabase.from("tasks").delete().eq("id", parsed.data.id);
   revalidatePath("/admin/tasks");
 }

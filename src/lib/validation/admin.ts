@@ -77,11 +77,40 @@ export const convertLeadSchema = z.object({
   leadId: uuid,
 });
 
+export const deleteByIdSchema = z.object({
+  id: uuid,
+});
+
+export const completeFollowUpSchema = z.object({
+  followUpId: uuid,
+  leadId: uuid,
+  completed: z
+    .string()
+    .transform((v) => v === "true" || v === "on" || v === "1")
+    .pipe(z.boolean()),
+});
+
+export const updateLeadSchema = z.object({
+  leadId: uuid,
+  fullName: z.string().trim().min(1).max(160),
+  email: z.string().trim().email().max(254),
+  companyName: optionalText(160),
+  phone: optionalText(40),
+  website: optionalText(200),
+  message: z.string().trim().min(1).max(8000),
+  planType: z.enum(PLAN_TYPES).optional(),
+  intent: z.enum(LEAD_INTENTS).optional(),
+});
+
 export const createCompanySchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(160),
   website: optionalText(200),
   industry: optionalText(120),
   notes: optionalText(4000),
+});
+
+export const updateCompanySchema = createCompanySchema.extend({
+  companyId: uuid,
 });
 
 export const createTalentSchema = z.object({
@@ -119,6 +148,11 @@ export const toggleTalentSchema = z.object({
     .pipe(z.boolean()),
 });
 
+export const updateTalentSchema = createTalentSchema.extend({
+  talentId: uuid,
+  status: z.enum(TALENT_STATUSES).optional(),
+});
+
 export const createJobRequestSchema = z.object({
   title: z.string().trim().min(1, "Title is required").max(200),
   description: optionalText(8000),
@@ -128,6 +162,13 @@ export const createJobRequestSchema = z.object({
     .or(z.literal(""))
     .transform((v) => (v && z.string().uuid().safeParse(v).success ? v : null)),
   status: z.enum(JOB_STATUSES).default("open"),
+});
+
+export const updateJobRequestSchema = z.object({
+  jobRequestId: uuid,
+  title: z.string().trim().min(1).max(200).optional(),
+  description: optionalText(8000),
+  status: z.enum(JOB_STATUSES),
 });
 
 export const addShortlistSchema = z.object({

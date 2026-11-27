@@ -46,46 +46,19 @@ function navActive(pathname: string, href: string) {
 
 function BrandMark({ compact }: { compact?: boolean }) {
   return (
-    <div className={`flex items-center gap-2.5 ${compact ? "" : "mb-7"}`}>
-      <svg
-        aria-hidden
-        width={compact ? 28 : 32}
-        height={compact ? 28 : 32}
-        viewBox="0 0 120 120"
-        className="shrink-0"
-      >
-        <rect
-          x="1.5"
-          y="1.5"
-          width="117"
-          height="117"
-          rx="27"
-          fill="#07090F"
-          stroke="#E8C45A"
-          strokeWidth="3"
-        />
-        <g transform="translate(9 9) scale(0.85)">
-          <path
-            d="M28 30 H66 A24 24 0 0 1 66 78 H48 V100 H28 Z M48 46 H64 A8 8 0 0 1 64 62 H48 Z"
-            fill="#E8C45A"
-            fillRule="evenodd"
-          />
-          <path
-            d="M30 26 L34 10 L46 20 L56 5 L66 20 L78 10 L82 26 Z"
-            fill="#E8C45A"
-          />
-        </g>
-      </svg>
-      <div className="min-w-0 leading-none">
-        <p className="font-[family-name:var(--font-archivo)] text-[13px] font-extrabold tracking-wide text-pt-gold">
-          PRYME <span className="text-pt-text">ADMIN</span>
+    <div className={compact ? "" : "mb-7"}>
+      <img
+        src="/brand/pryme-logo-header.png"
+        alt="Pryme Teams Admin"
+        className={`admin-brand-logo ${compact ? "admin-brand-logo--compact" : ""}`}
+        width={193}
+        height={96}
+      />
+      {!compact ? (
+        <p className="mt-2 text-[10px] tracking-[0.16em] text-[#6B7289] uppercase">
+          Ops console
         </p>
-        {!compact ? (
-          <p className="mt-1 text-[10px] tracking-[0.16em] text-[#6B7289] uppercase">
-            Ops console
-          </p>
-        ) : null}
-      </div>
+      ) : null}
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Archivo, Inter } from "next/font/google";
+import { BrandSplash } from "@/components/brand/BrandSplash";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -16,7 +17,12 @@ const inter = Inter({
   display: "swap",
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
+  "https://prymeteams.com";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Pryme Teams — Dedicated Customer Success Experts",
     template: "%s · Pryme Teams",
@@ -34,8 +40,24 @@ export const metadata: Metadata = {
     title: "Pryme Teams — Dedicated Customer Success Experts",
     description:
       "Hire one dedicated Customer Success Expert or a whole team. Live in 48 hours.",
-    images: [{ url: "/brand/pryme-logo-full-on-dark.png" }],
+    url: siteUrl,
+    siteName: "Pryme Teams",
+    images: [
+      {
+        url: "/brand/pryme-logo-full-on-dark.png",
+        width: 1600,
+        height: 794,
+        alt: "Pryme Teams — Customer Success Experts",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pryme Teams — Dedicated Customer Success Experts",
+    description:
+      "Hire one dedicated Customer Success Expert or a whole team. Live in 48 hours.",
+    images: ["/brand/pryme-logo-full-on-dark.png"],
   },
 };
 
@@ -54,6 +76,7 @@ export default function RootLayout({
           } as React.CSSProperties
         }
       >
+        <BrandSplash />
         {children}
       </body>
     </html>

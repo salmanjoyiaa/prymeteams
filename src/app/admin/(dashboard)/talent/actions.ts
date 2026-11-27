@@ -4,8 +4,10 @@ import { revalidatePath } from "next/cache";
 import { requireAdmin } from "@/lib/auth/require-admin";
 import {
   createTalentSchema,
+  deleteByIdSchema,
   formDataToObject,
   toggleTalentSchema,
+  updateTalentSchema,
 } from "@/lib/validation/admin";
 
 export async function createTalent(formData: FormData): Promise<void> {
@@ -53,5 +55,43 @@ export async function toggleTalentFlag(formData: FormData): Promise<void> {
 
   await supabase.from("talent").update(patch).eq("id", parsed.data.talentId);
 
+  revalidatePath("/admin/talent");
+}
+
+export async function updateTalent(formData: FormData): Promise<void> {
+  const { supabase } = await requireAdmin();
+  const raw = formDataToObject(formData);
+  const parsed = updateTalentSchema.safeParse({
+    talentId: raw.talentId,
+    displayName: raw.displayName,
+    title: raw.title,
+    bio: raw.bio,
+    skills: raw.skills,
+    yearsExperience: raw.yearsExperience,
+    status: raw.status || undefined,
+  });
+  if (!parsed.success) return;
+
+  await supabase
+    .from("talent")
+    .update({
+      display_name: parsed.data.displayName,
+      title: parsed.data.title || null,
+      bio: parsed.data.bio || null,
+      skills: parsed.data.skills,
+      years_experience: parsed.data.yearsExperience,
+      ...(parsed.data.status ? { status: parsed.data.status } : {}),
+    })
+    .eq("id", parsed.data.talentId);
+
+  revalidatePath("/admin/talent");
+}
+
+export async function deleteTalent(formData: FormData): Promise<void> {
+  const { supabase } = await requireAdmin();
+  const parsed = deleteByIdSchema.safeParse({ id: formData.get("id") });
+  if (!parsed.success) return;
+
+  await supabase.from("talent").delete().eq("id", parsed.data.id);
   revalidatePath("/admin/talent");
 }
