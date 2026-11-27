@@ -371,7 +371,7 @@ export async function seedDemoData(): Promise<void> {
   await supabase
     .from("site_settings")
     .update({
-      contact_email: "hello@prymeteams.com",
+      contact_email: "zach@prymeteams.co",
       domain: "prymeteams.com",
       office_location: "Remote-first · US + PK delivery hubs",
       buy_out_terms:

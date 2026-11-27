@@ -20,7 +20,7 @@ export type CallSettings = {
 export type PublicSiteBundle = SiteSettingsPublic & { call: CallSettings };
 
 export const DEFAULT_SITE_SETTINGS: SiteSettingsPublic = {
-  contactEmail: "[YOUR EMAIL]",
+  contactEmail: "zach@prymeteams.co",
   domain: "[YOUR DOMAIN]",
   officeLocation: "[OFFICE LOCATION]",
   buyOutTerms: "[BUY-OUT TERMS]",
@@ -42,6 +42,12 @@ export const DEFAULT_PUBLIC_SITE: PublicSiteBundle = {
   call: DEFAULT_CALL_SETTINGS,
 };
 
+function resolved(value: string | null | undefined, fallback: string) {
+  const trimmed = value?.trim() ?? "";
+  if (!trimmed || /^\[[^\]]+\]$/.test(trimmed)) return fallback;
+  return trimmed;
+}
+
 export function normalizeSettings(
   row: Partial<{
     contact_email: string | null;
@@ -59,17 +65,21 @@ export function normalizeSettings(
   }> | null,
 ): PublicSiteBundle {
   return {
-    contactEmail: row?.contact_email?.trim() || DEFAULT_SITE_SETTINGS.contactEmail,
-    domain: row?.domain?.trim() || DEFAULT_SITE_SETTINGS.domain,
-    officeLocation:
-      row?.office_location?.trim() || DEFAULT_SITE_SETTINGS.officeLocation,
-    buyOutTerms: row?.buy_out_terms?.trim() || DEFAULT_SITE_SETTINGS.buyOutTerms,
-    discoveryUrl:
-      row?.discovery_url?.trim() || DEFAULT_SITE_SETTINGS.discoveryUrl,
+    contactEmail: resolved(row?.contact_email, DEFAULT_SITE_SETTINGS.contactEmail),
+    domain: resolved(row?.domain, DEFAULT_SITE_SETTINGS.domain),
+    officeLocation: resolved(
+      row?.office_location,
+      DEFAULT_SITE_SETTINGS.officeLocation,
+    ),
+    buyOutTerms: resolved(row?.buy_out_terms, DEFAULT_SITE_SETTINGS.buyOutTerms),
+    discoveryUrl: resolved(
+      row?.discovery_url,
+      DEFAULT_SITE_SETTINGS.discoveryUrl,
+    ),
     call: {
-      phone: row?.phone?.trim() || DEFAULT_CALL_SETTINGS.phone,
-      afterPhone: row?.after_phone?.trim() || DEFAULT_CALL_SETTINGS.afterPhone,
-      hoursLabel: row?.hours_label?.trim() || DEFAULT_CALL_SETTINGS.hoursLabel,
+      phone: resolved(row?.phone, DEFAULT_CALL_SETTINGS.phone),
+      afterPhone: resolved(row?.after_phone, DEFAULT_CALL_SETTINGS.afterPhone),
+      hoursLabel: resolved(row?.hours_label, DEFAULT_CALL_SETTINGS.hoursLabel),
       timeZone:
         row?.call_timezone?.trim() || DEFAULT_CALL_SETTINGS.timeZone,
       openHour:
