@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s · Pryme Teams",
   },
   description:
-    "Dedicated Customer Success Experts for short-term and vacation rental property managers. Guest experience, revenue and owner relations — live in 48 hours, on camera.",
+    "Dedicated Customer Success Experts for short-term and vacation rental Property Managers. Guest experience, revenue and Owner Relations — live in 48 hours, on camera.",
   icons: {
     icon: [
       { url: "/favicon.ico?v=4", sizes: "48x48" },
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     title:
       "Pryme Teams — Customer Success for Property Managers",
     description:
-      "Dedicated experts for STR property managers and growing hosts. Guest experience, revenue and owner relations — live in 48 hours.",
+      "Dedicated experts for STR Property Managers and growing hosts. Guest experience, revenue and Owner Relations — live in 48 hours.",
     url: siteUrl,
     siteName: "Pryme Teams",
     images: [
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     title:
       "Pryme Teams — Customer Success for Property Managers",
     description:
-      "Dedicated experts for STR property managers and growing hosts. Live in 48 hours, on camera.",
+      "Dedicated experts for STR Property Managers and growing hosts. Live in 48 hours, on camera.",
     images: ["/brand/pryme-logo-full-on-dark.png"],
   },
 };
